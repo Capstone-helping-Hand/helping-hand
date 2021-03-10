@@ -9,7 +9,7 @@ public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long request_id;
+    private long requestId;
 
     @Column(nullable = false, length = 100)
     private String title;
@@ -24,10 +24,10 @@ public class Request {
     private String picture;
 
     @Column()
-    private Boolean is_approved;
+    private Boolean isApproved;
 
     @Column()
-    private Boolean is_fulfilled;
+    private Boolean isFulfilled;
 
     @ManyToOne
     @JoinColumn (name = "user_id")
@@ -41,24 +41,24 @@ public class Request {
 
     }
 
-    public Request(long request_id, String title, String description, Date date, String picture, Boolean is_approved, Boolean is_fulfilled, User user, Category category) {
-        this.request_id = request_id;
+    public Request(long requestId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, User user, Category category) {
+        this.requestId = requestId;
         this.title = title;
         this.description = description;
         this.date = date;
         this.picture = picture;
-        this.is_approved = is_approved;
-        this.is_fulfilled = is_fulfilled;
+        this.isApproved = isApproved;
+        this.isFulfilled = isFulfilled;
         this.user = user;
         this.category = category;
     }
 
-    public long getRequest_id() {
-        return request_id;
+    public long getRequestId() {
+        return requestId;
     }
 
-    public void setRequest_id(long request_id) {
-        this.request_id = request_id;
+    public void setRequestId(long requestId) {
+        this.requestId = requestId;
     }
 
     public String getTitle() {
@@ -93,20 +93,20 @@ public class Request {
         this.picture = picture;
     }
 
-    public Boolean getIs_approved() {
-        return is_approved;
+    public Boolean getApproved() {
+        return isApproved;
     }
 
-    public void setIs_approved(Boolean is_approved) {
-        this.is_approved = is_approved;
+    public void setApproved(Boolean approved) {
+        isApproved = approved;
     }
 
-    public Boolean getIs_fulfilled() {
-        return is_fulfilled;
+    public Boolean getFulfilled() {
+        return isFulfilled;
     }
 
-    public void setIs_fulfilled(Boolean is_fulfilled) {
-        this.is_fulfilled = is_fulfilled;
+    public void setFulfilled(Boolean fulfilled) {
+        isFulfilled = fulfilled;
     }
 
     public User getUser() {

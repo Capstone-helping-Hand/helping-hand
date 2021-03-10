@@ -9,7 +9,7 @@ public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long donation_id;
+    private long donationId;
 
     @Column(nullable = false, length = 100)
     private String title;
@@ -24,14 +24,14 @@ public class Donation {
     private String picture;
 
     @Column()
-    private Boolean is_approved;
+    private Boolean isApproved;
 
     @Column()
-    private Boolean is_fulfilled;
+    private Boolean isFulfilled;
 
     @Column()
     @JoinColumn (name = "user_id")
-    private long claimant_id;
+    private long claimantId;
 
     @ManyToOne
     @JoinColumn (name = "user_id")
@@ -49,26 +49,26 @@ public class Donation {
 
     }
 
-    public Donation(long donation_id, String title, String description, Date date, String picture, Boolean is_approved, Boolean is_fulfilled, long claimant_id, User user, Category category, Request request) {
-        this.donation_id = donation_id;
+    public Donation(long donationId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, long claimantId, User user, Category category, Request request) {
+        this.donationId = donationId;
         this.title = title;
         this.description = description;
         this.date = date;
         this.picture = picture;
-        this.is_approved = is_approved;
-        this.is_fulfilled = is_fulfilled;
-        this.claimant_id = claimant_id;
+        this.isApproved = isApproved;
+        this.isFulfilled = isFulfilled;
+        this.claimantId = claimantId;
         this.user = user;
         this.category = category;
         this.request = request;
     }
 
-    public long getDonation_id() {
-        return donation_id;
+    public long getDonationId() {
+        return donationId;
     }
 
-    public void setDonation_id(long donation_id) {
-        this.donation_id = donation_id;
+    public void setDonationId(long donationId) {
+        this.donationId = donationId;
     }
 
     public String getTitle() {
@@ -103,28 +103,28 @@ public class Donation {
         this.picture = picture;
     }
 
-    public Boolean getIs_approved() {
-        return is_approved;
+    public Boolean getApproved() {
+        return isApproved;
     }
 
-    public void setIs_approved(Boolean is_approved) {
-        this.is_approved = is_approved;
+    public void setApproved(Boolean approved) {
+        isApproved = approved;
     }
 
-    public Boolean getIs_fulfilled() {
-        return is_fulfilled;
+    public Boolean getFulfilled() {
+        return isFulfilled;
     }
 
-    public void setIs_fulfilled(Boolean is_fulfilled) {
-        this.is_fulfilled = is_fulfilled;
+    public void setFulfilled(Boolean fulfilled) {
+        isFulfilled = fulfilled;
     }
 
-    public long getClaimant_id() {
-        return claimant_id;
+    public long getClaimantId() {
+        return claimantId;
     }
 
-    public void setClaimant_id(long claimant_id) {
-        this.claimant_id = claimant_id;
+    public void setClaimantId(long claimantId) {
+        this.claimantId = claimantId;
     }
 
     public User getUser() {

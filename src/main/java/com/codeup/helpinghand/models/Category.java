@@ -8,7 +8,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long category_id;
+    private long categoryId;
 
     @Column(nullable = false, length = 100)
     private String type;
@@ -17,17 +17,17 @@ public class Category {
 
     }
 
-    public Category(long category_id, String type) {
-        this.category_id = category_id;
+    public Category(long categoryId, String type) {
+        this.categoryId = categoryId;
         this.type = type;
     }
 
-    public long getCategory_id() {
-        return category_id;
+    public long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(long category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getType() {

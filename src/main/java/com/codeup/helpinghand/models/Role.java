@@ -9,21 +9,45 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long role_id;
+    private long roleId;
+
+    @Column()
+    private long userId;
+
+    @Column()
+    private String role;
 
     public Role() {
 
     }
 
-    public Role(long role_id) {
-        this.role_id = role_id;
+    public Role(long roleId, long userId, String role) {
+        this.roleId = roleId;
+        this.userId = userId;
+        this.role = role;
     }
 
-    public long getRole_id() {
-        return role_id;
+    public long getRoleId() {
+        return roleId;
     }
 
-    public void setRole_id(long role_id) {
-        this.role_id = role_id;
+    public void setRoleId(long roleId) {
+        this.roleId = roleId;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
