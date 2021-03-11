@@ -29,13 +29,13 @@ public class Donation {
     @Column()
     private Boolean isFulfilled;
 
-    @Column()
-    @JoinColumn (name = "user_id")
-    private long claimantId;
+    @ManyToOne
+    @JoinColumn (name = "claimant_id") // should be claimant_id ?
+    private User claimant;
 
     @ManyToOne
-    @JoinColumn (name = "user_id")
-    private User user;
+    @JoinColumn (name = "donator_id") // should be donator_id / donation_id ?
+    private User donator;
 
     @OneToOne
     @JoinColumn (name = "category_id")
@@ -49,7 +49,7 @@ public class Donation {
 
     }
 
-    public Donation(long donationId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, long claimantId, User user, Category category, Request request) {
+    public Donation(long donationId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, User claimant, User donator, Category category, Request request) {
         this.donationId = donationId;
         this.title = title;
         this.description = description;
@@ -57,8 +57,8 @@ public class Donation {
         this.picture = picture;
         this.isApproved = isApproved;
         this.isFulfilled = isFulfilled;
-        this.claimantId = claimantId;
-        this.user = user;
+        this.claimant = claimant;
+        this.donator = donator;
         this.category = category;
         this.request = request;
     }
@@ -119,20 +119,20 @@ public class Donation {
         isFulfilled = fulfilled;
     }
 
-    public long getClaimantId() {
-        return claimantId;
+    public User getClaimant() {
+        return claimant;
     }
 
-    public void setClaimantId(long claimantId) {
-        this.claimantId = claimantId;
+    public void setClaimant(User claimant) {
+        this.claimant = claimant;
     }
 
-    public User getUser() {
-        return user;
+    public User getDonator() {
+        return donator;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setDonator(User donator) {
+        this.donator = donator;
     }
 
     public Category getCategory() {
