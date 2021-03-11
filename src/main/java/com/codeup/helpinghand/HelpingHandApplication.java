@@ -9,5 +9,5 @@ public class HelpingHandApplication {
     public static void main(String[] args) {
         SpringApplication.run(HelpingHandApplication.class, args);
     }
-//this is a comment
+
 }
