@@ -8,6 +8,25 @@
     <title>Title</title>
 </head>
 <body>
+<h1>all of the donations</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
+            <div class="card">
+                <div class="card-body">
+                    <h3 th:text="${donation.title}"></h3>
+                    <h2 th:text="${donation.picture}"></h2>
+                    <p th:text="${donation.description}"></p>
+                    <a class="btn btn-info btn-sm" th:href="@{'/donations/' + ${donation.id}}">View</a>
+                    <a class="btn btn-dark btn-sm" th:href="@{'/donations/edit/' + ${donation.id}}">Edit</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{'/donations/delete/' + ${donation.id}}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
