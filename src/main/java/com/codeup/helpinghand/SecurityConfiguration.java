@@ -35,16 +35,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .defaultSuccessUrl("/dashboard")
                 .permitAll()
-                // define how to logout
+                // DEFINE HOW TO LOGOUT
                 .and()
                 .logout()
                 .logoutSuccessUrl("/login?logout")
-                // define pages where user doesn't need to be logged in
+                // DEFINE VIEWS WHERE A USER DOESN'T NEED TO BE LOGGED IN
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/sign-up", "/aboutus", "/donations")
                 .permitAll()
-                // define pages where user must be logged in
+                // DEFINE VIEW WHERE A USER MUST BE LOGGED IN
                 .and()
                 .authorizeRequests()
                 .antMatchers("/dashboard", "/requests")
