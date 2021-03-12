@@ -20,7 +20,7 @@ public class User {
     private String password;
 
     @ManyToOne
-    @JoinColumn (name = "role_id")
+    @JoinColumn(name = "role_id")
     private Role role;
 
     public User() {
@@ -33,6 +33,13 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User(User copy) {
+        userId = copy.userId;
+        username = copy.username;
+        email = copy.email;
+        password = copy.password;
     }
 
     public long getUserId() {
