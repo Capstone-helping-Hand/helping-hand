@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+
+<div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div class="navigation__background">&nbsp;</div>
+<!--Visitor view-->
+    <nav class="navigation__nav">
+        <c:choose>
+
+            <c:when test="${sessionScope.user == null}">
+        <ul class="navigation__list">
+            <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Home</a></li>
+            <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
+            <li class="navigation__item"><a href="/sign-up" class="navigation__link"><span></span>Sign-Up</a></li>
+            <li class="navigation__item"><a href="/login" class="navigation__link"><span></span>Login</a></li>
+            <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
+        </ul>
+            </c:when>
+    </nav>
+
+<!--User view-->
+    <nav class="navigation__nav">
+        <c:when test="${sessionScope.user == user}">
+        <ul class="navigation__list">
+            <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Dashboard</a></li>
+            <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
+            <li class="navigation__item"><a href="/requests" class="navigation__link"><span></span>Requests</a></li>
+            <li class="navigation__item"><a href="/logout" class="navigation__link"><span></span>Logout</a></li>
+            <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
+        </ul>
+        </c:when>
+    </nav>
+
+    <!--Admin view-->
+    <nav class="navigation__nav">
+        <c:otherwise>
+        <ul class="navigation__list">
+            <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Dashboard</a></li>
+            <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
+            <li class="navigation__item"><a href="/requests" class="navigation__link"><span></span>Requests</a></li>
+            <li class="navigation__item"><a href="/pending" class="navigation__link"><span></span>Pending</a></li>
+            <li class="navigation__item"><a href="/logout" class="navigation__link"><span></span>Logout</a></li>
+            <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
+        </ul>
+        </c:otherwise>
+        </c: choose>
+    </nav>
+</div>
+
+</body>
+</html>
