@@ -17,12 +17,12 @@
 <!--Visitor view-->
     <nav class="navigation__nav">
         <c:choose>
-
+    <nav>
             <c:when test="${sessionScope.user == null}">
         <ul class="navigation__list">
             <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Home</a></li>
             <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
-            <li class="navigation__item"><a href="/sign-up" class="navigation__link"><span></span>Sign-Up</a></li>
+            <li class="navigation__item"><a href="/signup" class="navigation__link"><span></span>Sign-Up</a></li>
             <li class="navigation__item"><a href="/login" class="navigation__link"><span></span>Login</a></li>
             <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
         </ul>
@@ -57,6 +57,7 @@
         </c: choose>
     </nav>
 </div>
+
 
 </body>
 </html>
