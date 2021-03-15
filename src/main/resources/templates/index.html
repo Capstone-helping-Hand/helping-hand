@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="partials/head :: head">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome</title>
+    <title>Welcome to San Antonio Helping Hands</title>
 </head>
 <body>
+
 
     <div class="navigation">
         <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
@@ -30,6 +31,63 @@
     </div>
         <h1>Welcome to The Helping Hand Organization</h1>
 <!--    </div>-->
+
+<!--    /////////////////// This is where the initial navbar begins///////////////////-->
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+                <nav class="navigation__nav">
+                    <ul class="navigation__list">
+                        <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Home</a></li>
+                        <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
+                        <li class="navigation__item"><a href="/requests" class="navigation__link"><span></span>Requests</a></li>
+                        <li class="navigation__item"><a href="/sign-up" class="navigation__link"><span></span>Sign-up</a></li>
+                        <li class="navigation__item"><a href="/login" class="navigation__link"><span></span>Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+<!--    /////////////////// This is where the initial navbar ends///////////////////-->
+
+<!--    /////////////////// This is where the initial header begins///////////////////-->
+    <div class="header">
+
+<!--    //////////////////// Div for the index image beginning/////////////////////////////-->
+        <div class="header_donation">
+             <img class="header_collage" th:src="@{/img/hh2.png}">
+        </div>
+<!--    //////////////////// Div for the index image ending /////////////////////////////-->
+<!--    //////////////////// Div for header text-box//////////////////////////////////////-->
+        <div class ="header_text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">San Antonio Helping Hands</span>
+                <span class="heading-primary-sub">Est. 2021</span>
+            </h1>
+
+
+            <a href="/donations" class="btn btn-white btn-animated">Make a donation</a>
+            <a href="/requests" class="btn btn-white btn-animated">Make a request</a>
+            <p><em>
+                When we give cheerfully and accept gratefully, everyone is blessed.
+            </em>
+            </p>
+            <p><em>
+                -- Maya Angelou
+            </em>
+            </p>
+        </div>
+
+    </div>
+<!--    /////////////////// This is where the initial header ends///////////////////-->
+
+<!--    /////////////////// This is where the partial footer starts///////////////////-->
+    <div th:include="partials/footer :: footer"></div>
+<!--    /////////////////// This is where the partial footer ends///////////////////-->
+
 
 </body>
 </html>
