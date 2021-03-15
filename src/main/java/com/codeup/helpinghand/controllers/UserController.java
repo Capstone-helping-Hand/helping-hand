@@ -1,8 +1,11 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
+import com.codeup.helpinghand.repositories.RequestRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
+import com.codeup.helpinghand.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +22,15 @@ public class UserController{
 
    private final UserRepository userDao;
     private final PasswordEncoder encoder;
+    private final RequestRepository reqDao;
+    private final UserService userService;
 
-    public UserController(UserRepository userDao, PasswordEncoder encoder) {
+    public UserController(UserRepository userDao, PasswordEncoder encoder, RequestRepository reqDao,UserService userService) {
         this.userDao = userDao;
         this.encoder = encoder;
+        this.reqDao = reqDao;
+        this.userService = userService;
+
     }
 
     Scanner userInput = new Scanner(System.in);
@@ -59,11 +67,15 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
+    @PostMapping(path = "requests")
+    public String creatRequest(@ModelAttribute Request request){
+        User user = userService.getLoggedInUser();
+        request.setUser(user);
 
-    @GetMapping("/requests")
-    public String requests(){
         return "requests";
     }
+
+
 
 
 }
