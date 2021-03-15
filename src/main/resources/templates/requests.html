@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <head th:include="partials/head :: head">
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
 <h1>all request posts</h1>
+<!--<div th:include="partials/ReqForm :: ReqForm">-->
+<!--<input type="text" class="btn-check" id="btn-check-outlined" autocomplete="off">-->
+<!--<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>-->
+<!--</div>-->
 
-request posts
-
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">
+            <div class="card card__picture">
+                <div class="card-body">
+                    <h3 th:text="${request.title}"></h3>
+                    <img th:src="${request.picture} " height="125rem" width="auto">
+                    <h5 th:text="${request.description}"></h5>
+                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${request.requestId}}">View</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/donations/edit/' + ${request.requestId}}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${request.requestId}}">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
+
+
+
+
