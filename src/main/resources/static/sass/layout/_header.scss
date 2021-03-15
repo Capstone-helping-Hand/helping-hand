@@ -1,11 +1,11 @@
 
 .header {
   height: 85vh;
-  background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url("../img/donationItems.jpg");
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url("../img/items.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
   @include respond(phone){
@@ -19,7 +19,7 @@
     left: 4rem;
   }
   &_collage {
-    height: 3.5rem;
+    height: 1.5rem;
   }
   &_donation:hover {
     animation: moveInRight 3s;

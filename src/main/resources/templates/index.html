@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head">
+<head th:include="partials/head :: head">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
@@ -8,7 +8,6 @@
     <title>Welcome to San Antonio Helping Hands</title>
 </head>
 <body>
-    <h1>Welcome to The Helping Hand Organization</h1>
 
 <!--    /////////////////// This is where the initial navbar begins///////////////////-->
         <div class="navigation">
@@ -32,25 +31,34 @@
 <!--    /////////////////// This is where the initial navbar ends///////////////////-->
 
 <!--    /////////////////// This is where the initial header begins///////////////////-->
-    <header class="header">
+    <div class="header">
 
 <!--    //////////////////// Div for the index image beginning/////////////////////////////-->
         <div class="header_donation">
-             <img class="header_collage" th:src="@{/img/donationitemscolor.jpg}">
+             <img class="header_collage" th:src="@{/img/hh2.png}">
         </div>
 <!--    //////////////////// Div for the index image ending /////////////////////////////-->
 <!--    //////////////////// Div for header text-box//////////////////////////////////////-->
         <div class ="header_text-box">
             <h1 class="heading-primary">
-                <span class="heading-primary-main">Welcome to San Antonio Helping Hands</span>
-                <span class="heading-primary-sub">Everybody needs a hand</span>
+                <span class="heading-primary-main">San Antonio Helping Hands</span>
+                <span class="heading-primary-sub">Est. 2021</span>
             </h1>
+
 
             <a href="/donations" class="btn btn-white btn-animated">Make a donation</a>
             <a href="/requests" class="btn btn-white btn-animated">Make a request</a>
+            <p><em>
+                When we give cheerfully and accept gratefully, everyone is blessed.
+            </em>
+            </p>
+            <p><em>
+                -- Maya Angelou
+            </em>
+            </p>
         </div>
 
-    </header>
+    </div>
 <!--    /////////////////// This is where the initial header ends///////////////////-->
 
 <!--    /////////////////// This is where the partial footer starts///////////////////-->

@@ -1,5 +1,3 @@
-
-
 *,
 *::after,
 *::before {
@@ -37,7 +35,7 @@ body {
     left: 4rem;
 }
 .header_collage {
-    height: 3.5rem;
+    height: 1.5rem;
 
 }
 .header_text-box {
