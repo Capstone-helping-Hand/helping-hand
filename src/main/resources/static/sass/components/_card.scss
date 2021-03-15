@@ -4,7 +4,8 @@
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 52rem;
+  height: 100rem;
+  width: 35rem;
 
   &__side {
 
@@ -46,7 +47,7 @@
   //FRONT SIDE STYLING
   &__picture {
     background-size: cover;
-    height: 23rem;
+    height: 63rem;
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0 , 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0  100%);

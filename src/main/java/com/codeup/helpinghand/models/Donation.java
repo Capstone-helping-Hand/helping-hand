@@ -1,6 +1,7 @@
 package com.codeup.helpinghand.models;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.Date;
 
 @Entity
@@ -20,7 +21,7 @@ public class Donation {
     @Column()
     private Date date;
 
-    @Column(length = 255)
+    @Column()
     private String picture;
 
     @Column()

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div class="navigation">
+<div class="navigation" th:fragment="navbar">
     <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
     <label for="navi-toggle" class="navigation__button">
@@ -54,7 +54,8 @@
             <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
         </ul>
         </c:otherwise>
-        </c: choose>
+    </nav>
+        </c:choose>
     </nav>
 </div>
 
