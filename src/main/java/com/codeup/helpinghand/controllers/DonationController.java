@@ -37,7 +37,7 @@ public class DonationController {
         model.addAttribute("title", "single post");
         model.addAttribute("donation", donateDao.getOne(id).getDonator().getUsername());
         return "donations";
-//        check to see if we create a different html to render a single donation
+//        check to see if we create a different html to render a single donation this is an extension of the comment
     }
 
 

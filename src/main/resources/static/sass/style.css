@@ -110,9 +110,9 @@ body {
 }
 .heading-primary-main {
   display: block;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 400;
-  letter-spacing: 3.5rem;
+  letter-spacing: 2.5rem;
   animation-name: moveInLeft;
   animation-duration: 5s;
   /*animation-delay: 2s;*/
@@ -122,33 +122,33 @@ body {
 @media (max-width: 37.5em) {
   .heading-primary-main {
     letter-spacing: 1rem;
-    font-size: 5rem;
+    font-size: 3rem;
   }
 }
-.heading-primary-primary-sub {
+.heading-primary-sub {
   display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  font-size: 2.5rem;
+  font-weight: 100;
+  letter-spacing: 1rem;
   animation-delay: 2s;
   animation: moveInRight 5s ease-out;
 }
 @media (max-width: 37.5em) {
-  .heading-primary-primary-sub {
+  .heading-primary-sub {
     letter-spacing: 0.5rem;
   }
 }
 
 .heading-secondary {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   display: block;
-  background-image: linear-gradient(to right, #FFb900, #FF7730);
+  background-image: linear-gradient(to right, #0000f8, #000080);
   -webkit-background-clip: text;
   color: transparent;
-  letter-spacing: 2px;
+  letter-spacing: 1rem;
   transition: all 0.2s;
 }
 @media (max-width: 56.25em) {
@@ -247,7 +247,7 @@ body {
 }
 .btn:active, .btn:focus {
   transform: translateY(-0.01rem);
-  box-shadow: 0 0.5rem 1 rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn-white {
   background-color: #fff;
@@ -266,7 +266,7 @@ body {
   transition: all 0.4s;
 }
 .btn--orange {
-  background: #FF8C00;
+  background: #0000f8;
   color: #fff;
   display: inline-block;
 }
@@ -284,18 +284,18 @@ body {
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
-  color: #FFb900;
+  color: #0000f8;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #FF8C00;
+  border-bottom: 1px solid #0000f8;
   padding: 3px;
   transition: all 0.2s;
 }
 .btn-text.hover {
-  background-color: #FF8C00;
+  background-color: #0000f8;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  transform: translateY -2px;
+  transform: translateY(-2px);
 }
 .btn-text:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -349,10 +349,10 @@ body {
   border-top-right-radius: 3px;
 }
 .card__picture--1 {
-  background-image: linear-gradient(to right bottom, #FFb900, #FF7730), url(/img/quincy.JPG);
+  background-image: linear-gradient(to right bottom, #0000f8, #000080), url(/img/quincy.JPG);
 }
 .card__picture--2 {
-  background-image: linear-gradient(to right bottom, #FFb900, #FF7730), url(/img/baxter.jpg);
+  background-image: linear-gradient(to right bottom, #0000f8, #000080), url(/img/baxter.jpg);
 }
 .card__heading {
   font-size: 2.8rem;
@@ -434,7 +434,7 @@ body {
     float: left;
     position: relative;
     width: 33.3333333%;
-    box-shadow: 0 1.5 3rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
   }
 }
 .composition_photo-p1 {
@@ -470,7 +470,7 @@ body {
   }
 }
 .composition_photo:hover {
-  outline: 1.5rem solid rgba(255, 127, 80, 0.8);
+  outline: 1.5rem solid rgba(0, 0, 23, 0.8);
   transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
@@ -722,15 +722,15 @@ body {
   transform: translate(-50%, -50%);
 }
 .story:hover .story__img {
-  transform: translateX -4 scale(1);
+  transform: translateX(-4) scale(1);
   filter: blur(3px) brightness(80%);
 }
 
 .footer {
-  background-color: #333;
+  background-color: #f7f7f7;
   padding: 10rem 0;
-  font-size: 1.4rem;
-  color: #f7f7f7;
+  font-size: 1rem;
+  color: #000080;
 }
 @media (max-width: 56.25em) {
   .footer {
@@ -768,18 +768,18 @@ body {
   display: inline-block;
 }
 .footer__item:not(:last-child) {
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 .footer__link:link, .footer__link:visited {
-  color: #f7f7f7;
-  background-color: #333;
+  color: #000080;
+  background-color: #f7f7f7;
   text-decoration: none;
   text-transform: uppercase;
   display: inline-block;
   transition: all 0.2s;
 }
 .footer__link:hover, .footer__link:active {
-  color: #FF8C00;
+  color: #000080;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   transform: rotate(5deg) scale(1.3);
 }
@@ -852,28 +852,28 @@ body {
 
 .header {
   height: 85vh;
-  background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)), url("../img/beach.jpg");
+  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 255, 0.8)), url("../img/items.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 @media (max-width: 37.5em) {
   .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
-.header_hookem {
+.header_donation {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
-.header_hook {
+.header_collage {
   height: 3.5rem;
 }
-.header_hookem:hover {
+.header_donation:hover {
   animation: moveInRight 3s;
 }
 .header_text-box {
@@ -919,7 +919,7 @@ body {
   position: fixed;
   top: 6.5rem;
   right: 6.5rem;
-  background-image: radial-gradient(#FFb900, #FF7730);
+  background-image: radial-gradient(#ffffff, #0000ff);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.85, 0, 0.07, 1);
 }
