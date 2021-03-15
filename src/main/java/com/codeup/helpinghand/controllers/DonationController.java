@@ -35,7 +35,7 @@ public class DonationController {
     @GetMapping(path = "/donations/{id}")
     public String donationsbyId(@PathVariable long id, Model model) {
         model.addAttribute("title", "single post");
-        model.addAttribute("donation", donateDao.getOne(id).getDonator().getUsername());
+        model.addAttribute("donation", donateDao.getOne(id));
         return "donations";
 //        check to see if we create a different html to render a single donation this is an extension of the comment
     }
