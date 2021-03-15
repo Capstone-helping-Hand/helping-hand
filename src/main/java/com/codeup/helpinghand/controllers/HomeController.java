@@ -20,12 +20,24 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/aboutus")
-    public String LoginForm() {
-        return "aboutus";
-
+    @GetMapping("/evan")
+    public String Evan() {
+        return "evan";
+    }
+    @GetMapping("/lening")
+    public String Lening() {
+        return "lening";
     }
 
+    @GetMapping("/christian")
+    public String Christian() {
+        return "christian";
+    }
+
+    @GetMapping("/john")
+    public String John() {
+        return "john";
+    }
 
 
 
