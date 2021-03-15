@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hooray!</title>
+</head>
+<body>
+<h1>Welcome to the team!</h1>
+<form class="container" th:action="@{/adminsignup}" method="post" th:object="${user}">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" id="username" th:field="*{username}" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" id="email" name="email" th:field="*{email}" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" th:field="*{password}" />
+    </div>
+    <input class="btn btn-block btn-primary" type="submit" value="Sign Up!" />
+</form>
+
+
+</body>
+</html>
