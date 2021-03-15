@@ -48,6 +48,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/dashboard", "/requests")
-                .authenticated();
+                .authenticated()
+                // DEFINE ADMIN ONLY PAGES
+                .and()
+                .authorizeRequests()
+                .antMatchers("-- WE STILL NEED TO DEFINE THESE VIEWS --")
+                .hasAuthority("ADMIN");
     }
 }
