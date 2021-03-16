@@ -1,39 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
 
     <title>Home</title>
 </head>
 <body>
-
 <div>
-    <footer class="footer">
-        <div class="footer__logo-box">
-            <img src="/img/HH2.jpg" alt="SA Helping Hands" class="footer__logo">
-        </div>
-        <div class="row">
-            <div class="col-1-of-2">
-                <div class="footer__navigation">
-                    <h3>Meet the Team</h3>
-                    <ul class="footer__list">
-                        <li class="footer__item"><a href="/lening" class="footer__link">Lening Rodas</a></li>
-                        <li class="footer__item"><a href="/evan" class="footer__link">Evan Mead</a></li>
-                        <li class="footer__item"><a href="/christian" class="footer__link">Christian Parker</a></li>
-                        <li class="footer__item"><a href="/john" class="footer__link">John Brooks</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-1-of-2">
-                    <p class="footer__copyright">
-                        Built my <a href="https://codeup.com/" class="footer__link">codeup</a>
-                        <a href="#" class="footer__link">Our Project</a>.
-
-                    </p>
-                </div>
+    <div th:fragment="footer" class=u-center-text>
+        <footer class="footer">
+            <div class="footer__logo-box">
+              <img src="../img/hh2.png" alt="SA Helping Hands" class="footer__logo">
+              <span class="heading-primary-sub">San Antonio Helping Hands</span>
+              <span><a href="/aboutus" class="heading-primary-sub footer__link">Meet The Team</a></span>
             </div>
-        </div>
-    </footer>
+
+        </footer>
+    </div>
 </div>
 
 
