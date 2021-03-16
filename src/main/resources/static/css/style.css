@@ -413,7 +413,7 @@ body {
   font-size: 6rem;
   margin-bottom: 0.5rem;
   display: inline-block;
-  background-image: linear-gradient(to right, #add8e6, #000080);
+  background-image: linear-gradient(to right, #add8e6, #000080), url(/img/christian.jpg);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -1149,4 +1149,4 @@ button {
   vertical-align: middle;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=style.css.map */
