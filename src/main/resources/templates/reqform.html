@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links">
+    <title>request form</title>
+</head>
+<body>
+<!--<nav th:replace="partials/navbar :: navbar"></nav>-->
+
+<h1>fill out a request form</h1>
+
+<form th:action="@{/reqform}" th:method="post" th:object="${request}">
+    <input style="visibility: hidden" type="text" name="id" th:field="*{requestId}">
+    <div class="form-group">
+        <label>Photos: </label>
+        <input type="file" name="image" accept="image/png, image/jpeg" />
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" name="title" class="form-control" type="text" th:field="*{title}">
+    </div>
+    <div class="form-group">
+        <label for="description">Post Body</label>
+        <textarea id="description" name="body" class="form-control" type="text" th:field="*{description}"></textarea>
+    </div>
+    <input type="submit" class="btn btn-block btn-primary">
+</form>
+
+
+
+<!--<div th:replace="partials/scripts :: scripts"></div>-->
+</body>
+</html>

@@ -67,14 +67,6 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
-    @PostMapping(path = "requests")
-    public String creatRequest(@ModelAttribute Request request){
-        User user = userService.getLoggedInUser();
-        request.setUser(user);
-
-        return "requests";
-    }
-
 
 
 
