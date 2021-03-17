@@ -10,7 +10,6 @@ public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "BIGINT(20)")
     private long donationId;
 
     @Column(nullable = false, length = 100)
