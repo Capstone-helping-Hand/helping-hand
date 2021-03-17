@@ -11,9 +11,9 @@
             <h3 class="admin__hello">
                 Hello ${user.name}
 
-                <h2>$(user.name}</h2>
-                <h2>$(user.email)</h2>
-                <h2>$(user.password)</h2>
+<!--                <h2>$(user.name}</h2>-->
+<!--                <h2>$(user.email)</h2>-->
+<!--                <h2>$(user.password)</h2>-->
                 <a href="/update" class="btn btn--blue">Update your info</a>
             </h3>
         </div>
@@ -21,13 +21,11 @@
     <div class="row">
         <div class="col-1-of-4">
             <h3>Last Five Donations</h3>
-<!--            SELECT * FROM donations. LIMIT 5-->
-            <ol>>
-                <li>${donation.title}</li>
-                <li>${donation.title}</li>
-                <li>${donation.title}</li>
-                <li>${donation.title}</li>
-                <li>${donation.title}</li>
+//The reason this doesn't generate any output is because all seeder donations are not approved at the moment"
+            <ol>
+                <th:block th:each="dono : ${lastFiveDonations}" >
+                <li><span th:text="${dono.title}"></span></li>
+                </th:block>
             </ol>
             <a href="/donations" class="btn btn--blue">View All Donations</a>
         </div>
@@ -35,12 +33,10 @@
             <div class="admin__box">
                 <h3>Last Five Requests</h3>
 <!--                SELECT * FROM requests. LIMIT 5-->
-                <ol>>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveRequests}" >
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
                 </ol>
                 <a href="/requests" class="btn btn--blue">View All Requests</a>
             </div>
@@ -48,12 +44,10 @@
         <div class="col-1-of-4">
             <div class="admin__box">
                 <h3>Pending Donations</h3>
-                <ol>>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveDonationsPending}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
                 </ol>
                 <a href="/" class="btn btn--blue">View All Pending Donations</a>
             </div>
@@ -61,12 +55,10 @@
         <div class="col-1-of-4">
             <div class="admin__box">
                 <h3>Pending Requests</h3>
-                <ol>>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
-                    <li>${donation.title}</li>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveRequestsPending}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
                 </ol>
                 <a href="/" class="btn btn--blue">View All Pending Requests</a>
             </div>
