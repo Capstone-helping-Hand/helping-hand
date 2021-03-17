@@ -7,6 +7,44 @@ $breakpoint argument choices:
 
 1 em=16 px
  */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 75em) and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+}
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -337,62 +375,63 @@ body {
 .composition {
   position: relative;
 }
-.composition_photo {
+.composition__photo {
   width: 55%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
   position: absolute;
   z-index: 10;
   transition: all 0.2s;
   outline-offset: 2rem;
 }
 @media (max-width: 56.25em) {
-  .composition_photo {
+  .composition__photo {
     float: left;
     position: relative;
-    width: 33.3333333%;
-    box-shadow: 0 1.5 3rem rgba(0, 0, 0, 0.2);
+    width: 33.33333333%;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
   }
 }
-.composition_photo-p1 {
+.composition__photo--p1 {
   left: 0;
   top: -2rem;
 }
 @media (max-width: 56.25em) {
-  .composition_photo-p1 {
+  .composition__photo--p1 {
     top: 0;
-    transform: translate(1.2);
+    transform: scale(1.2);
   }
 }
-.composition_photo-p2 {
+.composition__photo--p2 {
   right: 0;
   top: 2rem;
 }
 @media (max-width: 56.25em) {
-  .composition_photo-p2 {
+  .composition__photo--p2 {
     top: -1rem;
-    transform: translate(1.3);
-    z-index: 1000;
+    transform: scale(1.3);
+    z-index: 100;
   }
 }
-.composition_photo-p3 {
+.composition__photo--p3 {
   left: 20%;
   top: 10rem;
 }
 @media (max-width: 56.25em) {
-  .composition_photo-p3 {
+  .composition__photo--p3 {
     top: 1rem;
     left: 0;
-    transform: translate(1.1);
+    transform: scale(1.1);
   }
 }
-.composition_photo:hover {
-  outline: 1.5rem solid rgba(255, 127, 80, 0.8);
+.composition__photo:hover {
+  outline: 1.5rem solid #4169e1;
   transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
 }
-.composition:hover .composition_photo:not(:hover) {
-  transform: scale(0.8);
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.95);
 }
 
 .feature-box {
@@ -643,7 +682,7 @@ body {
 }
 
 .footer {
-  background-color: #333;
+  background-color: #fff;
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #f7f7f7;
@@ -667,7 +706,6 @@ body {
   height: auto;
 }
 .footer__navigation {
-  border-top: 1px solid #777;
   padding-top: 2rem;
   display: inline-block;
 }
@@ -700,7 +738,6 @@ body {
   transform: rotate(5deg) scale(1.3);
 }
 .footer__copyright {
-  border-top: 1px solid #777;
   padding-top: 1rem;
   width: 80%;
   float: right;
@@ -855,7 +892,7 @@ body {
   height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -5rem;
   z-index: 1500;
   opacity: 0;
   width: 0;

@@ -9,13 +9,23 @@
 <body>
 <div>
     <div th:fragment="footer" class=u-center-text>
-        <footer class="footer">
-            <div class="footer__logo-box">
-              <img src="../img/hh2.png" alt="SA Helping Hands" class="footer__logo">
-              <span class="heading-primary-sub">San Antonio Helping Hands</span>
-              <span><a href="/aboutus" class="heading-primary-sub footer__link">Meet The Team</a></span>
+        <footer>
+            <h2>San Antonio Helping Hands</h2>
+            <div class="row">
+                  <div class="col-1-of-3">
+                    <div class="footer__navigation">
+                      <span><a href="/aboutus" class="heading-primary-sub footer__link">Meet The Team</a></span>
+                    </div>
+                  </div>
+                <div class="col-1-of-3">
+                    <img src="../img/hh2.png" alt="SA Helping Hands" class="footer__logo">
+                </div>
+                  <div class="col-1-of-3">
+                    <div class="footer__copyright">
+                        <span><a href="https://codeup.com" class="footer__link">Codeup Capstone project</a></span>
+                  </div>
+                  </div>
             </div>
-
         </footer>
     </div>
 </div>
