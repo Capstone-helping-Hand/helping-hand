@@ -6,7 +6,6 @@ import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.RequestRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,11 +67,15 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
-//    @GetMapping("/userdashboard")
-//    public String lastfive(Model model){
-//        User user = (User) SecurityContextHolder.GetContext().getAuthentication().getPrincipal();
-//        model.addAttribute()
-//    }
+    @PostMapping(path = "requests")
+    public String creatRequest(@ModelAttribute Request request){
+        User user = userService.getLoggedInUser();
+        request.setUser(user);
+
+        return "requests";
+    }
+
+
 
 
 }

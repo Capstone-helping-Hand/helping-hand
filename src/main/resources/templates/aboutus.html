@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
-        <link rel="stylesheet" th:href="@{../css/main.css}">
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>About The Team</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About The Team</title>
+</head>
 <body>
 <section class="aboutTheTeam" id="aboutTheTeam">
-
     <div class="u-center-text u-margin-bottom-big">
         <h2 class="heading-secondary">
             Meet The Team
@@ -18,59 +16,127 @@
     </div>
 
     <div class="row">
-<!--        ///////////////////////////Evan////////////////////////////-->
         <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/Evan.jpeg" alt="evan" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Evan Mead</h2>
-                <ul class="footer__list">
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/Evan-C-Mead/">Linkedin</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/Evan-C-Mead">GitHub</a></li>
-                </ul>
-            </div>
-        </div>
-<!--        /////////////////////////End of Evan/////////////////////////-->
-<!--        ///////////////////////Beginning of John /////////////////////////-->
-        <div class="col-1-of-4">
-            <div class="feature-box">
-                <img src="../img/john.jpeg" alt="john" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">John Brooks</h2>
-                <ul class="footer__list">
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/john-brooks-/">Linkedin</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/johnbrooks92">GitHub</a></li>
-                </ul>
+            <div class="card">
+                <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--1">
+                        &nbsp;&nbsp;
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--1">Evan Mead</span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Email</li>
+                            <li>LinkedIn</li>
+                            <li>Github</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-1">
+                    <div class="card__cta">
+                        <div class="card__text-box">
+                            <p class="card__team-only">Evan</p>
+                            <p class="card__team-lastNameValue">Mead</p>
+                        </div>
+                        <a href="#popup" class="btn btn--white">Meet him now</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-<!--        /////////////////////////End of John/////////////////////////-->
-<!--        ///////////////////////Beginning of Lening /////////////////////-->
+        <!--                /////////John////////-->
+
         <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/lening.jpeg" alt="lening" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Lening Rodas</h2>
-                <ul class="footer__list">
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/leningr/">Linkedin</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/leningr/">GitHub</a></li>
-                </ul>
+            <div class="card">
+                <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--2">
+                        &nbsp;&nbsp;
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--2">John Brooks</span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Email</li>
+                            <li>LinkedIn</li>
+                            <li>Github</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-2">
+                    <div class="card__cta">
+                        <div class="card__text-box">
+                            <p class="card__team-only">John</p>
+                            <p class="card__team-lastNameValue">Brooks</p>
+                        </div>
+                        <a href="#popup" class="btn btn--white">Meet him now</a>
+                    </div>
+                </div>
             </div>
         </div>
-<!--        /////////////////////////End of Lening/////////////////////////-->
-<!--        ///////////////////////Beginning of Chris/////////////////////-->
+
+        <!--                /////////End of John////////-->
+        <!--                /////////Beginning of Lenning////////-->
         <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/christian.jpeg" alt="christian" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Chris Parker</h2>
-                <ul class="footer__list">
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/kreyus/">Linkedin</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/christianparker512">GitHub</a></li>
-                </ul>
+            <div class="card">
+                <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--3">
+                        &nbsp;&nbsp;
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--3">Lenning Rodas</span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Email</li>
+                            <li>LinkedIn</li>
+                            <li>Github</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-3">
+                    <div class="card__cta">
+                        <div class="card__text-box">
+                            <p class="card__team-only">Lening</p>
+                            <p class="card__team-lastNameValue">Rodas</p>
+                        </div>
+                        <a href="#popup" class="btn btn--white">Meet him now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--                /////////End of Lening ///////-->
+        <!--                /////////Beginning of Christian ///////-->
+        <div class="col-1-of-4">
+            <div class="card">
+                <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--4">
+                        &nbsp;&nbsp;
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--4">Christian Parker</span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Email</li>
+                            <li>LinkedIn</li>
+                            <li>Github</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-4">
+                    <div class="card__cta">
+                        <div class="card__text-box">
+                            <p class="card__team-only">Christian</p>
+                            <p class="card__team-lastNameValue">Parker</p>
+                        </div>
+                        <a href="#popup" class="btn btn--white">Meet him now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-<!--        /////////////////////////End of Chris///////////////////////-->
 
-<!--    </div>-->
-<!--    ////////////////////////////End of Row Division//////////////////-->
-</section>
 </body>
 </html>

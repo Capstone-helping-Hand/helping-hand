@@ -46,7 +46,7 @@
                         <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Home</a></li>
                         <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
                         <li class="navigation__item"><a href="/requests" class="navigation__link"><span></span>Requests</a></li>
-                        <li class="navigation__item"><a href="/signup" class="navigation__link"><span></span>Sign-up</a></li>
+                        <li class="navigation__item"><a href="/sign-up" class="navigation__link"><span></span>Sign-up</a></li>
                         <li class="navigation__item"><a href="/login" class="navigation__link"><span></span>Login</a></li>
                     </ul>
                 </nav>
@@ -58,7 +58,7 @@
 
 <!--    //////////////////// Div for the index image beginning/////////////////////////////-->
         <div class="header_donation">
-<!--             <img class="header_collage" alt="hh2" th:src="@{/img/hh2.png}">-->
+             <img class="header_collage" th:src="@{/img/hh2.png}">
         </div>
 <!--    //////////////////// Div for the index image ending /////////////////////////////-->
 <!--    //////////////////// Div for header text-box//////////////////////////////////////-->
@@ -85,9 +85,7 @@
 <!--    /////////////////// This is where the initial header ends///////////////////-->
 
 <!--    /////////////////// This is where the partial footer starts///////////////////-->
-    <footer>
-        <div th:replace="partials/footer :: footer"></div>
-    </footer>
+    <div th:include="partials/footer :: footer"></div>
 <!--    /////////////////// This is where the partial footer ends///////////////////-->
 
 

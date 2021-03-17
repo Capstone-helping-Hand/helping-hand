@@ -6,7 +6,8 @@ import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class DonationController {
@@ -38,13 +39,6 @@ public class DonationController {
         return "donations";
 //        check to see if we create a different html to render a single donation this is an extension of the comment
     }
-
-    @RequestMapping("/donations/{id}/delete")
-    public String deletePost(@PathVariable long id) {
-        donateDao.deleteById(id);
-        return "redirect:/donations";
-    }
-
 
 
 

@@ -9,12 +9,7 @@ import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
-
-import javax.mail.Multipart;
-import java.io.IOException;
 
 @Controller
 public class RequestController  {
@@ -47,32 +42,6 @@ public class RequestController  {
         return "requests";
     }
 //comment
-
-    @GetMapping("/reqform")
-    public String create(Model model) {
-        model.addAttribute("request", new Request());
-          return "reqform";
-    }
-    
-
-@PostMapping(path = "/reqform")
-public String creatRequest(@ModelAttribute Request request) {
-    User user = userService.getLoggedInUser();
-    request.setUser(user);
-
-//    String filename = StringUtils.cleanPath(multipartFile.getContentType());
-//    request.setPicture(filename);
-     Request savereq = reqDao.save(request);
-        savereq.getTitle();
-        savereq.getDescription();
-
-//     String uploadDir = "/reqform" + savereq.getRequestId();
-//    Fileul.saveFile(uploadDir, filename, multipartFile);
-
-      return "redirect:/requests";
-
-}
-
 
 
 
