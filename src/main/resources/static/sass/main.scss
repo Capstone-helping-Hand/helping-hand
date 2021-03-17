@@ -51,6 +51,7 @@ p {
     background-color: $color-white;
     color: $color-grey-dark;
   }
+
   &::after {
     content:"";
     display: inline-block;
@@ -62,7 +63,6 @@ p {
     left:0;
     z-index: -1;
     transition: all .4s;
-
   }
   &-white::after{
     background-color:$color-white;
@@ -126,20 +126,20 @@ nav {
   }
 
   &-main:link {
-    background-color: #000080;
+    background-color: #f08a5d;
     color: #ffffff;
   }
   &-main:hover {
-    background-color: #000080;
+    background-color: #ea5717;
     color: #ffffff;
   }
 
   &-hot:link {
-    background-color: #000080;
+    background-color: #f08a5d;
     color: #ffffff;
   }
   &-hot:hover {
-    background-color: #000080;
+    background-color: #ea5717;
     color: #ffffff;
   }
 
