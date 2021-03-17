@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-
+<nav th:replace="partials/navbar :: navbar"></nav>
 <h1>all request posts</h1>
 <!--<div th:include="partials/ReqForm :: ReqForm">-->
 <!--<input type="text" class="btn-check" id="btn-check-outlined" autocomplete="off">-->
@@ -24,9 +24,9 @@
                     <h3 th:text="${request.title}"></h3>
                     <img th:src="${request.picture} " height="125rem" width="auto">
                     <h5 th:text="${request.description}"></h5>
-                    <a class="btn btn-white btn-animated" th:href="@{'/request/' + ${request.requestId}}">View</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/requests/edit/' + ${request.requestId}}">Edit</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/requests/delete/' + ${request.requestId}}">Remove</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlreq/' + ${request.requestId}}">View</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlereq/reqedit/' + ${request.requestId}}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">Remove</a>
                 </div>
             </div>
         </div>

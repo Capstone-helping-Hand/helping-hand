@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links">
+    <title>single request</title>
+</head>
+<body>
+
+
+    <div class="row">
+        <div class="col-12">
+
+                <div class="card-body">
+                    <h3 th:text="${request.title}"></h3>
+                    <img th:src="${request.picture} " height="125rem" width="auto">
+                    <h5 th:text="${request.description}"></h5>
+                    <a class="btn btn-info btn-sm" th:href="@{/requests}">all requests</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/requests/edit/' + ${request.requestId}}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/requests/delete/' + ${request.requestId}}">Remove</a>
+                </div>
+            </div>
+    </div>
+
+</body>
+</html>
