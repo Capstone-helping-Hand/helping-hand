@@ -113,7 +113,7 @@ public class User {
 //    public List<Donation> getDonationList() {
 //        return donationList;
 //    }
-//
+
 //    public void setDonationList(List<Donation> donationList) {
 //        this.donationList = donationList;
 //    }

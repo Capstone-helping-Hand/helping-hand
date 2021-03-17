@@ -1,12 +1,11 @@
 package com.codeup.helpinghand.controllers;
 
-import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
+import com.codeup.helpinghand.repositories.DonationRepository;
 import com.codeup.helpinghand.repositories.RequestRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,12 +23,14 @@ public class UserController{
    private final UserRepository userDao;
     private final PasswordEncoder encoder;
     private final RequestRepository reqDao;
+    private final DonationRepository donationDao;
     private final UserService userService;
 
-    public UserController(UserRepository userDao, PasswordEncoder encoder, RequestRepository reqDao,UserService userService) {
+    public UserController(UserRepository userDao, PasswordEncoder encoder, RequestRepository reqDao, DonationRepository donationDao, UserService userService) {
         this.userDao = userDao;
         this.encoder = encoder;
         this.reqDao = reqDao;
+        this.donationDao = donationDao;
         this.userService = userService;
 
     }
@@ -68,11 +69,19 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
-//    @GetMapping("/userdashboard")
-//    public String lastfive(Model model){
-//        User user = (User) SecurityContextHolder.GetContext().getAuthentication().getPrincipal();
-//        model.addAttribute()
-//    }
+    @GetMapping("/admindashboard")
+    public String lastFiveDonations(Model model){
+        model.addAttribute("lastFiveDonations", donationDao.lastFive());
+        model.addAttribute("lastFiveRequests", reqDao.lastFive());
+        model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
+        model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+        model.addAttribute("viewAllDonations", donationDao.findAll());
+        model.addAttribute("viewRequests", donationDao.findAll());
+        return "admindashboard";
+    }
+
+
+
 
 
 }
