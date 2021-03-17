@@ -39,7 +39,7 @@ public class Donation {
     @JoinColumn (name = "donator_id") // should be donator_id / donation_id ?
     private User donator;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "category_id")
     private Category category;
 

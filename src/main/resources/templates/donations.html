@@ -13,9 +13,10 @@
                     <h3 th:text="${donation.title}"></h3>
                     <img th:src="${donation.picture} " height="125rem" width="auto">
                     <h5 th:text="${donation.description}"></h5>
-                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId}}">View</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/edit/'}">Edit</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+<!--                    <p th:text="${donation.category.type}"></p>-->
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/edit/'}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/delete/'}">Remove</a>
                 </div>
             </div>
         </div>
