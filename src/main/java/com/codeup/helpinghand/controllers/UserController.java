@@ -9,9 +9,7 @@ import com.codeup.helpinghand.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Scanner;
@@ -35,8 +33,6 @@ public class UserController{
 
     }
 
-    Scanner userInput = new Scanner(System.in);
-
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
@@ -48,7 +44,7 @@ public class UserController{
         return "signup";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/singup")
     public String signUpUser(@ModelAttribute Role role, User user) {
 
         String hash = encoder.encode(user.getPassword());

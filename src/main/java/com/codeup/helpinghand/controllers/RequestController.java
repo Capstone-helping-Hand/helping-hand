@@ -22,15 +22,16 @@ public class RequestController  {
         private final CategoryRepository cateDao;
         private final RoleRepository repoDao;
         private final UserRepository userDao;
-    private final UserService userService;
+        private final UserService userService;
+
 
     public RequestController(RequestRepository reqDao, CategoryRepository cateDao, RoleRepository repoDao, UserRepository userDao, UserService userService) {
         this.reqDao = reqDao;
         this.cateDao = cateDao;
         this.repoDao = repoDao;
         this.userDao = userDao;
-        this.userService = userService;
-    }
+        this.userService =  userService;
+         }
 
 
 
@@ -40,11 +41,14 @@ public class RequestController  {
         return "requests";
     }
 
-    @GetMapping(path = "/requests/{id}")
-    public String requestById(@PathVariable Long id, Model model){
+    @GetMapping(path = "/singlereq/{requestId}")
+    public String requestById(@PathVariable long requestId, Model model){
+
         model.addAttribute("title", "single request");
-        model.addAttribute("request", reqDao.getOne(id));
-        return "requests";
+
+        model.addAttribute("request", reqDao.getOne(requestId));
+
+        return "singlereq";
     }
 //comment
 
@@ -57,21 +61,19 @@ public class RequestController  {
 
 @PostMapping(path = "/reqform")
 public String creatRequest(@ModelAttribute Request request) {
-    User user = userService.getLoggedInUser();
-    request.setUser(user);
 
-//    String filename = StringUtils.cleanPath(multipartFile.getContentType());
-//    request.setPicture(filename);
      Request savereq = reqDao.save(request);
         savereq.getTitle();
         savereq.getDescription();
 
-//     String uploadDir = "/reqform" + savereq.getRequestId();
-//    Fileul.saveFile(uploadDir, filename, multipartFile);
 
       return "redirect:/requests";
 
 }
+
+    @GetMapping("/reqedit/{requestId}")
+    public String editReq(@PathVariable long requestId, Model model) {
+        Request request = reqDao.getOne(requestId);
 
 
 
