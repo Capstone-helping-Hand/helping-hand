@@ -1,9 +1,12 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Donation;
+import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.CategoryRepository;
 import com.codeup.helpinghand.repositories.DonationRepository;
 import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
+import com.codeup.helpinghand.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,15 +17,17 @@ public class DonationController {
     private final UserRepository userDao;
     private final RoleRepository roleDao;
     private final CategoryRepository cateDao;
+    private final UserService userService;
 
 
 
 
-    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao){
+    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao, UserService userService){
         this.donateDao = donateDao;
         this.userDao = userDao;
         this.roleDao = roleDao;
         this.cateDao = cateDao;
+        this.userService = userService;
     }
 
     @GetMapping(path = "/donations")
@@ -45,8 +50,35 @@ public class DonationController {
         return "redirect:/donations";
     }
 
+    @GetMapping("/donationform")
+    public String create(Model model) {
+        model.addAttribute("donation", new Donation());
+        return "donationform";
+    }
 
 
+//    @PostMapping(path = "/donationform")
+//    public String createDonation(@ModelAttribute Donation donation) {
+//        User user = userService.getLoggedInUser();
+//        donation.setDonator(user);
+//
+//
+//
+//        Donation savedonation = donateDao.save(donation);
+//        savedonation.getTitle();
+//        savedonation.getDescription();
+//        savedonation.getPicture();
+////        Add a slot for category type on form and implement here once done to store the chosen data. We need this to render on the post as well
+//
+//
+//        return "redirect:/donations";
+//    }
 
+    @RequestMapping(value = "/donationform", method = RequestMethod.POST)
+    public String saveDonation(@ModelAttribute("donation") Donation donation) {
+        donateDao.save(donation);
+
+        return "redirect:/donations";
+    }
 
 }
