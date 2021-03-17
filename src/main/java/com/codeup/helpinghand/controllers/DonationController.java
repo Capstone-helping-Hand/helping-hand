@@ -1,5 +1,6 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Category;
 import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.CategoryRepository;
@@ -36,12 +37,13 @@ public class DonationController {
         return "donations";
     }
 
-    @GetMapping(path = "/donations/{id}")
-    public String donationsbyId(@PathVariable long id, Model model) {
-        model.addAttribute("title", "single post");
-        model.addAttribute("donation", donateDao.getOne(id));
-        return "donations";
-//        check to see if we create a different html to render a single donation this is an extension of the comment
+    @GetMapping(path = "/singledonation/{donationId}")
+    public String donationsbyId(@PathVariable long donationId, Model model) {
+        model.addAttribute("title", "single donation");
+        model.addAttribute("donation", donateDao.getOne(donationId));
+        return "singledonation";
+//        check to see if we create a different html to render a single donation this is an extension of the comment.
+//        Create landing page and update donations to that url
     }
 
     @RequestMapping("/donations/{id}/delete")
@@ -75,7 +77,11 @@ public class DonationController {
 //    }
 
     @RequestMapping(value = "/donationform", method = RequestMethod.POST)
-    public String saveDonation(@ModelAttribute("donation") Donation donation) {
+    public String saveDonation(@ModelAttribute Donation donation, Model model) {
+        model.addAttribute("donation", donateDao.findAll());
+        User user = userService.getLoggedInUser();
+        Donation newDonation = donateDao.save(donation);
+        newDonation.setDonator(user);
         donateDao.save(donation);
 
         return "redirect:/donations";

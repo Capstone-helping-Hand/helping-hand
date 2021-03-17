@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links"></head>
+<body>
+<!--<nav th:replace="partials/navbar :: navbar"></nav>-->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-body">
+            <h3 th:text="${donation.title}"></h3>
+            <img th:src="${donation.picture} " height="125rem" width="auto">
+            <h5 th:text="${donation.description}"></h5>
+            <a class="btn btn-info btn-sm" th:href="@{/donations}">all donations</a>
+            <a class="btn btn-white btn-animated" th:href="@{'/donations/edit/' + ${donation.donationId}}">Edit</a>
+            <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>
+        </div>
+    </div>
+</div>
+<!--<div class="container">-->
+<!--    <h1 class="my-4">Here is a single donation !</h1>-->
+
+<!--    <h3 th:text="${donation.title}"></h3>-->
+<!--&lt;!&ndash;    <p th:text="'Authored by ' + ${donation.user.username}"/>&ndash;&gt;-->
+<!--    <p th:text="${donation.description}"></p>-->
+
+<!--    <a th:href="@{|/posts/${donation.donationId}/edit|}">Edit Post</a>-->
+<!--    <div th:replace="partials/scripts :: assets"></div>-->
+<!--</div>-->
+</body>
+</html>
