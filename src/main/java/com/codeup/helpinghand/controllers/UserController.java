@@ -11,10 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.Scanner;
-
-
 @Controller
 public class UserController{
 
@@ -30,7 +26,6 @@ public class UserController{
         this.reqDao = reqDao;
         this.donationDao = donationDao;
         this.userService = userService;
-
     }
 
     @GetMapping("/login")
@@ -44,7 +39,7 @@ public class UserController{
         return "signup";
     }
 
-    @PostMapping("/singup")
+    @PostMapping("/signup")
     public String signUpUser(@ModelAttribute Role role, User user) {
 
         String hash = encoder.encode(user.getPassword());
@@ -52,6 +47,7 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
+
     @GetMapping("/adminsignup")
     public String adminSignup(Model model){
         model.addAttribute("user", new User());
@@ -65,6 +61,7 @@ public class UserController{
         userDao.save(user);
         return "redirect:/login";
     }
+
     @GetMapping("/admindashboard")
     public String lastFiveDonations(Model model){
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
@@ -75,9 +72,5 @@ public class UserController{
         model.addAttribute("viewRequests", donationDao.findAll());
         return "admindashboard";
     }
-
-
-
-
 
 }
