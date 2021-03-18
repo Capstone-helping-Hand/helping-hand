@@ -43,17 +43,21 @@
             border: 3px solid #07ad90;
             border-radius: 3px;
         }
+
         .face .content {
             color: #666;
         }
+
         .face .content h2 {
             font-size: 1.2em;
             color: #07ad90;
         }
+
         .face .content .field-wrapper {
             margin-top: 30px;
             position: relative;
         }
+
         .face .content .field-wrapper label {
             position: absolute;
             pointer-events: none;
@@ -64,6 +68,7 @@
             transition: all ease-in 0.25s;
             color: #999999;
         }
+
         .face .content .field-wrapper input[type=text],
         .face .content .field-wrapper input[type=password],
         .face .content .field-wrapper input[type=submit],
@@ -71,12 +76,14 @@
             -webkit-appearance: none;
             appearance: none;
         }
+
         .face .content .field-wrapper input[type=text]:focus,
         .face .content .field-wrapper input[type=password]:focus,
         .face .content .field-wrapper input[type=submit]:focus,
         .face .content .field-wrapper textarea:focus {
             outline: none;
         }
+
         .face .content .field-wrapper input[type=text],
         .face .content .field-wrapper input[type=password],
         .face .content .field-wrapper textarea {
@@ -87,26 +94,31 @@
             border-bottom: 1px solid #07ad90;
             color: #666;
         }
+
         .face .content .field-wrapper input[type=text]::-webkit-input-placeholder,
         .face .content .field-wrapper input[type=password]::-webkit-input-placeholder,
         .face .content .field-wrapper textarea::-webkit-input-placeholder {
             opacity: 0;
         }
+
         .face .content .field-wrapper input[type=text]::-moz-placeholder,
         .face .content .field-wrapper input[type=password]::-moz-placeholder,
         .face .content .field-wrapper textarea::-moz-placeholder {
             opacity: 0;
         }
+
         .face .content .field-wrapper input[type=text]:-ms-input-placeholder,
         .face .content .field-wrapper input[type=password]:-ms-input-placeholder,
         .face .content .field-wrapper textarea:-ms-input-placeholder {
             opacity: 0;
         }
+
         .face .content .field-wrapper input[type=text]:-moz-placeholder,
         .face .content .field-wrapper input[type=password]:-moz-placeholder,
         .face .content .field-wrapper textarea:-moz-placeholder {
             opacity: 0;
         }
+
         .face .content .field-wrapper input[type=text]:focus + label, .face .content .field-wrapper input[type=text]:not(:placeholder-shown) + label,
         .face .content .field-wrapper input[type=password]:focus + label,
         .face .content .field-wrapper input[type=password]:not(:placeholder-shown) + label,
@@ -115,6 +127,7 @@
             top: -35%;
             color: #42509e;
         }
+
         .face .content .field-wrapper input[type=submit] {
             -webkit-appearance: none;
             appearance: none;
@@ -127,19 +140,24 @@
             border-radius: 3px;
             padding: 5px;
         }
+
         .face .content .field-wrapper input[type=submit]:hover {
             opacity: 0.9;
         }
+
         .face .content .field-wrapper input[type=submit]:active {
             transform: scale(0.96);
         }
+
         .face .content .field-wrapper textarea {
             resize: none;
             line-height: 1em;
         }
+
         .face .content .field-wrapper textarea:focus + label, .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
             top: -25%;
         }
+
         .face .thank-you-msg {
             position: absolute;
             width: 200px;
@@ -151,6 +169,7 @@
             top: 50%;
             -webkit-transform: translate(-50%, -50%);
         }
+
         .face .thank-you-msg:after {
             position: absolute;
             content: "";
@@ -167,22 +186,28 @@
             animation: success ease-in 0.15s forwards;
             animation-delay: 2.5s;
         }
+
         .face-front {
             transform: rotateY(0deg) translateZ(125px);
         }
+
         .face-top {
             height: 250px;
             transform: rotateX(90deg) translateZ(125px);
         }
+
         .face-back {
             transform: rotateY(180deg) translateZ(125px);
         }
+
         .face-right {
             transform: rotateY(90deg) translateZ(125px);
         }
+
         .face-left {
             transform: rotateY(-90deg) translateZ(125px);
         }
+
         .face-bottom {
             height: 250px;
             transform: rotateX(-90deg) translateZ(225px);
@@ -192,6 +217,7 @@
             margin: 20px 0;
             padding: 0;
         }
+
         .nav li {
             display: inline-block;
             list-style-type: none;
@@ -201,6 +227,7 @@
             position: relative;
             cursor: pointer;
         }
+
         .nav li:after {
             content: "";
             position: absolute;
@@ -210,6 +237,7 @@
             border-bottom: 1px solid #42509e;
             transition: all ease-in 0.25s;
         }
+
         .nav li:hover:after {
             width: 100%;
         }
@@ -240,7 +268,6 @@
     </style>
 </head>
 <body>
-<h1>Log In</h1>
 
 <div th:if="${param.error}">
     Invalid Username or Password.
@@ -249,13 +276,13 @@
     You have been logged out.
 </div>
 
-<!--                <form th:action="@{/login}" method="post" class="box">-->
-<!--                    <h1>Login</h1>-->
-<!--                    <p class="text-muted"> Please enter your login and password!</p>-->
-<!--                    <input type="text" name="username" id="username" placeholder="Username">-->
-<!--                    <input type="password" name="password" id="password" placeholder="Password">-->
-<!--                     <input type="submit" value="Login">-->
-<!--                </form>-->
+<!--<form th:action="@{/login}" method="post" class="box">-->
+<!--    <h1>Login</h1>-->
+<!--    <p class="text-muted"> Please enter your login and password!</p>-->
+<!--    <input type="text" name="username" id="username" placeholder="Username">-->
+<!--    <input type="password" name="password" id="password" placeholder="Password">-->
+<!--    <input type="submit" value="Login">-->
+<!--</form>-->
 
 <ul class="nav">
     <li onclick="showLogin()">Login</li>
@@ -270,7 +297,7 @@
             <div class="content">
                 <h2>Subscribe</h2>
                 <small>Enter your email so we can send you the latest updates!</small>
-                <form  onsubmit="event.preventDefault()">
+                <form onsubmit="event.preventDefault()">
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email">
                         <label>e-mail</label>
@@ -284,7 +311,7 @@
         <div class="face face-front">
             <div class="content">
                 <h2>Login</h2>
-<!--                onsubmit="event.preventDefault()-->
+                <!--                onsubmit="event.preventDefault()-->
                 <form th:action="@{/login}" method="post">
                     <div class="field-wrapper">
                         <input type="text" name="username" placeholder="username">
@@ -320,18 +347,18 @@
         <div class="face face-right">
             <div class="content">
                 <h2>Sign up</h2>
-                <form th:value="@{signup}">
+                <form th:action="@{/signup}" method="post">
+                    <div class="field-wrapper">
+                        <input type="text" name="username" placeholder="username">
+                        <label>username</label>
+                    </div>
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email">
                         <label>e-mail</label>
                     </div>
                     <div class="field-wrapper">
-                        <input type="password" name="password" placeholder="password" autocomplete="new-password"  >
+                        <input type="password" name="password" placeholder="password" autocomplete="new-password">
                         <label>password</label>
-                    </div>
-                    <div class="field-wrapper">
-                        <input type="password" name="password2" placeholder="password" autocomplete="new-password" >
-                        <label>re-enter password</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="submit" value="signin" onclick="showThankYou()">
@@ -371,42 +398,44 @@
         </div>
     </div>
 </div>
+
 <script>
     let prism = document.querySelector(".rec-prism");
 
-    function showSignup(){
+    function showSignup() {
         prism.style.transform = "translateZ(-100px) rotateY( -90deg)";
     }
-    function showLogin(){
+
+    function showLogin() {
         prism.style.transform = "translateZ(-100px)";
     }
-    function showForgotPassword(){
+
+    function showForgotPassword() {
         prism.style.transform = "translateZ(-100px) rotateY( -180deg)";
     }
 
-    function showSubscribe(){
+    function showSubscribe() {
         prism.style.transform = "translateZ(-100px) rotateX( -90deg)";
     }
 
-    function showContactUs(){
+    function showContactUs() {
         prism.style.transform = "translateZ(-100px) rotateY( 90deg)";
     }
 
-    function showThankYou(){
+    function showThankYou() {
         prism.style.transform = "translateZ(-100px) rotateX( 90deg)";
     }
 
-    if ( window.addEventListener ) {
-        var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
-        window.addEventListener("keydown", function(e) {
-            if ( e.keyCode == konami[state] ) state++;
+    if (window.addEventListener) {
+        var state = 0, konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        window.addEventListener("keydown", function (e) {
+            if (e.keyCode == konami[state]) state++;
             else state = 0;
-            if ( state == 10 )
+            if (state == 10)
                 window.location = "http://sahelpinghands.org/adminsignup";  //you can write your own code here
         }, true);
     }
-
-
 </script>
+
 </body>
 </html>
