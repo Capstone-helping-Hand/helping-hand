@@ -320,7 +320,7 @@
         <div class="face face-right">
             <div class="content">
                 <h2>Sign up</h2>
-                <form >
+                <form th:value="@{signup}">
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email">
                         <label>e-mail</label>
@@ -334,7 +334,7 @@
                         <label>re-enter password</label>
                     </div>
                     <div class="field-wrapper">
-                        <input type="submit" onclick="showThankYou()">
+                        <input type="submit" value="signin" onclick="showThankYou()">
                     </div>
                     <span class="singin" onclick="showLogin()">Already a user?  Sign in</span>
                 </form>
