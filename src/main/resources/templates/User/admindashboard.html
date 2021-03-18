@@ -37,7 +37,7 @@
         </div>
         <div class="col-1-of-4">
             <div class="admin__box">
-                <h3>Pending Donations</h3>
+                <h3>Last Five Pending Donations</h3>
                 <ol>
                     <th:block th:each="dono : ${lastFiveDonationsPending}">
                         <li><span th:text="${dono.title}"></span></li>
@@ -74,16 +74,16 @@
 </div>
 <div class="row">
     <div class="col-1-of-4">
-<a href="/requests" class="btn btn--blue">View All Donations</a>
+<a href="/donations" class="btn btn--blue">View All Donations</a>
     </div>
     <div class="col-1-of-4">
-        <a href="/" class="btn btn--blue">View All Pending Requests</a>
+        <a href="/requests" class="btn btn--blue">View All Requests</a>
     </div>
     <div class="col-1-of-4">
-        <a href="/requests" class="btn btn--blue">View All Pending Donations</a>
+        <a href="/pendingdonations" class="btn btn--blue">View All Pending Donations</a>
     </div>
     <div class="col-1-of-4">
-        <a href="/requests" class="btn btn--blue">View All Pending Requests</a>
+        <a href="/pendingrequests" class="btn btn--blue">View All Pending Requests</a>
     </div>
 </div>
 <div th:replace="partials/scripts :: scripts"></div>
