@@ -34,17 +34,41 @@ public class DonationController {
     @GetMapping(path = "/donations")
     public String donations(Model model){
         model.addAttribute("donations", donateDao.findAll());
-        return "donations";
+        return "Donations/donations";
     }
 
     @GetMapping(path = "/singledonation/{donationId}")
     public String donationsbyId(@PathVariable long donationId, Model model) {
         model.addAttribute("title", "single donation");
         model.addAttribute("donation", donateDao.getOne(donationId));
-        return "singledonation";
+        return "Donations/singledonation";
 //        check to see if we create a different html to render a single donation this is an extension of the comment.
 //        Create landing page and update donations to that url
     }
+
+    @GetMapping("/editdonation/{donationId}")
+    public String editDonation(@PathVariable long donationId, Model model) {
+        model.addAttribute("title", "single request");
+        model.addAttribute("donation", donateDao.getOne(donationId));
+        return "Donations/editdonation";
+    }
+
+    @PostMapping("/editdonation/{donationId}")
+    public String updateDonation(@PathVariable long donationId, @ModelAttribute Donation donation) {
+        donateDao.save(donation);
+        return "redirect:/donations";
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     @RequestMapping("/donations/{id}/delete")
     public String deletePost(@PathVariable long id) {
@@ -55,7 +79,7 @@ public class DonationController {
     @GetMapping("/donationform")
     public String create(Model model) {
         model.addAttribute("donation", new Donation());
-        return "donationform";
+        return "Donations/donationform";
     }
 
 
