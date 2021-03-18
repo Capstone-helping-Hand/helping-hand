@@ -7,6 +7,7 @@ import com.codeup.helpinghand.repositories.RequestRepository;
 import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,5 +81,18 @@ public class UserController {
         model.addAttribute("viewRequests", donationDao.findAll());
         return "User/admindashboard";
     }
-
+    @GetMapping("/userdashboard")
+    public String userDashboard(Model model){
+        model.addAttribute("lastFiveDonations", donationDao.lastFive());
+        model.addAttribute("lastFiveRequests", reqDao.lastFive());
+//        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveUserDonations());
+        model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
+        return ("User/userdashboard");
+    }
+    @GetMapping("/userdonations")
+    public String userDonations(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("userDonations", donationDao.findAllByUserAndIsApproved(user));
+        return("Donations/userdonations");
+    }
 }
