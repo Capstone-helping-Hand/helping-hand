@@ -46,6 +46,20 @@ public class DonationController {
 //        Create landing page and update donations to that url
     }
 
+    @GetMapping("/editdonation/{donationId}")
+    public String editDonation(@PathVariable long donationId, Model model) {
+        model.addAttribute("title", "single request");
+        model.addAttribute("donation", donateDao.getOne(donationId));
+        return "editdonation";
+    }
+
+    @PostMapping("/editdonation/{donationId}")
+    public String updateDonation(@PathVariable long donationId, @ModelAttribute Donation donation) {
+        donateDao.save(donation);
+        return "redirect:/donations";
+    }
+
+
     @RequestMapping("/donations/{id}/delete")
     public String deletePost(@PathVariable long id) {
         donateDao.deleteById(id);

@@ -15,8 +15,8 @@
                     <h5 th:text="${donation.description}"></h5>
 <!--                    <p th:text="${donation.category.type}"></p>-->
                     <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/edit/'}">Edit</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
                 </div>
             </div>
         </div>
