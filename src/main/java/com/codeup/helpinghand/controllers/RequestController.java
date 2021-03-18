@@ -39,7 +39,7 @@ public class RequestController  {
     @GetMapping("/requests")
     public String request(Model model){
         model.addAttribute("requests", reqDao.findAll());
-        return "requests";
+        return "Requests/requests";
     }
 
     @GetMapping(path = "/singlereq/{requestId}")
@@ -49,7 +49,7 @@ public class RequestController  {
 
         model.addAttribute("request", reqDao.getOne(requestId));
 
-        return "singlereq";
+        return "Requests/singlereq";
     }
 //comment
 
@@ -60,7 +60,7 @@ public class RequestController  {
 
         model.addAttribute("request", reqDao.getOne(requestId));
 
-        return "reqedit";
+        return "Requests/reqedit";
     }
     @PostMapping("/reqedit/{requestId}")
     public String postEdit(@PathVariable long requestId, @ModelAttribute Request request){
@@ -83,7 +83,7 @@ public class RequestController  {
     @GetMapping("/reqform")
     public String create(Model model) {
         model.addAttribute("request", new Request());
-          return "reqform";
+          return "Requests/reqform";
     }
 
 
