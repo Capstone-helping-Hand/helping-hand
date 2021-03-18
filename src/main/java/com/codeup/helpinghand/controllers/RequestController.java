@@ -1,5 +1,6 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.CategoryRepository;
@@ -52,31 +53,50 @@ public class RequestController  {
     }
 //comment
 
+
+    @GetMapping("/reqedit/{requestId}")
+    public String editReq(@PathVariable long requestId, Model model) {
+        model.addAttribute("title", "single request");
+
+        model.addAttribute("request", reqDao.getOne(requestId));
+
+        return "reqedit";
+    }
+    @PostMapping("/reqedit/{requestId}")
+    public String postEdit(@PathVariable long requestId, @ModelAttribute Request request){
+
+            reqDao.save(request);
+
+        return "redirect:/requests";
+    }
+
+
+    @RequestMapping("/requests/{requestId}/delete")
+    public String deletePost(@PathVariable long requestId) {
+
+        reqDao.deleteById(requestId);
+        return "redirect:/requests";
+    }
+
+
+
     @GetMapping("/reqform")
     public String create(Model model) {
         model.addAttribute("request", new Request());
           return "reqform";
     }
-    
-
-@PostMapping(path = "/reqform")
-public String creatRequest(@ModelAttribute Request request) {
-
-     Request savereq = reqDao.save(request);
-        savereq.getTitle();
-        savereq.getDescription();
 
 
-      return "redirect:/requests";
+    @RequestMapping(value = "/reqform", method = RequestMethod.POST)
+    public String saveDonation(@ModelAttribute Request request, Model model) {
+        model.addAttribute("request", reqDao.findAll());
+        User user = userService.getLoggedInUser();
+        Request newReq = reqDao.save(request);
+        newReq.setUser(user);
+        reqDao.save(request);
 
-}
-
-    @GetMapping("/reqedit/{requestId}")
-    public String editReq(@PathVariable long requestId, Model model) {
-        Request request = reqDao.getOne(requestId);
-
-
-
+        return "redirect:/requests";
+    }
 
 
 }
