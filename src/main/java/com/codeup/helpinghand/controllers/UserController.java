@@ -56,7 +56,7 @@ public class UserController {
     @GetMapping("/adminsignup")
     public String adminSignup(Model model) {
         model.addAttribute("user", new User());
-        return "User/adminsignup";
+        return "adminsignup";
     }
 
     @PostMapping("/adminsignup")
