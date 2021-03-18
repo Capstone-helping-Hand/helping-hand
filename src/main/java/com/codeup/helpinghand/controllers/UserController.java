@@ -56,7 +56,7 @@ public class UserController {
     @GetMapping("/adminsignup")
     public String adminSignup(Model model) {
         model.addAttribute("user", new User());
-        return "adminsignup";
+        return "User/adminsignup";
     }
 
     @PostMapping("/adminsignup")
@@ -78,7 +78,7 @@ public class UserController {
         model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
         model.addAttribute("viewAllDonations", donationDao.findAll());
         model.addAttribute("viewRequests", donationDao.findAll());
-        return "admindashboard";
+        return "User/admindashboard";
     }
 
 }
