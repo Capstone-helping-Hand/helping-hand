@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Home</title>
@@ -9,39 +9,26 @@
 
 <div class="navigation" th:fragment="navbar">
     <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
     <label for="navi-toggle" class="navigation__button">
         <span class="navigation__icon">&nbsp;</span>
     </label>
-
     <div class="navigation__background">&nbsp;</div>
-
     <nav class="navigation__nav">
         <ul class="navigation__list">
-<!--            Thymeleaf has it's own switch. Instead of ul-->
-<!--            https://attacomsian.com/blog/thymeleaf-switch-statement-->
-            <c:choose>
-                <!--Visitor view-->
-                <c:when test="${sessionScope.user == null}">
-                    <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Home</a></li>
-                    <li class="navigation__item"><a href="/signup" class="navigation__link"><span></span>Sign-Up</a></li>
-                    <li class="navigation__item"><a href="/login" class="navigation__link"><span></span>Login</a></li>
-                </c:when>
-                <li class="navigation__item"><a href="/donations" class="navigation__link"><span></span>Donations</a></li>
-                <!--User view-->
-                <c:when test="${sessionScope.user == user}">
-                    <li class="navigation__item"><a href="/" class="navigation__link"><span></span>Dashboard</a></li>
-                    <li class="navigation__item"><a href="/requests" class="navigation__link"><span></span>Requests</a></li>
-                    <li class="navigation__item"><a href="/logout" class="navigation__link"><span></span>Logout</a></li>
-                </c:when>
-                <!--Admin view-->
-                <c:otherwise>
-                    <li class="navigation__item"><a href="/pending" class="navigation__link"><span></span>Pending</a></li>
-                </c:otherwise>
-            </c:choose>
-                <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
+            <li class="navigation__item"><a href="/" class="navigation__link" sec:authorize="not isAuthenticated()"><span></span>Home</a></li>
+            <li class="navigation__item"><a href="/" class="navigation__link" sec:authorize="isAuthenticated()"><span></span>Dashboard</a></li>
+            <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
+            <li class="navigation__item"><a href="/donations" class="navigation__link" sec:authorize="isAuthenticated()"><span></span>Donations</a></li>
+            <li class="navigation__item"><a href="/requests" class="navigation__link" sec:authorize="isAuthenticated()"><span></span>Requests</a></li>
+            <li class="navigation__item"><a href="/pending" class="navigation__link" sec:authorize="hasAuthority('ADMIN')"><span></span>Pending</a></li>
+            <li class="navigation__item"><a href="/signup" class="navigation__link" sec:authorize="not isAuthenticated()"><span></span>Sign-Up</a></li>
+            <li class="navigation__item"><a href="/login" class="navigation__link" sec:authorize="not isAuthenticated()"><span></span>Login</a></li>
+            <li class="navigation__item">
+                <form th:action="@{/logout}" th:method="post"><a href="/logout" class="navigation__link" sec:authorize="isAuthenticated()"><span></span>Logout</a></form>
+            </li>
         </ul>
     </nav>
 </div>
+
 </body>
 </html>

@@ -14,27 +14,27 @@ public class HomeController {
 
     private final UserRepository userDao;
 
-    public HomeController(UserRepository userDao){
+    public HomeController(UserRepository userDao) {
         this.userDao = userDao;
-
     }
 
     @GetMapping("/")
     public String home(Model model) {
-
+        model.addAttribute("title", "Welcome to Helping Hands");
         return "index";
     }
 
     @GetMapping("/aboutus")
-    public String AboutUs(){
+    public String AboutUs(Model model) {
+        model.addAttribute("title", "A Little About Us");
         return "aboutus";
     }
 
     @GetMapping("/dashboard")
-        public String Dashboard(){
-            return "User/userdashboard";
+    public String Dashboard(Model model) {
+        model.addAttribute("title", "Your Dashboard");
+        return "User/userdashboard";
     }
-
 
 
 }
