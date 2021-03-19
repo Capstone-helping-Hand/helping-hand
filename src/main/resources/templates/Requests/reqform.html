@@ -24,11 +24,11 @@
         <textarea id="description" name="body" class="form-control" type="text" th:field="*{description}"></textarea>
     </div>
     <p>Please select your request category:</p>
-    <input type="radio" id="indoor" name="category" value="indoor" th:field="*{request.type}">
+    <input type="radio" id="indoor" name="category" value="indoor" th:field="*{category.type}">
     <label for="indoor">Indoor</label><br>
-    <input type="radio" id="outdoor" name="category" value="outdoor" th:field="*{request.type}">
+    <input type="radio" id="outdoor" name="category" value="outdoor" th:field="*{category.type}">
     <label for="outdoor">Outdoor</label><br>
-    <input type="radio" id="other" name="category" value="other" th:field="*{request.type}">
+    <input type="radio" id="other" name="category" value="other" th:field="*{category.type}">
     <label for="other">Other</label>
     <input type="submit" class="btn btn-block btn-primary">
 </form>
