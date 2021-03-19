@@ -47,12 +47,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // DEFINE VIEW WHERE A USER MUST BE LOGGED IN
                 .and()
                 .authorizeRequests()
-                .antMatchers( "/userdashboard", "/requests", "/singlereq/{requestId}", "/reqform")
+                .antMatchers( "/userdashboard", "/requests", "/singlereq/{requestId}", "/reqform", "/donations", "/singledonation/{donationId}", "/donationform")
                 .authenticated()
                 // DEFINE ADMIN ONLY PAGES
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admindashboard", "/requests/{requestId}/delete", "/reqedit/{requestId}")
+                .antMatchers("/admindashboard", "/donations/{donationId}/delete", "/editdonation/{donationId}")
                 .hasAuthority("ADMIN");
     }
 }

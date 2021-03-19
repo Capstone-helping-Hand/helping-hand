@@ -3,6 +3,7 @@ package com.codeup.helpinghand.controllers;
 import com.codeup.helpinghand.models.Category;
 import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.User;
+import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.repositories.CategoryRepository;
 import com.codeup.helpinghand.repositories.DonationRepository;
 import com.codeup.helpinghand.repositories.RoleRepository;
