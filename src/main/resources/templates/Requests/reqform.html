@@ -23,17 +23,15 @@
         <label for="description">Post Body</label>
         <textarea id="description" name="body" class="form-control" type="text" th:field="*{description}"></textarea>
     </div>
-    <p>Please select your request category:</p>
-    <input type="radio" id="indoor" name="category" value="indoor" th:field="*{category.type}">
-    <label for="indoor">Indoor</label><br>
-    <input type="radio" id="outdoor" name="category" value="outdoor" th:field="*{category.type}">
-    <label for="outdoor">Outdoor</label><br>
-    <input type="radio" id="other" name="category" value="other" th:field="*{category.type}">
-    <label for="other">Other</label>
+    <div class="form-group">
+        <span><input id="indoor" name="cat.type" type="radio" value="indoor"/><label for="indoor">indoor</label></span>
+        <span><input id="outdoor" name="cat.type" type="radio" value="outdoor"/><label for="outdoor">outdoor</label></span>
+        <span><input id="other" name="cat.type" type="radio" value="other"/><label for="other">other</label></span>
+    </div>
     <input type="submit" class="btn btn-block btn-primary">
 </form>
 
 
-<!--<div th:replace="partials/scripts :: scripts"></div>-->
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
