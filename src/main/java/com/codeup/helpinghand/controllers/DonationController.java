@@ -102,10 +102,13 @@ public class DonationController {
 //    }
 
     @RequestMapping(value = "/donationform", method = RequestMethod.POST)
-    public String saveDonation(@ModelAttribute Donation donation, Model model) {
+    public String saveDonation(@ModelAttribute Donation donation, Model model, @RequestParam("photo") String picture, @RequestParam("don.type") String category) {
+        
         model.addAttribute("donation", donateDao.findAll());
         User user = userService.getLoggedInUser();
         Donation newDonation = donateDao.save(donation);
+        newDonation.setCategory(cateDao.findByType(category));
+        newDonation.setPicture(picture);
         newDonation.setDonator(user);
         donateDao.save(donation);
 
