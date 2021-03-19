@@ -1,40 +1,36 @@
 package com.codeup.helpinghand.controllers;
 
-import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
+import com.codeup.helpinghand.repositories.DonationRepository;
 import com.codeup.helpinghand.repositories.RequestRepository;
+import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-
-
-import java.util.Scanner;
-
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class UserController{
+public class UserController {
 
-   private final UserRepository userDao;
+    private final UserRepository userDao;
     private final PasswordEncoder encoder;
     private final RequestRepository reqDao;
+    private final DonationRepository donationDao;
+    private final RoleRepository roleDao;
     private final UserService userService;
 
-    public UserController(UserRepository userDao, PasswordEncoder encoder, RequestRepository reqDao,UserService userService) {
+    public UserController(UserRepository userDao, PasswordEncoder encoder, RequestRepository reqDao, DonationRepository donationDao, RoleRepository roleDao, UserService userService) {
         this.userDao = userDao;
         this.encoder = encoder;
         this.reqDao = reqDao;
+        this.donationDao = donationDao;
+        this.roleDao = roleDao;
         this.userService = userService;
-
     }
-
-    Scanner userInput = new Scanner(System.in);
 
     @GetMapping("/login")
     public String showLoginForm() {
@@ -48,31 +44,55 @@ public class UserController{
     }
 
     @PostMapping("/signup")
-    public String signUpUser(@ModelAttribute Role role, User user) {
-
+    public String signUpUser(@ModelAttribute User user) {
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
+
+        Role userRole = roleDao.findByRole("USER");
+        user.setRole(userRole);
         userDao.save(user);
         return "redirect:/login";
     }
+
     @GetMapping("/adminsignup")
-    public String adminSignup(Model model){
+    public String adminSignup(Model model) {
         model.addAttribute("user", new User());
         return "adminsignup";
     }
-    
+
     @PostMapping("/adminsignup")
-    public String adminSignUp(@ModelAttribute Role role, User user){
+    public String adminSignUp(@ModelAttribute Role role, User user) {
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
+
+        Role userRole = roleDao.findByRole("ADMIN");
+        user.setRole(userRole);
         userDao.save(user);
         return "redirect:/login";
     }
-//    @GetMapping("/userdashboard")
-//    public String lastfive(Model model){
-//        User user = (User) SecurityContextHolder.GetContext().getAuthentication().getPrincipal();
-//        model.addAttribute()
-//    }
 
-
+    @GetMapping("/admindashboard")
+    public String lastFiveDonations(Model model) {
+        model.addAttribute("lastFiveDonations", donationDao.lastFive());
+        model.addAttribute("lastFiveRequests", reqDao.lastFive());
+        model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
+        model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+        model.addAttribute("viewAllDonations", donationDao.findAll());
+        model.addAttribute("viewRequests", donationDao.findAll());
+        return "User/admindashboard";
+    }
+    @GetMapping("/userdashboard")
+    public String userDashboard(Model model){
+        model.addAttribute("lastFiveDonations", donationDao.lastFive());
+        model.addAttribute("lastFiveRequests", reqDao.lastFive());
+//        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveUserDonations());
+        model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
+        return ("User/userdashboard");
+    }
+    @GetMapping("/userdonations")
+    public String userDonations(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("userDonations", donationDao.findAllByUserAndIsApproved(user));
+        return("Donations/userdonations");
+    }
 }

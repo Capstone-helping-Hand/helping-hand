@@ -4,6 +4,7 @@
     <title>request form</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <!--<nav th:replace="partials/navbar :: navbar"></nav>-->
 
 <h1>fill out a request form</h1>
@@ -11,8 +12,8 @@
 <form th:action="@{/reqform}" th:method="post" th:object="${request}">
     <input style="visibility: hidden" type="text" name="id" th:field="*{requestId}">
     <div class="form-group">
-        <label>Photos: </label>
-        <input type="file" name="image" accept="image/png, image/jpeg" />
+        <label for="file">Upload photo of requested donation</label>
+        <input id="file" name="file" type="text" placeholder="Enter URL for Image"/>
     </div>
     <div class="form-group">
         <label for="title">Title</label>
@@ -22,9 +23,15 @@
         <label for="description">Post Body</label>
         <textarea id="description" name="body" class="form-control" type="text" th:field="*{description}"></textarea>
     </div>
+    <p>Please select your request category:</p>
+    <input type="radio" id="indoor" name="category" value="indoor" th:field="*{category.type}">
+    <label for="indoor">Indoor</label><br>
+    <input type="radio" id="outdoor" name="category" value="outdoor" th:field="*{category.type}">
+    <label for="outdoor">Outdoor</label><br>
+    <input type="radio" id="other" name="category" value="other" th:field="*{category.type}">
+    <label for="other">Other</label>
     <input type="submit" class="btn btn-block btn-primary">
 </form>
-
 
 
 <!--<div th:replace="partials/scripts :: scripts"></div>-->

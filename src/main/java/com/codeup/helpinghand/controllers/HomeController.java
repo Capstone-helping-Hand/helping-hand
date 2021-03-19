@@ -32,7 +32,7 @@ public class HomeController {
 
     @GetMapping("/dashboard")
         public String Dashboard(){
-            return "dashboard";
+            return "User/userdashboard";
     }
 
 
