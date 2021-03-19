@@ -5,9 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Pending Donations</title>
 </head>
 <body>
-
+<body>
+<div class="container">
+    <div class="row">
+        <!--        <p status if boolean th if boolean is approved true then the status is approved. if approved is false then status is pending. -->
+        <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${userDonations}">
+            <div class="card card__picture">
+                <div class="card-body">
+                    <h3 th:text="${donation.title}"></h3>
+                    <img th:src="${donation.picture} " height="125rem" width="auto">
+                    <h5 th:text="${donation.description}"></h5>
+                    <!--                    <p th:text="${donation.category.type}"></p>-->
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/edit/'}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </body>
 </html>
