@@ -1139,19 +1139,19 @@ nav::after {
   color: #fff;
 }
 .button-main:link {
-  background-color: #f08a5d;
+  background-color: #000080;
   color: #ffffff;
 }
 .button-main:hover {
-  background-color: #ea5717;
+  background-color: #000080;
   color: #ffffff;
 }
 .button-hot:link {
-  background-color: #f08a5d;
+  background-color: #000080;
   color: #ffffff;
 }
 .button-hot:hover {
-  background-color: #ea5717;
+  background-color: #000080;
   color: #ffffff;
 }
 
@@ -1186,4 +1186,4 @@ button {
   vertical-align: middle;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=style.css.map */

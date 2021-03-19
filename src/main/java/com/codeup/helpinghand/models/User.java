@@ -1,6 +1,13 @@
 package com.codeup.helpinghand.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -22,6 +29,27 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+//    /// Ending of the finding the last five donations and requests////
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    @JsonIgnore
+//    private List<Donation> donationList;
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    @Fetch(FetchMode.SELECT)
+//    @BatchSize(size=5)
+//    List<Donation> lastFiveDonations;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    @Fetch(FetchMode.SELECT)
+//    @BatchSize(size=5)
+//    List<Request> lastFiveRequests;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    @JsonIgnore
+//    private List<Request> requestList;
+
+    /// Ending of the finding the last five donations and requests////
 
     public User() {
 
@@ -81,4 +109,20 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+//    public List<Donation> getDonationList() {
+//        return donationList;
+//    }
+//
+//    public void setDonationList(List<Donation> donationList) {
+//        this.donationList = donationList;
+//    }
+//
+//    public List<Request> getRequestList() {
+//        return requestList;
+//    }
+//
+//    public void setRequestList(List<Request> requestList) {
+//        this.requestList = requestList;
+//    }
 }
