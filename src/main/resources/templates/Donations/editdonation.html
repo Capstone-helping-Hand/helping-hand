@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links">
+    <meta charset="UTF-8">
+    <title>Edit Donation</title>
+</head>
+<body>
+
+<!--<div class="container">-->
+<!--    <form th:action="@{/donations/edit}" method="post" th:object="${donations}">-->
+<!--    <div class="form-group">-->
+<!--        <label for="donation-title">Title</label>-->
+<!--        <input type="text" id="donation-title" class="form-control" th:field="*{title}">-->
+<!--    </div> <div class="form-group">-->
+<!--        <label for="donation-description">Title</label>-->
+<!--        <input type="text" id="donation-description" class="form-control" th:field="*{description}">-->
+<!--    </div>-->
+
+<!--    </form>-->
+
+<!--</div>-->
+
+<div class="container">
+    <h1>Edit Your Donation</h1>
+    <form th:action="'/editdonation/' + ${donation.donationId}" method="post">
+        <input style="visibility: hidden" type="text" name="id" th:value="${donationId}">
+        <div class="form-group">
+            <label for="url">Image URL</label>
+            <input id="url" name="url" class="form-control" type="text" th:field="*{donation.picture}">
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" type="text" th:value="${donation.title}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" type="text"
+                      th:text="${donation.description}"></textarea>
+        </div>
+        <input type="submit" class="btn btn-block btn-primary">
+    </form>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

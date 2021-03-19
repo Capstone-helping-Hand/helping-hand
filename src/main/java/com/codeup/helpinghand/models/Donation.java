@@ -39,19 +39,15 @@ public class Donation {
     @JoinColumn (name = "donator_id") // should be donator_id / donation_id ?
     private User donator;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "category_id")
     private Category category;
-
-    @OneToOne
-    @JoinColumn (name = "request_id")
-    private Request request;
 
     public Donation() {
 
     }
 
-    public Donation(long donationId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, User claimant, User donator, Category category, Request request) {
+    public Donation(long donationId, String title, String description, Date date, String picture, Boolean isApproved, Boolean isFulfilled, User claimant, User donator, Category category) {
         this.donationId = donationId;
         this.title = title;
         this.description = description;
@@ -62,7 +58,6 @@ public class Donation {
         this.claimant = claimant;
         this.donator = donator;
         this.category = category;
-        this.request = request;
     }
 
     public long getDonationId() {
@@ -145,11 +140,4 @@ public class Donation {
         this.category = category;
     }
 
-    public Request getRequest() {
-        return request;
-    }
-
-    public void setRequest(Request request) {
-        this.request = request;
-    }
 }

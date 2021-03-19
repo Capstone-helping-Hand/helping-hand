@@ -68,6 +68,7 @@ public class User {
         username = copy.username;
         email = copy.email;
         password = copy.password;
+        role = copy.role;
     }
 
     public long getUserId() {
@@ -113,7 +114,7 @@ public class User {
 //    public List<Donation> getDonationList() {
 //        return donationList;
 //    }
-//
+
 //    public void setDonationList(List<Donation> donationList) {
 //        this.donationList = donationList;
 //    }

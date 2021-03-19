@@ -12,32 +12,31 @@
 <form class="container" th:action="@{/signup}" method="post" th:object="${user}">
     <div class="form-group">
         <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" th:field="*{username}" />
+        <input class="form-control" type="text" id="username" th:field="*{username}"/>
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input class="form-control" type="text" id="email" name="email" th:field="*{email}" />
+        <input class="form-control" type="text" id="email" name="email" th:field="*{email}"/>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input class="form-control" type="password" id="password" name="password" th:field="*{password}" />
+        <input class="form-control" type="password" id="password" name="password" th:field="*{password}"/>
     </div>
-    <input id="signupbtn" class="btn btn-block btn-primary" type="submit" value="Sign Up!" />
+    <input id="signupbtn" class="btn btn-block btn-primary" type="submit" value="Sign Up!"/>
 
 </form>
 
 <script>
-    if ( window.addEventListener ) {
-        var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
-        window.addEventListener("keydown", function(e) {
-            if ( e.keyCode == konami[state] ) state++;
+    if (window.addEventListener) {
+        var state = 0, konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        window.addEventListener("keydown", function (e) {
+            if (e.keyCode == konami[state]) state++;
             else state = 0;
-            if ( state == 10 )
+            if (state == 10)
                 window.location = "http://sahelpinghands.org/adminsignup";  //you can write your own code here
         }, true);
     }
-
-
 </script>
+
 </body>
 </html>
