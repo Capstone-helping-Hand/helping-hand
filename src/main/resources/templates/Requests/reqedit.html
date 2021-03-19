@@ -19,6 +19,7 @@
             <label for="description">Post Body</label>
             <textarea id="description" name="description" class="form-control" type="text" th:text="${request.description}"></textarea>
         </div>
+        <h3 th:text="${request.category.type}"></h3>
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>

@@ -13,7 +13,7 @@
                     <h3 th:text="${donation.title}"></h3>
                     <img th:src="${donation.picture} " height="125rem" width="auto">
                     <h5 th:text="${donation.description}"></h5>
-<!--                    <p th:text="${donation.category.type}"></p>-->
+<!--                    <h3 th:text="${donation.category.type}"></h3>-->
                     <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-
+<a th:href="@{/donationform}" class="btn btn-primary" role="button" data-bs-toggle="button">Create a Donation</a>
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
