@@ -83,9 +83,11 @@ public class UserController {
     }
     @GetMapping("/userdashboard")
     public String userDashboard(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long donator_id = user.getUserId();
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
         model.addAttribute("lastFiveRequests", reqDao.lastFive());
-//        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveUserDonations());
+        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveForUser(donator_id));
         model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         return ("User/userdashboard");
     }

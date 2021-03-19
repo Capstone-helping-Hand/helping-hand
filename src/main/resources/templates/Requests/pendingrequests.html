@@ -8,6 +8,23 @@
     <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <!--        <p status if boolean th if boolean is approved true then the status is approved. if approved is false then status is pending. -->
+        <div class="col-12 col-md-6 col-lg-4" th:each="request : ${pendingRequests}">
+            <div class="card card__picture">
+                <div class="card-body">
+                    <h3 th:text="${request.title}"></h3>
+                    <img th:src="${request.picture} " height="125rem" width="auto">
+                    <h5 th:text="${request.description}"></h5>
+                    <!--                    <p th:text="${donation.category.type}"></p>-->
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlerequest/' + ${request.requestId}}">View</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlerequest/' + ${request.requestId} + '/edit/'}">Edit</a>
+                    <a class="btn btn-white btn-animated" th:href="@{'/singlerequest/' + ${request.requestId} + '/delete/'}">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
