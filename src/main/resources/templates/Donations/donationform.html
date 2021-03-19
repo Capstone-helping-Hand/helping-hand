@@ -15,8 +15,8 @@
 <!--        <input type="file" name="image" accept="image/png, image/jpeg"/>-->
 <!--    </div>-->
     <div class="form-group">
-        <label for="url">Image URL</label>
-        <input id="url" name="url" class="form-control" type="text" th:field="*{picture}">
+        <label for="photo">Upload photo of donation</label>
+        <input id="photo" name="photo" type="text" placeholder="Enter URL for Image"/>
     </div>
     <div class="form-group">
         <label for="title">Title</label>
@@ -26,16 +26,17 @@
         <label for="description">Description</label>
         <textarea id="description" name="description" class="form-control" type="text" th:field="*{description}"></textarea>
     </div>
+
     <p>Please select your donation category:</p>
-    <input type="radio" id="indoor" name="category" value="indoor" th:field="*{category.type}">
-    <label for="indoor">Indoor</label><br>
-    <input type="radio" id="outdoor" name="category" value="outdoor" th:field="*{category.type}">
-    <label for="outdoor">Outdoor</label><br>
-    <input type="radio" id="other" name="category" value="other" th:field="*{category.type}">
-    <label for="other">Other</label>
+        <div class="form-group">
+        <span><input id="indoor" name="don.type" type="radio" value="indoor"/><label for="indoor">indoor</label></span>
+        <span><input id="outdoor" name="don.type" type="radio" value="outdoor"/><label for="outdoor">outdoor</label></span>
+        <span><input id="other" name="don.type" type="radio" value="other"/><label for="other">other</label></span>
+    </div>
 <!--    NEED TO FIX RADIO CHECKBOX FOR CATEGORIES-->
     <input type="submit" class="btn btn-block btn-primary">
 </form>
+
 
 
 <!--<div th:replace="partials/scripts :: scripts"></div>-->
