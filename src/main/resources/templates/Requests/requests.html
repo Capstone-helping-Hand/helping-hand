@@ -24,11 +24,13 @@
                     <h3 th:text="${request.title}"></h3>
                     <img th:src="${request.picture} " height="125rem" width="auto">
                     <h5 th:text="${request.description}"></h5>
+<!--                    <h3 th:text="${request.category.type}"></h3>-->
                     <a class="btn btn-white btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <a class="btn btn-white btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
                         <a class="btn btn-white btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
                     </div>
+
                 </div>
             </div>
         </div>
