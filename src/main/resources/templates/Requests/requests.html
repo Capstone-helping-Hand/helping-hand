@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head th:replace="partials/head :: header-links">
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -25,8 +25,10 @@
                     <img th:src="${request.picture} " height="125rem" width="auto">
                     <h5 th:text="${request.description}"></h5>
                     <a class="btn btn-white btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
-                    <a class="btn btn-white btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
+                    <div sec:authorize="hasAuthority('ADMIN')">
+                        <a class="btn btn-white btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
+                        <a class="btn btn-white btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
+                    </div>
                 </div>
             </div>
         </div>

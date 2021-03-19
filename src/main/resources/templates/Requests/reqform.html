@@ -12,6 +12,10 @@
 <form th:action="@{/reqform}" th:method="post" th:object="${request}">
     <input style="visibility: hidden" type="text" name="id" th:field="*{requestId}">
     <div class="form-group">
+        <label for="file">Upload photo of requested donation</label>
+        <input id="file" name="file" type="text" placeholder="Enter URL for Image"/>
+    </div>
+    <div class="form-group">
         <label for="title">Title</label>
         <input id="title" name="title" class="form-control" type="text" th:field="*{title}">
     </div>
@@ -21,7 +25,6 @@
     </div>
     <input type="submit" class="btn btn-block btn-primary">
 </form>
-
 
 
 <!--<div th:replace="partials/scripts :: scripts"></div>-->
