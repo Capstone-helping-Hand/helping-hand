@@ -16,7 +16,7 @@
             <div class="card card__picture">
                 <div class="card-body">
                     <h3 th:text="${donation.title}"></h3>
-                    <img th:src="${donation.picture} " height="125rem" width="auto">
+                    <img th:src="${donation.picture} " height="100rem" width="auto">
                     <h5 th:text="${donation.description}"></h5>
                     <!--                    <p th:text="${donation.category.type}"></p>-->
                     <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>

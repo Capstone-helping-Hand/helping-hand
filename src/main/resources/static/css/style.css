@@ -12,7 +12,7 @@ $breakpoint argument choices:
 *::before {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Lato, sans-serif;
   box-sizing: inherit;
 }
 
@@ -218,7 +218,7 @@ body {
   z-index: -1;
   transition: all 0.4s;
 }
-.btn--orange {
+.btn--blue {
   background: #4169e1;
   color: #fff;
   display: inline-block;
@@ -256,16 +256,22 @@ body {
 }
 
 .card {
+  background-color: #fff;
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 100rem;
-  width: 35rem;
+  height: 30rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+  border-radius: 3px;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 .card__side {
   font-size: 2rem;
-  height: 50rem;
-  transition: all 0.8s ease;
+  height: 62rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -274,41 +280,22 @@ body {
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
 }
-.card__side--front {
-  background-color: #fff;
-}
-.card__side--back {
-  transform: rotateY(180deg);
-}
-.card__side-1 {
-  background-image: linear-gradient(to right bottom, #FFFF99, #FFD700);
-}
-.card__side-2 {
-  background-image: linear-gradient(to right bottom, #FFFF99, #FFD700);
-}
-.card:hover .card__side--front {
-  transform: rotateY(-180deg);
-}
-.card:hover .card__side--back {
-  transform: rotateY(0);
-}
-.card__picture {
-  background-size: cover;
-  height: 63rem;
-  background-blend-mode: screen;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+.card__side__picture {
+  max-height: 12rem;
+  width: 100%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
-.card__picture--1 {
-  background-image: linear-gradient(to right bottom, #add8e6, #000080), url(/img/quincy.JPG);
+.card__side__image {
+  max-height: 12rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
 }
-.card__picture--2 {
-  background-image: linear-gradient(to right bottom, #add8e6, #000080), url(/img/baxter.jpg);
-}
-.card__heading {
+.card__side__heading {
   font-size: 2.8rem;
   font-weight: 300;
   text-transform: uppercase;
@@ -319,57 +306,26 @@ body {
   right: 2rem;
   width: 75%;
 }
-.card__heading-span {
+.card__side__heading-span {
   padding: 1rem 1.5rem;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-.card__heading-span--1 {
-  background-image: linear-gradient(to right bottom, rgba(173, 216, 230, 0.85), rgba(0, 0, 128, 0.85));
-}
-.card__heading-span--2 {
-  background-image: linear-gradient(to right bottom, rgba(173, 216, 230, 0.85), rgba(0, 0, 128, 0.85));
-}
-.card__details {
+.card__side__details {
   padding: 3rem;
 }
-.card__details ul {
+.card__side__details ul {
   list-style: none;
   width: 80%;
   margin: 0 auto;
 }
-.card__details ul li {
+.card__side__details ul li {
   text-align: center;
   font-size: 1.5rem;
   padding: 1rem;
 }
-.card__details ul li:not(:last-child) {
+.card__side__details ul li:not(:last-child) {
   border-bottom: 1px solid #f7f7f7;
-}
-.card__details__cta {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  text-align: center;
-}
-.card__details__dog-box {
-  text-align: center;
-  color: #777;
-  margin-bottom: 8rem;
-}
-.card__details__dog-only {
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: #777;
-}
-.card__details__dog-lastNameValue {
-  font-size: 6rem;
-  font-weight: 100;
-  color: #777;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .composition {
@@ -436,8 +392,8 @@ body {
 
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5rem;
-  padding: 5rem;
+  font-size: 2.5rem;
+  padding: 3rem;
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -1044,146 +1000,8 @@ body {
 }
 
 p {
-  margin-top: 30px;
+  margin-top: 4rem;
   color: #fff;
-}
-
-.btn:link, .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
-}
-.btn:active {
-  transform: translateY(-0.01rem);
-  box-shadow: 0 0.5rem 1 rem rgba(0, 0, 0, 0.2);
-}
-.btn-white {
-  background-color: #fff;
-  color: #777;
-}
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
-.btn-white::after {
-  background-color: #fff;
-}
-.btn-hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-.btn-animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-}
-
-nav {
-  margin: 10px;
-  /*background-color: none;*/
-}
-nav::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.navigation {
-  list-style: none;
-  float: left;
-}
-.navigation li {
-  display: inline-block;
-  margin-left: 30px;
-}
-.navigation li:first-child {
-  margin: 0;
-}
-.navigation li a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #333;
-}
-
-.button {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
-  float: right;
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-}
-.button-main:link, .button-hot:link {
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 100px;
-  text-decoration: none;
-  text-transform: uppercase;
-  /*width: $width-button;*/
-  color: #fff;
-}
-.button-main:link {
-  background-color: #000080;
-  color: #ffffff;
-}
-.button-main:hover {
-  background-color: #000080;
-  color: #ffffff;
-}
-.button-hot:link {
-  background-color: #000080;
-  color: #ffffff;
-}
-.button-hot:hover {
-  background-color: #000080;
-  color: #ffffff;
-}
-
-@media screen and (min-width: 576px) {
-  .card-img-top {
-    height: 20vw;
-  }
-}
-.card {
-  margin-bottom: 10px;
-  color: darkorange;
-  font-family: Arial, sans-serif;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 50vw;
-  object-fit: cover;
-}
-
-.quote {
-  max-width: 25%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button {
-  display: block;
-  align-content: center;
-  vertical-align: middle;
 }
 
 /*# sourceMappingURL=style.css.map */
