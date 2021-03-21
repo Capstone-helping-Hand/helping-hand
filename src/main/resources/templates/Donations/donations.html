@@ -2,6 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head th:replace="partials/head :: header-links"><title>Donations Listings</title></head>
 <body>
+<style>
+    .form-inline{
+        height: 5rem;
+        width: 50rem;
+    }
+    .filter{
+        height: 5rem;
+        width: 50rem;
+    }
+</style>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1 class="heading-secondary">Check out our Donations!</h1>
 
@@ -10,6 +20,15 @@
         <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
             <div class="card">
                 <div class="card__block u-center-text">
+<h1>Check out our Donations!</h1>
+    <form class="form-inline">
+        <input class="filter" placeholder="Search by Title"/>
+    </form>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
+            <div class="card card__picture" th:data-string="${donation.title}">
+                <div class="card-body">
                     <h3 th:text="${donation.title}"></h3>
                     <div class="image">
                         <img th:src="${donation.picture} " height="100rem" width="auto">

@@ -7,8 +7,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+<style>
+    .form-inline {
+        height: 5rem;
+        width: 50rem;
+    }
+
+    .filter {
+        height: 5rem;
+        width: 50rem;
+    }
+</style>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1>all request posts</h1>
+<form class="form-inline">
+    <input class="filter" placeholder="Search by Title"/>
+</form>
 <!--<div th:include="partials/ReqForm :: ReqForm">-->
 <!--<input type="text" class="btn-check" id="btn-check-outlined" autocomplete="off">-->
 <!--<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>-->
@@ -19,7 +33,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">
-            <div class="card card__picture">
+            <div class="card card__picture" th:data-string="${request.title}">
                 <div class="card-body">
                     <h3 th:text="${request.title}"></h3>
                     <img th:src="${request.picture} " height="125rem" width="auto">
