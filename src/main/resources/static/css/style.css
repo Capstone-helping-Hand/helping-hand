@@ -1,4 +1,3 @@
-
 /*
 $breakpoint argument choices:
 -phone
@@ -835,21 +834,21 @@ body {
 }
 @media (max-width: 56.25em) {
   .navigation__background {
-    top: 5rem;
-    right: 5rem;
+    top: 4.5rem;
+    right: 4.5rem;
   }
 }
 @media (max-width: 37.5em) {
   .navigation__background {
-    top: 5em;
-    right: 5rem;
+    top: 3.5rem;
+    right: 3.5rem;
   }
 }
 .navigation__nav {
   height: 100vh;
   position: fixed;
   top: 0;
-  left: -5rem;
+  left: -25%;
   z-index: 1500;
   opacity: 0;
   width: 0;
@@ -858,7 +857,7 @@ body {
 .navigation__list {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 75%;
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
@@ -871,7 +870,7 @@ body {
   display: inline-block;
   font-size: 3rem;
   font-weight: 300;
-  padding: 1rem 10px;
+  padding: 1rem 2rem;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -927,8 +926,7 @@ body {
   background-color: transparent;
 }
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
-  top: 0
-    
+  top: 0;
   transform: rotate(135deg);
 }
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
@@ -1007,4 +1005,3 @@ p {
 }
 
 /*# sourceMappingURL=style.css.map */
-

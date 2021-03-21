@@ -76,34 +76,34 @@ p {
     animation-fill-mode: backwards;
   }
 }
-nav {
-  margin: 10px;
-  /*background-color: none;*/
-  &::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-}
-
-.navigation {
-  list-style: none;
-  float: left;
-  & li {
-    display: inline-block;
-    margin-left: 30px;
-  }
-  & li:first-child {
-    margin: 0;
-  }
-  & li a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #333;
-  }
-
-}
+//nav {
+//  margin: 10px;
+//  /*background-color: none;*/
+//  &::after {
+//    content: "";
+//    clear: both;
+//    display: table;
+//}
+//
+//}
+//
+//.navigation {
+//  list-style: none;
+//  float: left;
+//  & li {
+//    display: inline-block;
+//    margin-left: 30px;
+//  }
+//  & li:first-child {
+//    margin: 0;
+//  }
+//  & li a {
+//    text-decoration: none;
+//    text-transform: uppercase;
+//    color: #333;
+//  }
+//
+//}
 
 .button {
   text-decoration: none;
