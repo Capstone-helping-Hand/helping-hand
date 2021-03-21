@@ -4,11 +4,15 @@
     <title>Donation form</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="header">
+    <div class="header_donation">
 <!--<nav th:replace="partials/navbar :: navbar"></nav>-->
 
-<h1>Fill Out Your Donation Form</h1>
+        <h1 class="heading-secondary u-center-text">Fill Out Your Donation Form</h1>
 
-<form th:action="@{/donationform}" th:method="post" th:object="${donation}">
+
+<form class="feature-box u-center-text" th:action="@{/donationform}" th:method="post" th:object="${donation}">
     <input style="visibility: hidden" type="text" name="id" th:field="*{donationId}">
 <!--    <div class="form-group">-->
 <!--        <label>Photos: </label>-->
@@ -34,9 +38,11 @@
         <span><input id="other" name="don.type" type="radio" value="other"/><label for="other">other</label></span>
     </div>
 <!--    NEED TO FIX RADIO CHECKBOX FOR CATEGORIES-->
-    <input type="submit" class="btn btn-block btn-primary">
+    <input type="submit" class="btn btn--blue">
 </form>
+</div>
 
+</div>
 
 
 <!--<div th:replace="partials/scripts :: scripts"></div>-->
