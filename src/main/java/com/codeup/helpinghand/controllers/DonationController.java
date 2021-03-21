@@ -1,13 +1,12 @@
 package com.codeup.helpinghand.controllers;
 
-import com.codeup.helpinghand.models.Category;
 import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.User;
-import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.repositories.CategoryRepository;
 import com.codeup.helpinghand.repositories.DonationRepository;
 import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
+import com.codeup.helpinghand.services.EmailService;
 import com.codeup.helpinghand.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,16 +19,15 @@ public class DonationController {
     private final RoleRepository roleDao;
     private final CategoryRepository cateDao;
     private final UserService userService;
+    private final EmailService emailService;
 
-
-
-
-    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao, UserService userService){
+    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao, UserService userService, EmailService emailService){
         this.donateDao = donateDao;
         this.userDao = userDao;
         this.roleDao = roleDao;
         this.cateDao = cateDao;
         this.userService = userService;
+        this.emailService = emailService;
     }
 
     @GetMapping(path = "/donations")
@@ -60,17 +58,6 @@ public class DonationController {
         return "redirect:/donations";
     }
 
-
-
-
-
-
-
-
-
-
-
-
     @RequestMapping("/donations/{id}/delete")
     public String deletePost(@PathVariable long id) {
         donateDao.deleteById(id);
@@ -82,7 +69,6 @@ public class DonationController {
         model.addAttribute("donation", new Donation());
         return "Donations/donationform";
     }
-
 
 //    @PostMapping(path = "/donationform")
 //    public String createDonation(@ModelAttribute Donation donation) {
@@ -103,7 +89,7 @@ public class DonationController {
 
     @RequestMapping(value = "/donationform", method = RequestMethod.POST)
     public String saveDonation(@ModelAttribute Donation donation, Model model, @RequestParam("photo") String picture, @RequestParam("don.type") String category) {
-        
+        model.addAttribute("title", "Create a Donation");
         model.addAttribute("donation", donateDao.findAll());
         User user = userService.getLoggedInUser();
         Donation newDonation = donateDao.save(donation);
@@ -111,6 +97,14 @@ public class DonationController {
         newDonation.setPicture(picture);
         newDonation.setDonator(user);
         donateDao.save(donation);
+
+        String subject = "New Donation Created: " + donateDao.save(donation).getTitle();
+        String body = "Dear " + donateDao.save(donation).getDonator().getUsername()
+                + ". Thank you for submitting a donation. Your donation invoice is ID#"
+                + donateDao.save(donation).getDonationId() + ". Your donation is as follows: \n"
+                + donateDao.save(donation).getDescription() + ". "
+                + "\nPlease contact us if you have any questions or concerns at info@sa-hh.org.";
+        emailService.prepareDonationEmail(donateDao.save(donation), subject, body);
 
         return "redirect:/donations";
     }
