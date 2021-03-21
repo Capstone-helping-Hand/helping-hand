@@ -8,9 +8,9 @@
 <div class="container">
     <div class="row">
         <div class="admin">
-            <h3 class="admin__hello">Hello ${user.username}</h3>
-            <h3 class-="admin__hello">${user.email}</h3>
-            <h3 class="admin__hello">${user.password}</h3>
+            <h3 class="admin__hello" th:text="${user.username}"></h3>
+            <h3 class-="admin__hello" th:text="${user.email}"></h3>
+            <h3 class="admin__hello" th:text="${user.password}"></h3>
             <a href="/update" class="btn btn--blue">Update your info</a>
         </div>
     </div>
