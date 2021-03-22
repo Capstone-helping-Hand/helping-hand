@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Column;
+import java.util.List;
+
 @Controller
 public class DonationController {
     private final DonationRepository donateDao;
@@ -21,7 +24,7 @@ public class DonationController {
     private final UserService userService;
     private final EmailService emailService;
 
-    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao, UserService userService, EmailService emailService){
+    public DonationController(DonationRepository donateDao, UserRepository userDao, RoleRepository roleDao, CategoryRepository cateDao, UserService userService, EmailService emailService) {
         this.donateDao = donateDao;
         this.userDao = userDao;
         this.roleDao = roleDao;
@@ -31,7 +34,7 @@ public class DonationController {
     }
 
     @GetMapping(path = "/donations")
-    public String donations(Model model){
+    public String donations(Model model) {
         model.addAttribute("donations", donateDao.findAll());
         return "Donations/donations";
     }
@@ -109,4 +112,18 @@ public class DonationController {
         return "redirect:/donations";
     }
 
+    @GetMapping(path = "/pendingdonations")
+    public String pendingDonations(@ModelAttribute Donation donation, Model model) {
+        model.addAttribute("title", "Pending Donations");
+        model.addAttribute("donations", donateDao.lastFivePending());
+
+        return "Donations/pendingdonations";
+    }
+
+    @PostMapping("/pendingdonations")
+    public String updateDonation(@ModelAttribute Donation donation) {
+        donateDao.save(donation);
+
+        return "Donations/pendingdonations";
+    }
 }
