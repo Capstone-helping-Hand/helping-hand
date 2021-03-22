@@ -1,4 +1,3 @@
-
 /*
 $breakpoint argument choices:
 -phone
@@ -927,8 +926,7 @@ body {
   background-color: transparent;
 }
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
-  top: 0
-    
+  top: 0;
   transform: rotate(135deg);
 }
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
@@ -1007,4 +1005,3 @@ p {
 }
 
 /*# sourceMappingURL=style.css.map */
-
