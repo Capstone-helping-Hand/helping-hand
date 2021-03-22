@@ -22,8 +22,11 @@
                 </div>
                 <div>
                     <div sec:authorize="hasAuthority('ADMIN')">
-                        <a class="btn btn--blue btn-animated" th:href="@{'/pendingdonations'}">Approve</a>
-                        <a class="btn btn--blue btn-animated" th:href="@{'/pendingdonations'}">Deny</a>
+                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" value="Approve"></form>
+                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" value="Deny"></form>
+<!--                        -->
+<!--                        <a class="btn btn&#45;&#45;blue btn-animated" th:href="@{'/pendingdonations'}">Approve</a>-->
+<!--                        <a class="btn btn&#45;&#45;blue btn-animated" th:href="@{'/pendingdonations'}">Deny</a>-->
                     </div>
                 </div>
             </div>

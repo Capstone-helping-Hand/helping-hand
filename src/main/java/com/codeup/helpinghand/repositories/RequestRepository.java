@@ -16,7 +16,7 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
         List<Request> lastFivePending();
 
         @Query(value = "SELECT * from requests WHERE is_approved = true ORDER BY date", nativeQuery = true)
-        List<Request> allRequests();
+        List<Request> allApprovedRequests();
 
         @Query(value = "SELECT * from requests WHERE is_approved = false ORDER BY date", nativeQuery = true)
         List<Request> allPendingRequests();
