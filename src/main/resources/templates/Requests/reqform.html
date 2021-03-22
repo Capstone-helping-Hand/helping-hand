@@ -1,160 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
       xmlns:form="http://www.w3.org/1999/html">
-<!--<head th:replace="partials/head :: header-links">-->
+<head th:replace="partials/head :: header-links">
 
     <title>request form</title>
-    <style>
-        html, body {
-            min-height: 100%;
-        }
-        body, div, form, input, select, p, textarea {
-            padding: 0;
-            margin: 0;
-            outline: none;
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 16px;
-            color: #eee;
-        }
-        body {
-            background-image: url("/img/HH2.jpg");
-            /*background-position: no-repeat center;*/
-            background-size: cover;
-        }
-        h1, h2 {
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-        h2 {
-            margin: 0 0 0 8px;
-        }
-        .main-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .left-part, form {
-            padding: 25px;
-        }
-        .left-part {
-            text-align: center;
-        }
-        .fa-graduation-cap {
-            font-size: 72px;
-        }
-        form {
-            background: rgba(0, 0, 0, 0.7);
-        }
-        .title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .info {
-            display: flex;
-            flex-direction: column;
-        }
-        input,textarea, select {
-            padding: 5px;
-            margin-bottom: 30px;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #eee;
-        }
-        input::placeholder {
-            color: #eee;
-        }
-        option:focus {
-            border: none;
-        }
-        option {
-            background: black;
-            border: none;
-        }
-        .checkbox input {
-            margin: 0 10px 0 0;
-            vertical-align: middle;
-        }
-        .checkbox a {
-            color: #26a9e0;
-        }
-        .checkbox a:hover {
-            color: #85d6de;
-        }
-        .btn-item, button {
-            padding: 10px 5px;
-            margin-top: 20px;
-            border-radius: 5px;
-            border: none;
-            background: #26a9e0;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 400;
-            color: #fff;
-        }
-        .btn-item {
-            display: inline-block;
-            margin: 20px 5px 0;
-        }
-        .btn {
-            width: 100%;
-        }
-        .btn:hover, .btn-item:hover {
-            background: #85d6de;
-        }
+<!--    <style>-->
+<!--        html, body {-->
+<!--            min-height: 100%;-->
+<!--        }-->
+<!--        body, div, form, input, select, p, textarea {-->
+<!--            padding: 0;-->
+<!--            margin: 0;-->
+<!--            outline: none;-->
+<!--            font-family: Roboto, Arial, sans-serif;-->
+<!--            font-size: 16px;-->
+<!--            color: #eee;-->
+<!--        }-->
+<!--        body {-->
+<!--            background-image: url("/img/HH2.jpg");-->
+<!--            /*background-position: no-repeat center;*/-->
+<!--            background-size: cover;-->
+<!--        }-->
+<!--        h1, h2 {-->
+<!--            text-transform: uppercase;-->
+<!--            font-weight: 400;-->
+<!--        }-->
+<!--        h2 {-->
+<!--            margin: 0 0 0 8px;-->
+<!--        }-->
+<!--        .main-block {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100%;-->
+<!--            padding: 25px;-->
+<!--            background: rgba(0, 0, 0, 0.5);-->
+<!--        }-->
+<!--        .left-part, form {-->
+<!--            padding: 25px;-->
+<!--        }-->
+<!--        .left-part {-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        .fa-graduation-cap {-->
+<!--            font-size: 72px;-->
+<!--        }-->
+<!--        form {-->
+<!--            background: rgba(0, 0, 0, 0.7);-->
+<!--        }-->
+<!--        .title {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .info {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--        }-->
+<!--        input,textarea, select {-->
+<!--            padding: 5px;-->
+<!--            margin-bottom: 30px;-->
+<!--            background: transparent;-->
+<!--            border: none;-->
+<!--            border-bottom: 1px solid #eee;-->
+<!--        }-->
+<!--        input::placeholder {-->
+<!--            color: #eee;-->
+<!--        }-->
+<!--        option:focus {-->
+<!--            border: none;-->
+<!--        }-->
+<!--        option {-->
+<!--            background: black;-->
+<!--            border: none;-->
+<!--        }-->
+<!--        .checkbox input {-->
+<!--            margin: 0 10px 0 0;-->
+<!--            vertical-align: middle;-->
+<!--        }-->
+<!--        .checkbox a {-->
+<!--            color: #26a9e0;-->
+<!--        }-->
+<!--        .checkbox a:hover {-->
+<!--            color: #85d6de;-->
+<!--        }-->
+<!--        .btn-item, button {-->
+<!--            padding: 10px 5px;-->
+<!--            margin-top: 20px;-->
+<!--            border-radius: 5px;-->
+<!--            border: none;-->
+<!--            background: #26a9e0;-->
+<!--            text-decoration: none;-->
+<!--            font-size: 15px;-->
+<!--            font-weight: 400;-->
+<!--            color: #fff;-->
+<!--        }-->
+<!--        .btn-item {-->
+<!--            display: inline-block;-->
+<!--            margin: 20px 5px 0;-->
+<!--        }-->
+<!--        .btn {-->
+<!--            width: 100%;-->
+<!--        }-->
+<!--        .btn:hover, .btn-item:hover {-->
+<!--            background: #85d6de;-->
+<!--        }-->
 
-        @media (min-width: 568px) {
-            html, body {
-                height: 100%;
-            }
-            .main-block {
-                flex-direction: row;
-                height: calc(100% - 50px);
-            }
-            .left-part, form {
-                flex: 1;
-                height: auto;
-            }
-        }
-    </style>
+<!--        @media (min-width: 568px) {-->
+<!--            html, body {-->
+<!--                height: 100%;-->
+<!--            }-->
+<!--            .main-block {-->
+<!--                flex-direction: row;-->
+<!--                height: calc(100% - 50px);-->
+<!--            }-->
+<!--            .left-part, form {-->
+<!--                flex: 1;-->
+<!--                height: auto;-->
+<!--            }-->
+<!--        }-->
+
 </head>
 <body>
-<div class="container">
-<nav th:replace="partials/navbar :: navbar"></nav>
-<div class="main-block">
-    <div class="left-part">
-        <i class="fas fa-graduation-cap"></i>
-        <h1>Every one needs a Helping Hand, so feel free to reach out for one!</h1>
-        <p>Sometimes asking for help also means you are helping yourself - Renuka Pitre</p>
-    </div>
-<form th:action="@{/reqform}" th:method="post" th:object="${request}">
-    <div class="title">
-        <i class="fas fa-pencil-alt"></i>
-        <h2>Please fill out</h2>
-    </div>
-    <input style="visibility: hidden" type="text" name="id" th:field="*{requestId}">
-        <div class="info">
-             <input id="file" name="file" type="text" placeholder="Enter URL for Image"/>
-             <input id="title" name="title" class="form-control" type="text" placeholder="Enter a title" th:field="*{title}" />
-             <input id="description" name="body" class="form-control"  placeholder="Enter a description" type="text" th:field="*{description}">
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <div class="container">
+        <div class="header">
+            <div class="header_requests">
+                <div class="feature-box">
+                    <div class="main-block">
+                         <div class="left-part">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h1>Every one needs a Helping Hand, so feel free to reach out for one!</h1>
+                             <p>Sometimes asking for help also means you are helping yourself - Renuka Pitre</p>
+                        </div>
+                       <form th:action="@{/reqform}" th:method="post" th:object="${request}">
+                            <div class="title">
+                                 <i class="fas fa-pencil-alt"></i>
+                                <h2>Please Fill Out Your Request Below</h2>
+                            </div>
+                       <input style="visibility: hidden" type="text" name="id" th:field="*{requestId}">
+                            <div class="info">
+                            <input id="file" name="file" type="text" placeholder="Enter URL for Image"/>
+                            <input id="title" name="title" class="form-control" type="text" placeholder="Enter a title" th:field="*{title}" />
+                            <input id="description" name="body" class="form-control"  placeholder="Enter a description" type="text" th:field="*{description}">
+                        </div>
+                            <div class="form-group " style="display: flex; justify-content: center" >
+                                <span style="margin-right: 1rem"><input id="indoor" name="cat.type" type="radio" value="indoor"/><label style="margin-left: 5px"  for="indoor">indoor</label></span>
+                                <span style="margin-right: 1rem"><input id="outdoor" name="cat.type" type="radio" value="outdoor"/><label style="margin-left: 5px"  for="outdoor">outdoor</label></span>
+                                <span><input id="other" name="cat.type" type="radio" value="other"/><label style="margin-left: 5px" for="other">other</label></span>
+                            </div>
+                        <input type="submit" class="btn btn-item">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    <div class="form-group " style="display: flex; justify-content: center" >
-        <span style="margin-right: 1rem"><input id="indoor" name="cat.type" type="radio" value="indoor"/><label style="margin-left: 5px"  for="indoor">indoor</label></span>
-        <span style="margin-right: 1rem"><input id="outdoor" name="cat.type" type="radio" value="outdoor"/><label style="margin-left: 5px"  for="outdoor">outdoor</label></span>
-        <span><input id="other" name="cat.type" type="radio" value="other"/><label style="margin-left: 5px" for="other">other</label></span>
     </div>
-     <input type="submit" class="btn btn-item ">
-    </form>
-</div>
-</div>
-
-
-
-
 <!--<footer>-->
 <!--    <div th:replace="partials/footer :: footer"></div>-->
 <!--</footer>-->

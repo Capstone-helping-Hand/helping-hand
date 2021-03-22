@@ -132,6 +132,132 @@ body {
   margin-bottom: 3rem;
 }
 
+p {
+  margin-top: 4rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0 0 0 8px;
+}
+
+.main-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.left-part, form {
+  padding: 25px;
+}
+
+.left-part {
+  text-align: center;
+}
+
+.fa-graduation-cap {
+  font-size: 72px;
+}
+
+form {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, select {
+  padding: 5px;
+  margin-bottom: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+input::placeholder {
+  color: #eee;
+}
+
+option:focus {
+  border: none;
+}
+
+option {
+  background: black;
+  border: none;
+}
+
+.checkbox input {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+}
+
+.checkbox a {
+  color: #4169e1;
+}
+
+.checkbox a:hover {
+  color: #add8e6;
+}
+
+.btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background: #26a9e0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+}
+
+.btn {
+  width: 100%;
+}
+
+.btn:hover, .btn-item:hover {
+  background: #85d6de;
+}
+
+@media (min-width: 568px) {
+  html, body {
+    height: 100%;
+  }
+
+  .main-block {
+    flex-direction: row;
+    height: calc(100% - 50px);
+  }
+
+  .left-part, form {
+    flex: 1;
+    height: auto;
+  }
+}
 .u-center-text {
   text-align: center;
 }
@@ -391,13 +517,20 @@ body {
 }
 
 .feature-box {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   font-size: 2.5rem;
   padding: 3rem;
+  margin-right: 3rem;
   text-align: center;
   border-radius: 3px;
+  border: 1px solid #333;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 @media (max-width: 56.25em) {
   .feature-box {
@@ -419,86 +552,6 @@ body {
 }
 .feature-box:hover {
   transform: translateY(-1.5rem) scale(1.03);
-}
-
-.form__group:not(:last-child) {
-  margin-bottom: 2rem;
-}
-.form__input {
-  font-size: 1.5rem;
-  font-family: inherit;
-  color: inherit;
-  padding: 1.5rem 2rem;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-bottom: 3px solid transparent;
-  width: 90%;
-  display: block;
-}
-.form:focus {
-  outline: none;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #4169e1;
-}
-.form:focus:invalid {
-  border-bottom: 3px solid #FFD700;
-}
-.form::-webkit-input-placeholder {
-  color: #999;
-}
-.form__label {
-  font-size: 0.8rem;
-  font-weight: 400;
-  margin-left: 2rem;
-  margin-top: 0.7rem;
-  display: block;
-  transition: all 0.3s;
-}
-.form__input:placeholder-shown + .form__label {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4rem);
-}
-.form__radio-group {
-  width: 49%;
-  display: inline-block;
-}
-.form__radio-input {
-  display: none;
-}
-.form__radio-label {
-  font-size: 1.6rem;
-  cursor: pointer;
-  position: relative;
-  padding-left: 4.5rem;
-}
-.form__radio-button {
-  height: 3rem;
-  width: 3rem;
-  border: 5px solid #4169e1;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: -0.4rem;
-}
-.form__radio-button::after {
-  content: "";
-  display: block;
-  height: 1.3rem;
-  width: 1.3rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4169e1;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
-  opacity: 1;
 }
 
 .popup {
@@ -997,11 +1050,6 @@ body {
 .post__form {
   width: 50%;
   padding: 6rem;
-}
-
-p {
-  margin-top: 4rem;
-  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

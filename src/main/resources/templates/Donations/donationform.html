@@ -4,47 +4,40 @@
     <title>Donation form</title>
 </head>
 <body>
-<nav th:replace="partials/navbar :: navbar"></nav>
-<div class="header">
-    <div class="header_donation">
-<!--<nav th:replace="partials/navbar :: navbar"></nav>-->
-
-        <h1 class="heading-secondary u-center-text">Fill Out Your Donation Form</h1>
-
-
-<form class="feature-box u-center-text" th:action="@{/donationform}" th:method="post" th:object="${donation}">
-    <input style="visibility: hidden" type="text" name="id" th:field="*{donationId}">
-<!--    <div class="form-group">-->
-<!--        <label>Photos: </label>-->
-<!--        <input type="file" name="image" accept="image/png, image/jpeg"/>-->
-<!--    </div>-->
-    <div class="form-group">
-        <label for="photo">Upload photo of donation</label>
-        <input id="photo" name="photo" type="text" placeholder="Enter URL for Image"/>
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <div class="container">
+        <div class="header">
+            <div class="header_donation">
+                 <div class="feature-box">
+                     <div class="main-block">
+                        <div class="left-part">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h2>Every one needs a Helping Hand, so feel free to reach out for one!</h2>
+                            <p>Those who are happiest are those who do the most for others - Booker T. Washington</p>
+                        </div>
+                            <form th:action="@{/donationform}" th:method="post" th:object="${donation}">
+                        <div class="title">
+                            <i class="fas fa-pencil-alt"></i>
+                            <h2>Fill Out Your Donation Form Below</h2>
+                        </div>
+                            <input style="visibility: hidden" type="text" name="id" th:field="*{donationId}">
+                        <div class="info">
+                            <input id="file" name="file" type="text" placeholder="Enter URL for Image"/>
+                            <input id="title" name="title" class="form-control" type="text" placeholder="Enter a title" th:field="*{title}" />
+                            <input id="description" name="body" class="form-control"  placeholder="Enter a description" type="text" th:field="*{description}">
+                        </div>
+                        <div class="form-group " style="display: flex; justify-content: center" >
+                            <span style="margin-right: 1rem"><input id="indoor" name="cat.type" type="radio" value="indoor"/><label style="margin-left: 5px"  for="indoor">indoor</label></span>
+                            <span style="margin-right: 1rem"><input id="outdoor" name="cat.type" type="radio" value="outdoor"/><label style="margin-left: 5px"  for="outdoor">outdoor</label></span>
+                            <span><input id="other" name="cat.type" type="radio" value="other"/><label style="margin-left: 5px" for="other">other</label></span>
+                        </div>
+                        <input type="submit" class="btn btn-item">
+                            </form>
+                    </div>
+                </div>
+             </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" name="title" class="form-control" type="text" th:field="*{title}">
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control" type="text" th:field="*{description}"></textarea>
-    </div>
-
-    <p>Please select your donation category:</p>
-        <div class="form-group">
-        <span><input id="indoor" name="don.type" type="radio" value="indoor"/><label for="indoor">indoor</label></span>
-        <span><input id="outdoor" name="don.type" type="radio" value="outdoor"/><label for="outdoor">outdoor</label></span>
-        <span><input id="other" name="don.type" type="radio" value="other"/><label for="other">other</label></span>
-    </div>
-<!--    NEED TO FIX RADIO CHECKBOX FOR CATEGORIES-->
-    <input type="submit" class="btn btn--blue">
-</form>
-</div>
-
-</div>
-
-
-<!--<div th:replace="partials/scripts :: scripts"></div>-->
+    <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
