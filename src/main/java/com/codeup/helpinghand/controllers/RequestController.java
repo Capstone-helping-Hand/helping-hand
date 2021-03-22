@@ -1,5 +1,6 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.CategoryRepository;
@@ -91,6 +92,21 @@ public class RequestController {
         emailService.prepareRequestEmail(reqDao.save(request), subject, body);
 
         return "redirect:/requests";
+    }
+
+    @GetMapping("/pendingrequests")
+    public String pendingRequest(@ModelAttribute Request request, Model model) {
+        model.addAttribute("title", "Pending Requests");
+        model.addAttribute("requests", reqDao.lastFivePending());
+
+        return "Requests/pendingrequests";
+    }
+
+    @PostMapping("/pendingrequests")
+    public String updateRequest(@ModelAttribute Request request) {
+        reqDao.save(request);
+
+        return "Requests/pendingrequests";
     }
 
 }
