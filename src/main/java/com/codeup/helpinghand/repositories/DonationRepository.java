@@ -14,7 +14,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     List<Donation>lastFivePending();
 
     @Query(value = "SELECT * from donations WHERE is_approved = 1 ORDER BY date", nativeQuery = true)
-    List<Donation> allDonations();
+    List<Donation> allApprovedDonations();
 
     @Query(value = "SELECT * from donations WHERE is_approved = 0 ORDER BY date", nativeQuery = true)
     List<Donation> allPendingDonations();
