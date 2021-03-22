@@ -22,7 +22,7 @@
             <li class="navigation__item"><a href="/requests" class="navigation__link" sec:authorize="isAuthenticated()">Requests</a></li>
             <li class="navigation__item"><a href="/pendingdonations" class="navigation__link" sec:authorize="hasAuthority('ADMIN')">Pending Donations</a></li>
             <li class="navigation__item"><a href="/pendingrequests" class="navigation__link" sec:authorize="hasAuthority('ADMIN')">Pending Requests</a></li>
-            <li class="navigation__item"><a href="/signup" class="navigation__link" sec:authorize="not isAuthenticated()">Sign-Up</a></li>
+            <li class="navigation__item"><a href="/login" class="navigation__link" sec:authorize="not isAuthenticated()">Sign-Up</a></li>
             <li class="navigation__item"><a href="/login" class="navigation__link" sec:authorize="not isAuthenticated()">Login</a></li>
             <li class="navigation__item">
                 <form th:action="@{/logout}" th:method="post"><a href="/logout" class="navigation__link" sec:authorize="isAuthenticated()">Logout</a></form>

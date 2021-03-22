@@ -35,6 +35,7 @@ public class DonationController {
 
     @GetMapping(path = "/donations")
     public String donations(Model model) {
+        model.addAttribute("title", "Helping Hands Donations");
         model.addAttribute("donations", donateDao.findAll());
         return "Donations/donations";
     }
@@ -50,7 +51,7 @@ public class DonationController {
 
     @GetMapping("/editdonation/{donationId}")
     public String editDonation(@PathVariable long donationId, Model model) {
-        model.addAttribute("title", "single request");
+        model.addAttribute("title", "Edit This Donation");
         model.addAttribute("donation", donateDao.getOne(donationId));
         return "Donations/editdonation";
     }
