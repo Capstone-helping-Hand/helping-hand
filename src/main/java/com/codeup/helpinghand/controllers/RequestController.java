@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @Controller
 public class RequestController {
     private final RequestRepository reqDao;
@@ -47,16 +49,21 @@ public class RequestController {
 
     @GetMapping("/reqedit/{requestId}")
     public String editReq(@PathVariable long requestId, Model model) {
-        model.addAttribute("title", "Edit a Request");
+        model.addAttribute("title", "Edit This Request");
         model.addAttribute("request", reqDao.getOne(requestId));
         return "Requests/reqedit";
     }
 
+//    @PostMapping("/reqedit/{requestId}")
+//    public String postEdit(Model model, @ModelAttribute Request request) {
+//        model.addAttribute("title", "Edit a Request");
+//        reqDao.save(request);
+//        return "redirect:/requests";
+//    }
     @PostMapping("/reqedit/{requestId}")
-    public String postEdit(Model model, @ModelAttribute Request request) {
-        model.addAttribute("title", "Edit a Request");
-        reqDao.save(request);
-        return "redirect:/requests";
+    public String updateRequest(@PathVariable long requestId, @ModelAttribute Request request) {
+    reqDao.save(request);
+    return "redirect:/requests";
     }
 
     @RequestMapping("/requests/{requestId}/delete")
@@ -78,9 +85,12 @@ public class RequestController {
         model.addAttribute("request", reqDao.findAll());
         User user = userService.getLoggedInUser();
         Request newReq = reqDao.save(request);
+        newReq.setDate(new Date());
         newReq.setCategory(cateDao.findByType(category));
         newReq.setPicture(picture);
         newReq.setUser(user);
+        newReq.setApproved(false);
+        newReq.setFulfilled(false);
         reqDao.save(request);
 
         String subject = "New Request Created: " + reqDao.save(request).getTitle();
