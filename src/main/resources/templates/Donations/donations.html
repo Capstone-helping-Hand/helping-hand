@@ -32,13 +32,14 @@
                 </div>
                 <div>
                     <a class="btn btn--blue btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                    <a class="btn btn--blue btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/claim/'}">claim</a>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <a class="btn btn--blue btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
                         <a class="btn btn--blue btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> v
     </div>
 </div>
 <a th:href="@{/donationform}" class="btn btn--blue" role="button" data-bs-toggle="button">Create a Donation</a>

@@ -42,6 +42,18 @@ public class DonationController {
         return "Donations/donations";
     }
 
+    @PostMapping("/donations/{donationId}/claim")
+    public String claimDonation(@PathVariable long donationId) {
+        User user = userService.getLoggedInUser();
+        Donation claimDonation = donateDao.getOne(donationId);
+        claimDonation.setClaimant(user);
+        claimDonation.setFulfilled(true);
+
+        donateDao.save(claimDonation);
+
+        return "redirect:/userdashboard";
+    }
+
     @GetMapping(path = "/singledonation/{donationId}")
     public String donationsbyId(@PathVariable long donationId, Model model) {
         model.addAttribute("title", "single donation");
@@ -68,9 +80,9 @@ public class DonationController {
         return "redirect:/donations";
     }
 
-    @RequestMapping("/donations/{id}/delete")
-    public String deletePost(@PathVariable long id) {
-        donateDao.deleteById(id);
+    @RequestMapping("/donations/{Id}/delete")
+    public String deletePost(@PathVariable long Id) {
+        donateDao.deleteById(Id);
         return "redirect:/donations";
     }
 
