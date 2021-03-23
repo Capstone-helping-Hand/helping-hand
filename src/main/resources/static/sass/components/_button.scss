@@ -29,6 +29,15 @@
   &-white {
     background-color: $color-white;
     color: $color-grey-dark;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4.0rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position:relative;
+    font-size: $default-font-size;
   }
   &::after {
     content:"";
@@ -47,9 +56,27 @@
     background: $color-primary;
     color: $color-white;
     display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4.0rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position:relative;
+    font-size: $default-font-size;
   }
   &-white::after{
     background-color:$color-white;
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: -1;
+    transition: all .4s;
   }
 
   &-hover::after{

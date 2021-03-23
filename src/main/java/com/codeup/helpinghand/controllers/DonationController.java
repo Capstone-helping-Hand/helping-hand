@@ -144,6 +144,7 @@ public class DonationController {
 
     @PostMapping("/pendingdonations/{donationId}/approve")
     public String approveDonation(@PathVariable long donationId) {
+
             Donation existingDonation = donateDao.getOne(donationId);
             existingDonation.setApproved(true);
 
@@ -151,6 +152,7 @@ public class DonationController {
 
             return "redirect:/pendingdonations";
         }
+
 
     @PostMapping("/pendingdonations/{donationId}/deny")
     public String denyRequest(@PathVariable long donationId){
@@ -160,6 +162,7 @@ public class DonationController {
 
         return "redirect:/pendingdonations";
     }
+
 
 
 
