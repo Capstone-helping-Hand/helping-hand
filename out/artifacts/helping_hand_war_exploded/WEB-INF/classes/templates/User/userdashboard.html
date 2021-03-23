@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: header-links"><title>Donations Listings</title></head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<h1>Welcome to your dashboard!</h1>
+
+<div class="container">
+    <div class="row"  th:each="user : ${users}">
+        <div class="card-body">
+            <h2>Hey there!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1-of-4">
+            <h3>Last Five Donations</h3>
+            <ol>
+                <th:block th:each="dono : ${lastFiveDonations}" >
+                    <li><span th:text="${dono.title}"></span></li>
+                </th:block>
+            </ol>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>Last Five Requests</h3>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveRequests}" >
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ol>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>My Last Five Donations</h3>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveUserDonations}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ol>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>My Last Five Requests</h3>
+                <ol>
+                    <th:block th:each="dono : ${lastFiveUserRequests}" >
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-1-of-4">
+        <a href="/donations" class="btn btn--blue">View All Donations</a>
+    </div>
+    <div class="col-1-of-4">
+        <a href="/requests" class="btn btn--blue">View All Requests</a>
+    </div>
+    <div class="col-1-of-4">
+        <a href="/userdonations" class="btn btn--blue">View All of My Donations</a>
+    </div>
+    <div class="col-1-of-4">
+        <a href="/userrequests" class="btn btn--blue">View All of My Requests</a>
+    </div>
+</div>
+
+<div th:replace="partials/scripts :: scripts"></div>
+</body>
+</html>
