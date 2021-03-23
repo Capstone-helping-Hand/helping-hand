@@ -1,3 +1,8 @@
+.card-controls {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 10px;
+}
 .card {
 
   //FUNCTIONALITY
@@ -35,14 +40,14 @@
 
   //FRONT SIDE STYLING
   &__picture {
-    max-height: 12rem;
+    height: max-content;
     width: 100%;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 
   }
   &__image {
-    max-height: 12rem;
+    max: 12rem;
     width:100%;
     position: relative;
     overflow: hidden;
