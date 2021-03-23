@@ -554,6 +554,11 @@ option {
   transform: translateY(-1.5rem) scale(1.03);
 }
 
+form {
+  padding: 2rem;
+  background-color: #000080;
+}
+
 .popup {
   height: 100vh;
   width: 100%;
