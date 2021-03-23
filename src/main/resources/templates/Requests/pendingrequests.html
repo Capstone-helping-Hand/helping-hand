@@ -21,11 +21,11 @@
 <!--                    <h3 th:text="${donation.category.type}"></h3>-->
                 </div>
                 <div>
+
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" value="Approve"></form>
                         <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" value="Deny"></form>
-<!--                        <a class="btn btn&#45;&#45;blue btn-animated" th:href="@{'/pendingrequests'}">Approve</a>-->
-<!--                        <a class="btn btn&#45;&#45;blue btn-animated" th:href="@{'/pendingrequests'}">Deny</a>-->
+
                     </div>
                 </div>
             </div>
