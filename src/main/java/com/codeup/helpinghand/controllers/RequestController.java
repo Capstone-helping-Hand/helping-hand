@@ -62,12 +62,14 @@ public class RequestController {
 //    }
     @PostMapping("/reqedit/{requestId}")
     public String updateRequest(@PathVariable long requestId, @ModelAttribute Request editrequestForm) {
-        Request existingRequest = reqDao.getOne(requestId);
+
+         Request existingRequest = reqDao.getOne(requestId);
         existingRequest.setTitle(editrequestForm.getTitle());
         existingRequest.setDescription(editrequestForm.getDescription());
         existingRequest.setPicture(editrequestForm.getPicture());
-        reqDao.save(existingRequest);
-        return "redirect:/requests";
+     reqDao.save(existingRequest);
+    return "redirect:/requests";
+
     }
 
     @RequestMapping("/requests/{requestId}/delete")
@@ -121,8 +123,11 @@ public class RequestController {
 
     @PostMapping("/pendingrequests/{requestId}/approve")
     public String approveRequest(@PathVariable long requestId) {
-        Request existngRequest = reqDao.getOne(requestId);
-        existngRequest.setApproved(true);
+
+
+      Request existngRequest = reqDao.getOne(requestId);
+      existngRequest.setApproved(true);
+
 
         reqDao.save(existngRequest);
 
