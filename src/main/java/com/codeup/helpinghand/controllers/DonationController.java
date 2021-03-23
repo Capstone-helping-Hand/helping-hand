@@ -9,6 +9,7 @@ import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.EmailService;
 import com.codeup.helpinghand.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,12 +43,12 @@ public class DonationController {
         return "Donations/donations";
     }
 
-    @PostMapping("/donations/{donationId}/claim")
+    @PostMapping("/singledonation/{donationId}/claim")
     public String claimDonation(@PathVariable long donationId) {
         User user = userService.getLoggedInUser();
         Donation claimDonation = donateDao.getOne(donationId);
         claimDonation.setClaimant(user);
-        claimDonation.setFulfilled(true);
+
 
         donateDao.save(claimDonation);
 
@@ -56,11 +57,11 @@ public class DonationController {
 
     @GetMapping(path = "/singledonation/{donationId}")
     public String donationsbyId(@PathVariable long donationId, Model model) {
+
         model.addAttribute("title", "single donation");
         model.addAttribute("donation", donateDao.getOne(donationId));
         return "Donations/singledonation";
-//        check to see if we create a different html to render a single donation this is an extension of the comment.
-//        Create landing page and update donations to that url
+
     }
 
     @GetMapping("/editdonation/{donationId}")

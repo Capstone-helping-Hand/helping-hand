@@ -12,11 +12,17 @@
             <img th:src="${donation.picture} " height="125rem" width="auto">
             <h5 th:text="${donation.description}"></h5>
             <h3 th:text="${donation.category.type}"></h3>
-                <a class="btn btn-info btn-sm" th:href="@{'/donations'}">All Donations</a>
+
+<!--            <h3>Donation Claimed By<span th:text="${user.username}"></span></h3>-->
+
+            <a class="btn btn-info btn-sm" th:href="@{'/donations'}">All Donations</a>
+
+
+            <form method="post" th:action="'/singledonation/' + ${donation.donationId} + '/claim'"><input class="btn btn--blue btn-animated" type="submit" value="claim"></form>
+
             <div sec:authorize="hasAuthority('ADMIN')">
                 <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-<!--                <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>-->
-                <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>
             </div>
         </div>
     </div>

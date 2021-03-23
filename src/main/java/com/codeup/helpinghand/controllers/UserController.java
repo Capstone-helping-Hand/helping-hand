@@ -1,5 +1,6 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Donation;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.DonationRepository;
@@ -84,9 +85,10 @@ public class UserController {
 //    }
 
     @GetMapping("/userdashboard")
-    public String userDashboard(Model model) {
+    public String userDashboard(@ModelAttribute Donation donation, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long donatorId = user.getUserId();
+        long claimantId = user.getUserId();
         model.addAttribute("title", "Your Dashboard");
         model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
@@ -95,6 +97,7 @@ public class UserController {
         model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
         model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+        model.addAttribute("claimDonation", donationDao.claimDonation(claimantId));
         return ("User/userdashboard");
     }
 
