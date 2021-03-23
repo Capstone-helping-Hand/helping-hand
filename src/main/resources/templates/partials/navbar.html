@@ -15,8 +15,8 @@
     <div class="navigation__background">&nbsp;</div>
     <nav class="navigation__nav">
         <ul class="navigation__list">
-            <li class="navigation__item"><a href="/" class="navigation__link" sec:authorize="not isAuthenticated()">Home</a></li>
-            <li class="navigation__item"><a href="/" class="navigation__link" sec:authorize="isAuthenticated()">Dashboard</a></li>
+            <li class="navigation__item"><a href="/" class="navigation__link">Home</a></li>
+            <li class="navigation__item"><a href="/userdashboard" class="navigation__link" sec:authorize="isAuthenticated()">Dashboard</a></li>
             <li class="navigation__item"><a href="/aboutus" class="navigation__link"><span></span>About Us</a></li>
             <li class="navigation__item"><a href="/donations" class="navigation__link" sec:authorize="isAuthenticated()">Donations</a></li>
             <li class="navigation__item"><a href="/requests" class="navigation__link" sec:authorize="isAuthenticated()">Requests</a></li>
