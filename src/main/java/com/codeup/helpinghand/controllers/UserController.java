@@ -71,28 +71,31 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/admindashboard")
-    public String lastFiveDonations(Model model) {
+    //WILL TAKE A LOOK AT A SEPARATE ADMIN DASHBOARD IN V2
+//    @GetMapping("/admindashboard")
+//    public String lastFiveDonations(Model model) {
+//        model.addAttribute("lastFiveDonations", donationDao.lastFive());
+//        model.addAttribute("lastFiveRequests", reqDao.lastFive());
+//        model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
+//        model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+//        model.addAttribute("viewAllDonations", donationDao.findAll());
+//        model.addAttribute("viewRequests", donationDao.findAll());
+//        return "User/admindashboard";
+//    }
+
+    @GetMapping("/userdashboard")
+    public String userDashboard(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long donatorId = user.getUserId();
+        model.addAttribute("title", "Your Dashboard");
+        model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
         model.addAttribute("lastFiveRequests", reqDao.lastFive());
+        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveForUser(donatorId));
+        model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
         model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
-        model.addAttribute("viewAllDonations", donationDao.findAll());
-        model.addAttribute("viewRequests", donationDao.findAll());
-        return "User/admindashboard";
-    }
-    @GetMapping("/userdashboard")
-    public String userDashboard(Model model){
-        model.addAttribute("lastFiveDonations", donationDao.lastFive());
-        model.addAttribute("lastFiveRequests", reqDao.lastFive());
-//        model.addAttribute("lastFiveUserDonations", donationDao.lastFiveUserDonations());
-        model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         return ("User/userdashboard");
     }
-    @GetMapping("/userdonations")
-    public String userDonations(Model model){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        model.addAttribute("userDonations", donationDao.findAllByUserAndIsApproved(user));
-        return("Donations/userdonations");
-    }
+
 }

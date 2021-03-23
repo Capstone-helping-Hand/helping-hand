@@ -15,13 +15,14 @@
                 <a class="btn btn-info btn-sm" th:href="@{'/donations'}">All Donations</a>
             <div sec:authorize="hasAuthority('ADMIN')">
                 <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-                <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>
+<!--                <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>-->
+                <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
             </div>
         </div>
     </div>
 </div>
 <!--<div class="container">-->
-<!--    <h1 class="my-4">Here is a single donation !</h1>-->
+<!--    <h1 class="my-4">fdsgHere is a single donation !</h1>-->
 
 <!--    <h3 th:text="${donation.title}"></h3>-->
 <!--&lt;!&ndash;    <p th:text="'Authored by ' + ${donation.user.username}"/>&ndash;&gt;-->

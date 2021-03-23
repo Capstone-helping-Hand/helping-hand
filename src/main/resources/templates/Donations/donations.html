@@ -2,29 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head th:replace="partials/head :: header-links"><title>Donations Listings</title></head>
 <body>
+<style>
+    .form-inline{
+        height: 5rem;
+        width: 50rem;
+    }
+    .filter{
+        height: 5rem;
+        width: 50rem;
+    }
+</style>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>Check out our Donations!</h1>
+<h1 class="heading-secondary">Check out our Donations!</h1>
 
+    <form class="form-inline">
+        <input class="filter" placeholder="Search by Title"/>
+    </form>
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
-            <div class="card card__picture">
-                <div class="card-body">
+            <div class="card card__picture" th:data-string="${donation.title}">
+                <div class="card__block u-center-text">
                     <h3 th:text="${donation.title}"></h3>
-                    <img th:src="${donation.picture} " height="125rem" width="auto">
+                    <div class="image">
+                        <img th:src="${donation.picture} " height="100rem" width="auto">
+                    </div>
                     <h5 th:text="${donation.description}"></h5>
 <!--                    <h3 th:text="${donation.category.type}"></h3>-->
-                    <a class="btn btn-white btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                </div>
+                <div>
+                    <a class="btn btn--blue btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
                     <div sec:authorize="hasAuthority('ADMIN')">
-                        <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-                        <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                        <a class="btn btn--blue btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+                        <a class="btn btn--blue btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<a th:href="@{/donationform}" class="btn btn-primary" role="button" data-bs-toggle="button">Create a Donation</a>
+<a th:href="@{/donationform}" class="btn btn--blue" role="button" data-bs-toggle="button">Create a Donation</a>
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
