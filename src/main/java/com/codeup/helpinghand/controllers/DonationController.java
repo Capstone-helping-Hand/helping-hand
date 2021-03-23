@@ -1,6 +1,7 @@
 package com.codeup.helpinghand.controllers;
 
 import com.codeup.helpinghand.models.Donation;
+import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.CategoryRepository;
 import com.codeup.helpinghand.repositories.DonationRepository;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Column;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,7 +38,7 @@ public class DonationController {
     @GetMapping(path = "/donations")
     public String donations(Model model) {
         model.addAttribute("title", "Helping Hands Donations");
-        model.addAttribute("donations", donateDao.findAll());
+        model.addAttribute("donations", donateDao.allApprovedDonations());
         return "Donations/donations";
     }
 
@@ -57,8 +59,12 @@ public class DonationController {
     }
 
     @PostMapping("/editdonation/{donationId}")
-    public String updateDonation(@PathVariable long donationId, @ModelAttribute Donation donation) {
-        donateDao.save(donation);
+    public String updateDonation(@PathVariable long donationId, @ModelAttribute Donation editdonation) {
+        Donation existingDonation = donateDao.getOne(donationId);
+        existingDonation.setTitle(editdonation.getTitle());
+        existingDonation.setDescription(editdonation.getDescription());
+        existingDonation.setPicture(editdonation.getPicture());
+        donateDao.save(existingDonation);
         return "redirect:/donations";
     }
 
@@ -97,9 +103,12 @@ public class DonationController {
         model.addAttribute("donation", donateDao.findAll());
         User user = userService.getLoggedInUser();
         Donation newDonation = donateDao.save(donation);
+        newDonation.setDate(new Date());
         newDonation.setCategory(cateDao.findByType(category));
         newDonation.setPicture(picture);
         newDonation.setDonator(user);
+        newDonation.setApproved(false);
+        newDonation.setFulfilled(false);
         donateDao.save(donation);
 
         String subject = "New Donation Created: " + donateDao.save(donation).getTitle();
@@ -121,10 +130,26 @@ public class DonationController {
         return "Donations/pendingdonations";
     }
 
-    @PostMapping("/pendingdonations")
-    public String updateDonation(@ModelAttribute Donation donation) {
-        donateDao.save(donation);
+    @PostMapping("/pendingdonations/{donationId}/approve")
+    public String approveDonation(@PathVariable long donationId) {
+        Donation existingDonation = donateDao.getOne(donationId);
+        existingDonation.setApproved(true);
 
-        return "Donations/pendingdonations";
+        donateDao.save(existingDonation);
+
+        return "redirect:/pendingdonations";
     }
+
+    @PostMapping("/pendingdonations/{donationId}/deny")
+    public String denyRequest(@PathVariable long donationId){
+
+        donateDao.deleteById(donationId);
+
+
+        return "redirect:/pendingdonations";
+    }
+
+
+
+
 }

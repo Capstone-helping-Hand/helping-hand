@@ -36,7 +36,7 @@ public class RequestController {
     @GetMapping("/requests")
     public String request(Model model) {
         model.addAttribute("title", "Helping Hands Requests");
-        model.addAttribute("requests", reqDao.findAll());
+        model.addAttribute("requests", reqDao.allApprovedRequests());
         return "Requests/requests";
     }
 
@@ -54,16 +54,20 @@ public class RequestController {
         return "Requests/reqedit";
     }
 
-//    @PostMapping("/reqedit/{requestId}")
+    //    @PostMapping("/reqedit/{requestId}")
 //    public String postEdit(Model model, @ModelAttribute Request request) {
 //        model.addAttribute("title", "Edit a Request");
 //        reqDao.save(request);
 //        return "redirect:/requests";
 //    }
     @PostMapping("/reqedit/{requestId}")
-    public String updateRequest(@PathVariable long requestId, @ModelAttribute Request request) {
-    reqDao.save(request);
-    return "redirect:/requests";
+    public String updateRequest(@PathVariable long requestId, @ModelAttribute Request editrequestForm) {
+        Request existingRequest = reqDao.getOne(requestId);
+        existingRequest.setTitle(editrequestForm.getTitle());
+        existingRequest.setDescription(editrequestForm.getDescription());
+        existingRequest.setPicture(editrequestForm.getPicture());
+        reqDao.save(existingRequest);
+        return "redirect:/requests";
     }
 
     @RequestMapping("/requests/{requestId}/delete")
@@ -106,17 +110,32 @@ public class RequestController {
 
     @GetMapping("/pendingrequests")
     public String pendingRequest(@ModelAttribute Request request, Model model) {
+
         model.addAttribute("title", "Pending Requests");
         model.addAttribute("requests", reqDao.lastFivePending());
 
         return "Requests/pendingrequests";
     }
 
-    @PostMapping("/pendingrequests")
-    public String updateRequest(@ModelAttribute Request request) {
-        reqDao.save(request);
 
-        return "Requests/pendingrequests";
+
+    @PostMapping("/pendingrequests/{requestId}/approve")
+    public String approveRequest(@PathVariable long requestId) {
+        Request existngRequest = reqDao.getOne(requestId);
+        existngRequest.setApproved(true);
+
+        reqDao.save(existngRequest);
+
+        return "redirect:/pendingrequests";
+    }
+
+    @PostMapping("/pendingrequests/{requestId}/deny")
+    public String denyRequest(@PathVariable long requestId){
+
+        reqDao.deleteById(requestId);
+
+
+        return "redirect:/pendingrequests";
     }
 
 }
