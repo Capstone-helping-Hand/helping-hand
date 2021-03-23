@@ -5,10 +5,10 @@
 </head>
 <body>
 
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="row">
     <div class="col-12">
-
         <div class="card-body">
             <h3 th:text="${request.title}"></h3>
             <img th:src="${request.picture} " height="125rem" width="auto">
@@ -22,6 +22,8 @@
         </div>
     </div>
 </div>
+
+<div th:replace="partials/scripts :: scripts"></div>
 
 </body>
 </html>

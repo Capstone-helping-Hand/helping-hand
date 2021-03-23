@@ -22,7 +22,6 @@
                     <h5 th:text="${donation.description}"></h5>
                     <!--                    <h3 th:text="${donation.category.type}"></h3>-->
                 </div>
-                <!--                /////I added this class to manipulate the size//////-->
                 <div class="card-controls">
                     <a class="btn--blue btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
                     <div card-controls sec:authorize="hasAuthority('ADMIN')">
@@ -31,7 +30,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
 

@@ -1,89 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
 <head th:replace="partials/head :: header-links"><title>Donations Listings</title></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>You're an user</h1>
+<h1>Welcome to The Dashboard!</h1>
+
+<div class="user" th:each="user : ${users}">
+    <h2>Hey there, <span th:text="${user.username}"></span>!</h2>
+    <h2>Your email: <span th:text="${user.email}"></span>.</h2>
+<!--    <a href="/update" class="btn btn&#45;&#45;blue">Update your info</a>-->
+</div>
 
 <div class="container">
     <div class="row">
-        <div class="user">
-            <h3 class="user__hello">
-                Hello ${user.name}
-                <h2>th:text="${user.username}"</h2>
-                <h2>$(user.email)</h2>
-                <h2>$(user.password)</h2>
-                <a href="/update" class="btn btn--blue">Update your info</a>
-            </h3>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-1-of-4">
-            <h3>Last Five Donations</h3>
-            <ol>
-                <th:block th:each="dono : ${lastFiveDonations}" >
+            <h3>Most Recent Donations</h3>
+            <ul>
+                <th:block th:each="dono : ${lastFiveDonations}">
                     <li><span th:text="${dono.title}"></span></li>
                 </th:block>
-            </ol>
+            </ul>
+        </div>
+        <div class="col-1-of-4">
+            <h3>Most Recent claims</h3>
+            <ul>
+                <th:block th:each="dono : ${claimDonation}">
+                    <li><span th:text="${dono.title}"></span></li>
+                </th:block>
+            </ul>
         </div>
         <div class="col-1-of-4">
             <div class="admin__box">
-                <h3>Last Five Requests</h3>
-                <ol>
-                    <th:block th:each="dono : ${lastFiveRequests}" >
+                <h3>Most Recent Requests</h3>
+                <ul>
+                    <th:block th:each="dono : ${lastFiveRequests}">
                         <li><span th:text="${dono.title}"></span></li>
                     </th:block>
-                </ol>
+                </ul>
             </div>
         </div>
         <div class="col-1-of-4">
             <div class="admin__box">
-                <h3>My Last Five Donations</h3>
-                <ol>
+                <h3>My Recent Donations</h3>
+                <ul>
                     <th:block th:each="dono : ${lastFiveUserDonations}">
                         <li><span th:text="${dono.title}"></span></li>
                     </th:block>
-                </ol>
-            </div>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>My Last Five Requests</h3>
-                <ol>
-                    <th:block th:each="dono : ${lastFiveUserRequests}" >
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ol>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!--        <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">-->
-    <!--            <div class="card card__picture">-->
-    <!--                <div class="card-body">-->
-    <!--                    <h3 th:text="${donation.title}"></h3>-->
-    <!--                    <img th:src="${donation.picture} " height="125rem" width="auto">-->
-    <!--                    <h5 th:text="${donation.description}"></h5>-->
-    <!--                    <a class="btn btn-white btn-animated" th:href="@{'/donations/' + ${donation.donationId}}">View</a>-->
-    <!--                    <a class="btn btn-white btn-animated" th:href="@{'/donations/edit/' + ${donation.donationId}}">Edit</a>-->
-    <!--                    <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-</div>
-<div class="row">
-    <div class="col-1-of-4">
-        <a href="/donations" class="btn btn--blue">View All Donations</a>
-    </div>
-    <div class="col-1-of-4">
-        <a href="/requests" class="btn btn--blue">View All Requests</a>
-    </div>
-    <div class="col-1-of-4">
-        <a href="/userdonations" class="btn btn--blue">View All of My Donations</a>
-    </div>
-    <div class="col-1-of-4">
-        <a href="/userrequests" class="btn btn--blue">View All of My Requests</a>
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>Pending Donations</h3>
+                <ul>
+                    <th:block th:each="dono : ${lastFiveDonationsPending}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>Pending Requests</h3>
+                <ul>
+                    <th:block th:each="dono : ${lastFiveRequestsPending}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 

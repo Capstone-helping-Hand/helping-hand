@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // DEFINE HOW TO LOGIN -> AND REDIRECTED AFTER LOGIN
         http.formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/userdashboard")
                 .permitAll()
                 // DEFINE HOW TO LOGOUT
                 .and()
