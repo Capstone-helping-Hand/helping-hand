@@ -1,7 +1,6 @@
-//form {
-//  padding: 2rem;
-//  background-color: $color-primary-dark;
-//}
+.form-inline {
+  color: red;
+}
 .form {
   &__group:not(:last-child) {
     margin-bottom: 2rem;
@@ -91,3 +90,7 @@
     opacity: 1;
 
   }}
+.form-inline{
+  height: 5rem;
+  width: 50rem;
+}
