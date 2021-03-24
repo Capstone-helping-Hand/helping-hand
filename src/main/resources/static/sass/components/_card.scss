@@ -1,7 +1,7 @@
 .card-controls {
   display: flex;
   flex-flow: column nowrap;
-  row-gap: 10px;
+  row-gap: 1px;
 }
 .card {
 
@@ -42,8 +42,8 @@
   &__picture {
     height: max-content;
     width: 100%;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    //border-top-left-radius: 3px;
+    //border-top-right-radius: 3px;
 
   }
   &__image {
