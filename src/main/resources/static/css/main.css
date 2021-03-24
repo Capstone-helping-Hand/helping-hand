@@ -161,7 +161,7 @@ h3, h5 {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.left-part, form {
+.left-part {
   padding: 25px;
 }
 
@@ -435,7 +435,7 @@ option {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 33rem;
+  height: 36rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
   border-radius: 3px;
   padding: 1rem;
