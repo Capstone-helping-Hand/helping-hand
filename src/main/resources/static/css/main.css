@@ -173,10 +173,6 @@ h3, h5 {
   font-size: 72px;
 }
 
-.filter {
-  background: rgba(0, 0, 0, 0.4);
-}
-
 .title {
   display: flex;
   align-items: center;
@@ -311,13 +307,25 @@ option {
   transform: translateY(-0.01rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+.btn__orange {
+  background-color: #ff8c00;
+  border: 0;
+  border-radius: 10rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 2;
+  margin-top: 1.5rem;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
 .btn-white {
   background-color: #fff;
   color: #777;
   display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
+  padding: 0 4rem;
   display: inline-block;
   border-radius: 10rem;
   transition: all 0.2s;
@@ -345,11 +353,11 @@ option {
   align-items: center;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
+  padding: 0.5rem 4rem;
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 .btn-white::after {
   background-color: #fff;
@@ -419,7 +427,7 @@ option {
 .card-controls {
   display: flex;
   flex-flow: column nowrap;
-  row-gap: 10px;
+  row-gap: 1px;
 }
 
 .card {
@@ -452,8 +460,6 @@ option {
 .card__side__picture {
   height: max-content;
   width: 100%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
 }
 .card__side__image {
   max: 12rem;
@@ -594,12 +600,18 @@ option {
   transform: translateY(-1.5rem) scale(1.03);
 }
 
-.form-inline {
-  color: red;
-}
-
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
+}
+.form__filter {
+  display: block;
+  background: none;
+  border: 1px solid black;
+  color: black;
+}
+.form__inline {
+  display: block;
+  color: #333;
 }
 .form__input {
   font-size: 1.5rem;
@@ -676,11 +688,6 @@ option {
 }
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1;
-}
-
-.form-inline {
-  height: 5rem;
-  width: 50rem;
 }
 
 .popup {
