@@ -50,6 +50,15 @@ public class RequestController {
         model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         return "Requests/singlereq";
     }
+    @PostMapping("/fulfillrequests/{requestId}/fulfill")
+    public String fulfillRequest(@PathVariable long requestId) {
+        User user = userService.getLoggedInUser();
+          Request fulfillRequest = reqDao.getOne(requestId);
+          fulfillRequest.setUser(user);
+        fulfillRequest.setFulfilled(true);
+        reqDao.save(fulfillRequest);
+        return "redirect:/userdashboard";
+    }
 
     @GetMapping("/reqedit/{requestId}")
     public String editReq(@PathVariable long requestId, Model model) {

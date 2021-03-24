@@ -90,6 +90,7 @@ public class UserController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long donatorId = user.getUserId();
         long claimantId = user.getUserId();
+
         model.addAttribute("title", "Your Dashboard");
         model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
@@ -99,15 +100,34 @@ public class UserController {
         model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
         model.addAttribute("lastFiveRequestsPending", reqDao.lastFivePending());
         model.addAttribute("claimDonation", donationDao.claimDonation(claimantId));
+        model.addAttribute("requestFulfilled", reqDao.allFulfilledRequest());
+        model.addAttribute("fulfilledPending", reqDao.fulfilledPending());
 
         return ("User/userdashboard");
     }
-    @PostMapping("/singlereq/{requestId}/fulfill")
-    public String approveRequest(@PathVariable long requestId) {
-        Request fulfillRequest = reqDao.getOne(requestId);
-        fulfillRequest.setFulfilled(true);
-        reqDao.save(fulfillRequest);
-        return "redirect:/pendingrequests";
+
+
+
+
+    @GetMapping("/pendingfulfillment")
+    public String pendingFulfillment(@ModelAttribute Request request, Model model) {
+        model.addAttribute("title", "Pending Requests");
+        model.addAttribute("requests", reqDao.fulfilledPending());
+        return "Requests/pendingfulfillment";
+    }
+
+    @PostMapping("/pendingfulfillment/{requestId}/approve")
+    public String approveFulfillment(@PathVariable long requestId) {
+        Request approveFulfill = reqDao.getOne(requestId);
+        approveFulfill.setFulfilled(true);
+        reqDao.save(approveFulfill);
+        return "redirect:/pendingfulfillment";
+    }
+
+    @PostMapping("/pendingfulfillment/{requestId}/deny")
+    public String denyFulfillment(@PathVariable long requestId) {
+        reqDao.deleteById(requestId);
+        return "redirect:/pendingfulfillment";
     }
 
 
