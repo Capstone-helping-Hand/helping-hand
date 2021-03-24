@@ -106,9 +106,6 @@ public class UserController {
         return ("User/userdashboard");
     }
 
-
-
-
     @GetMapping("/pendingfulfillment")
     public String pendingFulfillment(@ModelAttribute Request request, Model model) {
         model.addAttribute("title", "Pending Requests");
@@ -129,6 +126,5 @@ public class UserController {
         reqDao.deleteById(requestId);
         return "redirect:/pendingfulfillment";
     }
-
 
 }
