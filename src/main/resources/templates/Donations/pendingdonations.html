@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/head :: header-links"></head>
-<nav th:replace="partials/navbar :: navbar"></nav>
-
+<head th:replace="partials/head :: header-links"><title>Pending Donations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
 <body>
-
-<form class="form-inline">
-        <input class="filter" placeholder="Search by Title"/>
-    </form>
+<h1 class="heading-secondary">Pending Donations for Approval!</h1><br><br>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<form class="form__inline">
+    <h1>Search by Title</h1>
+    <input class="filter form__filter" placeholder="Search by Title"/>
+</form>
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
             <div class="card card__picture" th:data-string="${donation.title}">
-                <div class="card-body">
+                <div class="card__block u-center-text">
                     <h3 th:text="${donation.title}"></h3>
                     <div class="image">
                         <img th:src="${donation.picture} " height="100rem" width="auto">
                     </div>
                     <h5 th:text="${donation.description}"></h5>
-<!--                    <h3 th:text="${donation.category.type}"></h3>-->
+                    <h3 th:text="${donation.category.type}"></h3>
+                </div>
+                <div class="card-controls">
+                <a class="btn__orange btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
                 </div>
                 <div>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" value="Approve"></form>
                         <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" value="Deny"></form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
