@@ -1,6 +1,7 @@
 package com.codeup.helpinghand.controllers;
 
 import com.codeup.helpinghand.models.Donation;
+import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.DonationRepository;
@@ -96,9 +97,18 @@ public class UserController {
         model.addAttribute("lastFiveUserDonations", donationDao.lastFiveForUser(donatorId));
         model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
-        model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+        model.addAttribute("lastFiveRequestsPending", reqDao.lastFivePending());
         model.addAttribute("claimDonation", donationDao.claimDonation(claimantId));
+
         return ("User/userdashboard");
     }
+    @PostMapping("/singlereq/{requestId}/fulfill")
+    public String approveRequest(@PathVariable long requestId) {
+        Request fulfillRequest = reqDao.getOne(requestId);
+        fulfillRequest.setFulfilled(true);
+        reqDao.save(fulfillRequest);
+        return "redirect:/pendingrequests";
+    }
+
 
 }
