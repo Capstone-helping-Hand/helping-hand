@@ -32,7 +32,7 @@
         </div>
         <div class="col-1-of-4">
             <div class="admin__box">
-                <h3>My Recent Requests</h3>
+                <h3>Most Recent Requests</h3>
                 <ul>
                     <th:block th:each="dono : ${lastFiveRequests}">
                         <li><span th:text="${dono.title}"></span></li>
@@ -45,6 +45,16 @@
                 <h3>My Recent Donations</h3>
                 <ul>
                     <th:block th:each="dono : ${lastFiveUserDonations}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>All fulfilled request</h3>
+                <ul>
+                    <th:block th:each="dono : ${allFulfilledRequest}">
                         <li><span th:text="${dono.title}"></span></li>
                     </th:block>
                 </ul>
@@ -68,6 +78,16 @@
                 <h3>Pending Requests</h3>
                 <ul>
                     <th:block th:each="dono : ${lastFiveRequestsPending}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>Pending fulfillment</h3>
+                <ul>
+                    <th:block th:each="dono : ${fulfilledPending}">
                         <li><span th:text="${dono.title}"></span></li>
                     </th:block>
                 </ul>
