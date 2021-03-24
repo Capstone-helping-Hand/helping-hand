@@ -9,7 +9,7 @@
 <div class="user" th:each="user : ${users}">
     <h2>Hey there, <span th:text="${user.username}"></span>!</h2>
     <h2>Your email: <span th:text="${user.email}"></span>.</h2>
-<!--    <a href="/update" class="btn btn&#45;&#45;blue">Update your info</a>-->
+    <!--    <a href="/update" class="btn btn&#45;&#45;blue">Update your info</a>-->
 </div>
 
 <div class="container">
@@ -27,6 +27,24 @@
                 <h3>Most Recent Requests</h3>
                 <ul>
                     <th:block th:each="dono : ${lastFiveRequests}">
+                        <li><span th:text="${dono.title}"></span></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-4">
+            <h3>Claimed Donations</h3>
+            <ul>
+                <th:block th:each="dono : ${claimDonation}">
+                    <li><span th:text="${dono.title}"></span></li>
+                </th:block>
+            </ul>
+        </div>
+        <div class="col-1-of-4">
+            <div class="admin__box">
+                <h3>Fulfilled Requests</h3>
+                <ul>
+                    <th:block th:each="dono : ${requestFulfilled}">
                         <li><span th:text="${dono.title}"></span></li>
                     </th:block>
                 </ul>
@@ -53,7 +71,6 @@
             </div>
         </div>
     </div>
-
     <div sec:authorize="hasAuthority('ADMIN')">
         <div class="col-1-of-4">
             <div class="admin__box">
