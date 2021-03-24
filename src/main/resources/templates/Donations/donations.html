@@ -6,12 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <body>
-    <h1 class="heading-secondary">Check out our Donations!</h1><br><br>
+    <h1 class="heading-secondary">Check out our Donations!</h1><br><br><br><br>
     <a th:href="@{/donationform}" class="btn--blue" role="button" data-bs-toggle="button">Create a Donation</a>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <form class="form__inline">
         <h1>Search by Title</h1>
-        <input class="form_filter" placeholder="Search by Title"/>
+        <input class="filter form__filter" placeholder="Search by Title"/>
     </form>
     <div class="container">
         <div class="row">
