@@ -41,7 +41,6 @@ public class RequestController {
         return "Requests/requests";
     }
 
-//    MAPPED OUT FOR USER(USERNAME) IN FULLFILLREQUEST()
     @GetMapping(path = "/singlereq/{requestId}")
     public String requestById(@PathVariable long requestId, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -50,11 +49,12 @@ public class RequestController {
         model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         return "Requests/singlereq";
     }
+
     @PostMapping("/fulfillrequests/{requestId}/fulfill")
     public String fulfillRequest(@PathVariable long requestId) {
         User user = userService.getLoggedInUser();
-          Request fulfillRequest = reqDao.getOne(requestId);
-          fulfillRequest.setUser(user);
+        Request fulfillRequest = reqDao.getOne(requestId);
+        fulfillRequest.setUser(user);
         fulfillRequest.setFulfilled(true);
         reqDao.save(fulfillRequest);
         return "redirect:/userdashboard";
@@ -135,14 +135,5 @@ public class RequestController {
         reqDao.deleteById(requestId);
         return "redirect:/pendingrequests";
     }
-
-//    WILL WORK ON IMPLEMENTING IN V2 --> NEEDS FK USER(USERNAME) IN DB
-//    @PostMapping("/claimedrequest/{requestId}/fulfill")
-//    public String fulfillRequest(@PathVariable long requestId) {
-//        Request claimedRequest = reqDao.getOne(requestId);
-//        claimedRequest.setFulfilled(true);
-//        reqDao.save(claimedRequest);
-//        return "redirect:/singlereq";
-//    }
 
 }
