@@ -27,5 +27,11 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
         @Query(value = "SELECT * from requests WHERE is_approved = true ORDER BY user_id and date", nativeQuery = true)
         List<Request> allUserRequests();
 
+        @Query(value = "SELECT * FROM requests WHERE is_fulfilled = true ORDER BY date DESC LIMIT 5", nativeQuery = true)
+        List<Request> allFulfilledRequest();
+
+        @Query(value = "SELECT * FROM requests WHERE is_fulfilled = false ORDER BY date DESC LIMIT 5", nativeQuery = true)
+        List<Request> fulfilledPending();
+
         List<Request> findAllByUser(User user);
 }

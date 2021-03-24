@@ -9,6 +9,7 @@ import com.codeup.helpinghand.repositories.RoleRepository;
 import com.codeup.helpinghand.repositories.UserRepository;
 import com.codeup.helpinghand.services.EmailService;
 import com.codeup.helpinghand.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,9 +43,21 @@ public class RequestController {
 
     @GetMapping(path = "/singlereq/{requestId}")
     public String requestById(@PathVariable long requestId, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("title", "Single Request");
         model.addAttribute("request", reqDao.getOne(requestId));
+        model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         return "Requests/singlereq";
+    }
+
+    @PostMapping("/fulfillrequests/{requestId}/fulfill")
+    public String fulfillRequest(@PathVariable long requestId) {
+        User user = userService.getLoggedInUser();
+        Request fulfillRequest = reqDao.getOne(requestId);
+        fulfillRequest.setUser(user);
+        fulfillRequest.setFulfilled(true);
+        reqDao.save(fulfillRequest);
+        return "redirect:/userdashboard";
     }
 
     @GetMapping("/reqedit/{requestId}")
@@ -54,22 +67,14 @@ public class RequestController {
         return "Requests/reqedit";
     }
 
-    //    @PostMapping("/reqedit/{requestId}")
-//    public String postEdit(Model model, @ModelAttribute Request request) {
-//        model.addAttribute("title", "Edit a Request");
-//        reqDao.save(request);
-//        return "redirect:/requests";
-//    }
     @PostMapping("/reqedit/{requestId}")
     public String updateRequest(@PathVariable long requestId, @ModelAttribute Request editrequestForm) {
-
-         Request existingRequest = reqDao.getOne(requestId);
+        Request existingRequest = reqDao.getOne(requestId);
         existingRequest.setTitle(editrequestForm.getTitle());
         existingRequest.setDescription(editrequestForm.getDescription());
         existingRequest.setPicture(editrequestForm.getPicture());
-     reqDao.save(existingRequest);
-    return "redirect:/requests";
-
+        reqDao.save(existingRequest);
+        return "redirect:/requests";
     }
 
     @RequestMapping("/requests/{requestId}/delete")
@@ -112,34 +117,22 @@ public class RequestController {
 
     @GetMapping("/pendingrequests")
     public String pendingRequest(@ModelAttribute Request request, Model model) {
-
         model.addAttribute("title", "Pending Requests");
         model.addAttribute("requests", reqDao.lastFivePending());
-
         return "Requests/pendingrequests";
     }
 
-
-
     @PostMapping("/pendingrequests/{requestId}/approve")
     public String approveRequest(@PathVariable long requestId) {
-
-
-      Request existngRequest = reqDao.getOne(requestId);
-      existngRequest.setApproved(true);
-
-
+        Request existngRequest = reqDao.getOne(requestId);
+        existngRequest.setApproved(true);
         reqDao.save(existngRequest);
-
         return "redirect:/pendingrequests";
     }
 
     @PostMapping("/pendingrequests/{requestId}/deny")
-    public String denyRequest(@PathVariable long requestId){
-
+    public String denyRequest(@PathVariable long requestId) {
         reqDao.deleteById(requestId);
-
-
         return "redirect:/pendingrequests";
     }
 
