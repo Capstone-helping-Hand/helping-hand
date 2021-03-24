@@ -1,5 +1,7 @@
 package com.codeup.helpinghand.controllers;
 
+import com.codeup.helpinghand.models.Donation;
+import com.codeup.helpinghand.models.Request;
 import com.codeup.helpinghand.models.Role;
 import com.codeup.helpinghand.models.User;
 import com.codeup.helpinghand.repositories.DonationRepository;
@@ -84,9 +86,11 @@ public class UserController {
 //    }
 
     @GetMapping("/userdashboard")
-    public String userDashboard(Model model) {
+    public String userDashboard(@ModelAttribute Donation donation, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long donatorId = user.getUserId();
+        long claimantId = user.getUserId();
+
         model.addAttribute("title", "Your Dashboard");
         model.addAttribute("users", userDao.findByUsername(user.getUsername()));
         model.addAttribute("lastFiveDonations", donationDao.lastFive());
@@ -94,8 +98,37 @@ public class UserController {
         model.addAttribute("lastFiveUserDonations", donationDao.lastFiveForUser(donatorId));
         model.addAttribute("lastFiveUserRequests", reqDao.lastFiveUserRequests());
         model.addAttribute("lastFiveDonationsPending", donationDao.lastFivePending());
-        model.addAttribute("lastFiveRequestsPending", donationDao.lastFivePending());
+        model.addAttribute("lastFiveRequestsPending", reqDao.lastFivePending());
+        model.addAttribute("claimDonation", donationDao.claimDonation(claimantId));
+        model.addAttribute("requestFulfilled", reqDao.allFulfilledRequest());
+        model.addAttribute("fulfilledPending", reqDao.fulfilledPending());
+
         return ("User/userdashboard");
     }
+
+
+
+
+    @GetMapping("/pendingfulfillment")
+    public String pendingFulfillment(@ModelAttribute Request request, Model model) {
+        model.addAttribute("title", "Pending Requests");
+        model.addAttribute("requests", reqDao.fulfilledPending());
+        return "Requests/pendingfulfillment";
+    }
+
+    @PostMapping("/pendingfulfillment/{requestId}/approve")
+    public String approveFulfillment(@PathVariable long requestId) {
+        Request approveFulfill = reqDao.getOne(requestId);
+        approveFulfill.setFulfilled(true);
+        reqDao.save(approveFulfill);
+        return "redirect:/pendingfulfillment";
+    }
+
+    @PostMapping("/pendingfulfillment/{requestId}/deny")
+    public String denyFulfillment(@PathVariable long requestId) {
+        reqDao.deleteById(requestId);
+        return "redirect:/pendingfulfillment";
+    }
+
 
 }

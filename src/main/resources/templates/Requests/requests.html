@@ -7,56 +7,36 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-<style>
-    .form-inline {
-        height: 5rem;
-        width: 50rem;
-    }
-
-    .filter {
-        height: 5rem;
-        width: 50rem;
-    }
-</style>
-<nav th:replace="partials/navbar :: navbar"></nav>
-<h1>all request posts</h1>
-<form class="form-inline">
-    <input class="filter" placeholder="Search by Title"/>
-</form>
-<!--<div th:include="partials/ReqForm :: ReqForm">-->
-<!--<input type="text" class="btn-check" id="btn-check-outlined" autocomplete="off">-->
-<!--<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>-->
-<!--</div>-->
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">
-            <div class="card card__picture" th:data-string="${request.title}">
-                <div class="card-body">
-                    <h3 th:text="${request.title}"></h3>
-                    <img th:src="${request.picture} " height="125rem" width="auto">
-                    <h5 th:text="${request.description}"></h5>
+    <h1 class="heading-secondary">Check out our Requests!</h1><br><br>
+    <a th:href="@{/reqform}" class="btn--blue" role="button" data-bs-toggle="button">Create a request</a><br><br>
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <form class="form__inline">
+        <input class="form__filter" placeholder="Search by Title"/>
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-of-4" th:each="request : ${requests}">
+                <div class="card card__picture" th:data-string="${request.title}">
+                    <div class="card__block u-center-text">
+                        <h3 th:text="${request.title}"></h3>
+                        <div class="image">
+                            <img th:src="${request.picture} " height="100rem" width="auto">
+                        </div>
+                        <h5 th:text="${request.description}"></h5>
 <!--                    <h3 th:text="${request.category.type}"></h3>-->
-                    <a class="btn btn-white btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
-                    <div sec:authorize="hasAuthority('ADMIN')">
-                        <a class="btn btn-white btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
-                        <a class="btn btn-white btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
                     </div>
-
+                        <div class="card-controls">
+                            <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
+<!--                            <div card-controls sec:authorize="hasAuthority('ADMIN')">-->
+                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
+                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<a th:href="@{/reqform}" class="btn btn-primary" role="button" data-bs-toggle="button">Create a request</a>
-
-
-
-
-<div th:replace="partials/scripts :: scripts"></div>
+    <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
 
