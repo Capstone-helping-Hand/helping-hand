@@ -440,6 +440,7 @@ option {
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1px;
+  margin-top: 0;
 }
 
 .card {
@@ -447,7 +448,7 @@ option {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 36rem;
+  width: 41rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
   border-radius: 3px;
   padding: 1rem;
