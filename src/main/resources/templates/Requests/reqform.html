@@ -130,8 +130,8 @@
                     <div class="main-block">
                          <div class="left-part">
                             <i class="fas fa-graduation-cap"></i>
-                            <h1>Every one needs a Helping Hand, so feel free to reach out for one!</h1>
-                             <p>Sometimes asking for help also means you are helping yourself - Renuka Pitre</p>
+                            <h2>Every one needs a Helping Hand, so feel free to reach out for one!</h2>
+                             <p class="quote">Sometimes asking for help also means you are helping yourself - Renuka Pitre</p>
                         </div>
                        <form th:action="@{/reqform}" th:method="post" th:object="${request}">
                             <div class="title">
@@ -156,9 +156,9 @@
             </div>
         </div>
     </div>
-<!--<footer>-->
-<!--    <div th:replace="partials/footer :: footer"></div>-->
-<!--</footer>-->
 <div th:replace="partials/scripts :: scripts"></div>
+    <footer>
+        <div th:replace="partials/footer :: footer"></div>
+    </footer>
 </body>
 </html>
