@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns="http://www.w3.org/1999/html">
-<head th:replace="partials/head :: header-links"><title>Donations Listings</title></head>
-<body>
+<head th:replace="partials/head :: header-links"><title>Donations Listings</title>
+</head>
+
+<body style="max-width: 100%">
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1>Welcome to The Dashboard!</h1>
 
@@ -12,89 +14,214 @@
     <!--    <a href="/update" class="btn btn&#45;&#45;blue">Update your info</a>-->
 </div>
 
+<!--<div class="card-deck flex-wrap" style="max-width: fit-content"  wr>-->
+<!--    <div class="row row-cols-1 row-cols-md-3 g-4 " style="max-width: fit-content">-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem">-->
+<!--            <h3 class="card-header">Most Recent Donations</h3>-->
+<!--                <div class="card-body">-->
+<!--            <ul>-->
+<!--                <th:block th:each="dono : ${lastFiveDonations}">-->
+<!--                    <li class="card-body"><span th:text="${dono.title}"></span></li>-->
+<!--                </th:block>-->
+<!--            </ul>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--            <div class="admin__box">-->
+<!--                <h3 class="card-header">Most Recent Requests</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${lastFiveRequests}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--        <div class="col ">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--            <h3 class="card-header">Claimed Donations</h3>-->
+<!--            <ul>-->
+<!--                <th:block th:each="dono : ${claimDonation}">-->
+<!--                    <li><span th:text="${dono.title}"></span></li>-->
+<!--                </th:block>-->
+<!--            </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--&lt;!&ndash;            <div class="card h-100 w-25rem" style="max-width: fit-content">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="admin__box">&ndash;&gt;-->
+<!--                <h3 class="card-header">Fulfilled Requests</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${requestFulfilled}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--            <div class="admin__box">-->
+<!--                <h3 class="card-header">My Recent Donations</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${lastFiveUserDonations}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--            <div class="admin__box">-->
+<!--                <h3 class="card-header">My Recent Requests</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${lastFiveUserRequests}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    <div sec:authorize="hasAuthority('ADMIN')">-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--            <div class="admin__box">-->
+<!--                <h3 class="card-header">Pending Donations</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${lastFiveDonationsPending}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
+<!--&lt;!&ndash;            <div class="admin__box">&ndash;&gt;-->
+<!--                <h3 class="card-header">Pending Requests</h3>-->
+<!--                <ul>-->
+<!--                    <th:block th:each="dono : ${lastFiveRequestsPending}">-->
+<!--                        <li><span th:text="${dono.title}"></span></li>-->
+<!--                    </th:block>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--to change the width of the cards and have them all the same. Go to _cards.scss and under .cards add width30rem-->
 <div class="container">
     <div class="row">
-        <div class="col-1-of-4">
-            <h3>Most Recent Donations</h3>
-            <ul>
-                <th:block th:each="dono : ${lastFiveDonations}">
-                    <li><span th:text="${dono.title}"></span></li>
-                </th:block>
-            </ul>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>Most Recent Requests</h3>
-                <ul>
-                    <th:block th:each="dono : ${lastFiveRequests}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-        <div class="col-1-of-4">
-            <h3>Claimed Donations</h3>
-            <ul>
-                <th:block th:each="dono : ${claimDonation}">
-                    <li><span th:text="${dono.title}"></span></li>
-                </th:block>
-            </ul>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>Fulfilled Requests</h3>
-                <ul>
-                    <th:block th:each="dono : ${requestFulfilled}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>My Recent Donations</h3>
-                <ul>
-                    <th:block th:each="dono : ${lastFiveUserDonations}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>My Recent Requests</h3>
-                <ul>
-                    <th:block th:each="dono : ${lastFiveUserRequests}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div sec:authorize="hasAuthority('ADMIN')">
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>Pending Donations</h3>
-                <ul>
-                    <th:block th:each="dono : ${lastFiveDonationsPending}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-        <div class="col-1-of-4">
-            <div class="admin__box">
-                <h3>Pending Requests</h3>
-                <ul>
-                    <th:block th:each="dono : ${lastFiveRequestsPending}">
-                        <li><span th:text="${dono.title}"></span></li>
-                    </th:block>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
 
+                <div class="card-body">
+                    <h3 class="card-header">Most Recent Donations</h3>
+
+                        <th:block th:each="dono : ${lastFiveDonations}">
+                            <li class="card-body"><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">Most Recent Requests</h3>
+
+                        <th:block th:each="dono : ${lastFiveRequests}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">Claimed Donations</h3>
+
+                        <th:block th:each="dono : ${claimDonation}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">Fulfilled Requests</h3>
+
+                        <th:block th:each="dono : ${requestFulfilled}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">My Recent Donations</h3>
+
+                        <th:block th:each="dono : ${lastFiveUserDonations}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">My Recent Requests</h3>
+
+                        <th:block th:each="dono : ${lastFiveUserRequests}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div sec:authorize="hasAuthority('ADMIN')">
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">Pending Donations</h3>
+
+                        <th:block th:each="dono : ${lastFiveDonationsPending}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="card mb-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-header">Pending Requests</h3>
+
+                        <th:block th:each="dono : ${lastFiveRequestsPending}">
+                            <li><span th:text="${dono.title}"></span></li>
+                        </th:block>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
