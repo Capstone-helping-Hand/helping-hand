@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1px;
+  margin-top: 0;
 }
 .card {
 
@@ -10,7 +11,8 @@
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 36rem;
+  //height: 40rem;
+  width: 41rem;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .35);
   border-radius: 3px;
   padding: 1rem;
@@ -41,6 +43,7 @@
   &__picture {
     height: max-content;
     width: 100%;
+
     //border-top-left-radius: 3px;
     //border-top-right-radius: 3px;
 
