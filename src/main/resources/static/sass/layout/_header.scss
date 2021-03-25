@@ -1,17 +1,14 @@
 
 .header {
-  height: 85vh;
+  height: 100%;
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url("../img/items.jpg");
   background-size: cover;
   background-position: top;
+  border: 2rem solid $color-white;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
-  @include respond(phone){
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
+  //-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
   &_donation {
     position: absolute;
