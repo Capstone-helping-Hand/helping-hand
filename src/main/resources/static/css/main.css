@@ -12,7 +12,6 @@ $breakpoint argument choices:
 *::before {
   margin: 0;
   padding: 0;
-  font-family: Lato, sans-serif;
   box-sizing: inherit;
 }
 
@@ -368,6 +367,7 @@ option {
   transition: all 0.2s;
   position: relative;
   font-size: 2rem;
+  width: 40vw;
 }
 .btn-white::after {
   background-color: #fff;
