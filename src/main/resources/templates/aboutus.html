@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
-        <link rel="stylesheet" th:href="@{../css/main.css}">
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>About The Team</title>
-    </head>
+<head th:include="partials/head :: header-links">
+<!--    <link rel="stylesheet" th:href="@{../css/main.css}">-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/1158dfb1c4.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>About The Team</title>
+</head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <section class="section-features" id="section-features">
@@ -17,60 +22,127 @@
         </h2>
     </div>
 
-    <div class="row">
-<!--        ///////////////////////////Evan////////////////////////////-->
-        <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/Evan.jpeg" alt="evan" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Evan Mead</h2>
-                <p class="feature-box__text">
-                    <a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/Evan-C-Mead/">Linkedin</a>
-                    <a class="grey-text text-lighten-3" href="https://github.com/Evan-C-Mead">GitHub</a>
-                </p>
-            </div>
-        </div>
-<!--        /////////////////////////End of Evan/////////////////////////-->
-<!--        ///////////////////////Beginning of John /////////////////////////-->
-        <div class="col-1-of-4">
-            <div class="feature-box">
-                <img src="../img/john.jpeg" alt="john" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">John Brooks</h2>
-                <p class="footer__list">
-                    <a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/john-brooks-/">Linkedin</a>
-                    <a class="grey-text text-lighten-3" href="https://github.com/johnbrooks92">GitHub</a>
-                </p>
-            </div>
-        </div>
+    <div class="container" style="text-align: center">
+        <!--        &lt;!&ndash;        ///////////////////////////Evan////////////////////////////&ndash;&gt;-->
+        <!--        <div class="row">-->
+        <!--            <div class="col-12 col-md-8 col-sm-6">-->
+        <!--                <div class="card shadow-sm">-->
+        <!--                    <div class="card-body">-->
+        <!--                        <div class="feature-box">-->
+        <!--                            <img src="../img/Evan.jpeg" alt="evan" class="footer__logo">-->
+        <!--                            <h2 class="heading-secondary u-margin-bottom-small">Evan Mead</h2>-->
+        <!--                        </div>-->
+        <!--                        <a href="https://www.linkedin.com/in/Evan-C-Mead/"><i class="fab fa-linkedin"></i></a>-->
+        <!--                        <a href="https://github.com/Evan-C-Mead"><i class="fab fa-github-square"></i></a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            &lt;!&ndash;        /////////////////////////End of Evan/////////////////////////&ndash;&gt;-->
+        <!--            &lt;!&ndash;        ///////////////////////Beginning of John /////////////////////////&ndash;&gt;-->
+        <!--            <div class="col-12 col-md-8 col-sm-6">-->
+        <!--                <div class="card shadow-sm">-->
+        <!--                    <div class="card-body">-->
+        <!--                        <div class="feature-box">-->
+        <!--                            <img src="../img/john.jpeg" alt="john" class="footer__logo">-->
+        <!--                            <h2 class="heading-secondary u-margin-bottom-small">John Brooks</h2>-->
+        <!--                        </div>-->
+        <!--                        <a href="https://www.linkedin.com/in/john-brooks-/"><i class="fab fa-linkedin"></i></a>-->
+        <!--                        <a href="https://github.com/johnbrooks92"><i class="fab fa-github-square"></i></a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            &lt;!&ndash;        /////////////////////////End of John/////////////////////////&ndash;&gt;-->
+        <!--            &lt;!&ndash;        ///////////////////////Beginning of Lening /////////////////////&ndash;&gt;-->
+        <!--            <div class="col-12 col-md-8 col-sm-6">-->
+        <!--                <div class="card shadow-sm">-->
+        <!--                    <div class="card-body">-->
+        <!--                        <div class="feature-box">-->
+        <!--                            <img src="../img/lening.jpeg" alt="lening" class="footer__logo">-->
+        <!--                            <h2 class="heading-secondary u-margin-bottom-small">Lening Rodas</h2>-->
+        <!--                        </div>-->
+        <!--                        <a href="https://www.linkedin.com/in/leningr/"><i class="fab fa-linkedin"></i></a>-->
+        <!--                        <a href="https://www.linkedin.com/in/leningr/"><i class="fab fa-github-square"></i></a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            &lt;!&ndash;        /////////////////////////End of Lening/////////////////////////&ndash;&gt;-->
+        <!--            &lt;!&ndash;        ///////////////////////Beginning of Chris/////////////////////&ndash;&gt;-->
+        <!--            <div class="col-12 col-md-8 col-sm-6">-->
+        <!--                <div class="card shadow-sm">-->
+        <!--                    <div class="card-body">-->
+        <!--                        <div class="feature-box">-->
+        <!--                            <img src="../img/christian.jpeg" alt="christian" class="footer__logo">-->
+        <!--                            <h2 class="heading-secondary u-margin-bottom-small">Chris Parker</h2>-->
+        <!--                        </div>-->
+        <!--                        <a href="https://www.linkedin.com/in/kreyus/"><i class="fab fa-linkedin"></i></a>-->
+        <!--                        <a href="https://github.com/christianparker512"><i class="fab fa-github-square"></i></a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
 
-<!--        /////////////////////////End of John/////////////////////////-->
-<!--        ///////////////////////Beginning of Lening /////////////////////-->
-        <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/lening.jpeg" alt="lening" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Lening Rodas</h2>
-                <p class="footer__list">
-                    <a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/leningr/">Linkedin</a>
-                    <a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/leningr/">GitHub</a>
-                </p>
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="feature-box">
+                            <img src="../img/Evan.jpeg" alt="evan" class="footer__logo">
+                            <h2 class="heading-secondary u-margin-bottom-small">Evan Mead</h2>
+                        </div>
+                        <a href="https://www.linkedin.com/in/Evan-C-Mead/"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <hr>
+                        <a href="https://github.com/Evan-C-Mead"><i class="fab fa-github-square"></i>GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="feature-box">
+                            <img src="../img/john.jpeg" alt="john" class="footer__logo">
+                            <h2 class="heading-secondary u-margin-bottom-small">John Brooks</h2>
+                        </div>
+                        <a href="https://www.linkedin.com/in/john-brooks-/"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <hr>
+                        <a href="https://github.com/johnbrooks92"><i class="fab fa-github-square"></i>GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="feature-box">
+                            <img src="../img/lening.jpeg" alt="lening" class="footer__logo">
+                            <h2 class="heading-secondary u-margin-bottom-small">Lening Rodas</h2>
+                        </div>
+                        <a href="https://www.linkedin.com/in/leningr/"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <hr>
+                        <a href="https://www.linkedin.com/in/leningr/"><i class="fab fa-github-square"></i>GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="feature-box">
+                            <img src="../img/christian.jpeg" alt="christian" class="footer__logo">
+                            <h2 class="heading-secondary u-margin-bottom-small">Chris Parker</h2>
+                        </div>
+                        <a href="https://www.linkedin.com/in/kreyus/"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <hr>
+                        <a href="https://github.com/christianparker512"><i class="fab fa-github-square"></i>Github</a>
+                    </div>
+                </div>
             </div>
         </div>
-<!--        /////////////////////////End of Lening/////////////////////////-->
-<!--        ///////////////////////Beginning of Chris/////////////////////-->
-        <div class="col-1-of-4">
-            <div class="feature-box">
-                    <img src="../img/christian.jpeg" alt="christian" class="footer__logo">
-                <h2 class="heading-secondary u-margin-bottom-small">Chris Parker</h2>
-                <p class="footer__list">
-                    <a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/kreyus/">Linkedin</a>
-                    <a class="grey-text text-lighten-3" href="https://github.com/christianparker512">GitHub</a>
-                </p>
-            </div>
-        </div>
+        <!--        /////////////////////////End of Chris///////////////////////-->
+        <!--    ////////////////////////////End of Row Division//////////////////-->
     </div>
-<!--        /////////////////////////End of Chris///////////////////////-->
 
-<!--    </div>-->
-<!--    ////////////////////////////End of Row Division//////////////////-->
 </section>
+
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
