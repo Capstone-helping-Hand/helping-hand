@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <h1 class="heading-secondary">Pending Requests for Approval!</h1><br><br>
+    <h1 class="heading-primary-main">Pending Requests</h1><br><br>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <form class="form__inline">
-        <h1>Search by Title</h1>
+
         <input class="filter form__filter" placeholder="Search by Title"/>
     </form>
 <div class="container">
@@ -39,5 +39,8 @@
     </div>
 </div>
 <div th:replace="partials/scripts :: scripts"></div>
+
+        <div th:replace="partials/footer :: footer"></div>
+
 </body>
 </html>

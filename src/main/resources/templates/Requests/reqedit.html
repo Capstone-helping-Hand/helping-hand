@@ -1,31 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="partials/head :: header-links">
     <meta charset="UTF-8">
     <title>Edit Request</title>
 </head>
 <body>
+    <nav th:replace="partials/navbar :: navbar"></nav>
+        <div class="container">
+            <div class="header">
+                <div class="header_requests">
+                    <div class="feature-box">
+                        <div class="main-block">
+                            <div class="left-part">
+                                <h2>Everyone needs a Helping Hand, so feel free to give on!</h2>
+                                <p class="quote">To write is human, to edit is devine.  -- Stephen King</p>
 
-<div class="container">
-    <h1>Edit your post</h1>
-    <form th:action="'/reqedit/' + ${request.requestId}" method="post" >
-        <input style="visibility: hidden" type="text" name="id" th:value="${requestId}">
-        <div class="form-group">
-            <label for="url">Image URL</label>
-            <input id="url" name="url" class="form-control" type="text" th:field="*{request.picture}">
-        </div>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" name="title" class="form-control" type="text" th:value="${request.title}">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-control" type="text"
-                      th:text="${request.description}"></textarea>
-        </div>
-        <input type="submit" class="btn btn-block btn-primary">
-    </form>
-</div>
+                            </div>
+                            <form th:action="'/reqedit/' + ${request.requestId}" method="post" >
+                                <div class="title">
+                                    <input style="visibility: hidden" type="text" name="id" th:value="${requestId}">
+                                    <h2>Please Edit Your Request</h2>
 
+                                </div>
+
+                                <div class="info">
+                                    <input id="url" name="url" class="form-control" type="text" th:field="*{request.picture}">
+                                    <input id="title" name="title" class="form-control" type="text" th:value="${request.title}">
+                                    <textarea id="description" name="description" class="form-control" type="text"
+                                              th:text="${request.description}"></textarea>
+                                </div>
+                                <div class="form-group " style="display: flex; justify-content: center" >
+                                    <span style="margin-right: 1rem"><input id="indoor" name="cat.type" type="radio" value="indoor"/><label style="margin-left: 5px"  for="indoor">indoor</label></span>
+                                    <span style="margin-right: 1rem"><input id="outdoor" name="cat.type" type="radio" value="outdoor"/><label style="margin-left: 5px"  for="outdoor">outdoor</label></span>
+                                    <span><input id="other" name="cat.type" type="radio" value="other"/><label style="margin-left: 5px" for="other">other</label></span>
+                                </div>
+                                <input type="submit" class="btn btn-item">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>

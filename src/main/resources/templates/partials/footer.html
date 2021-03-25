@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:fragment="head">
+<head th:replace="partials/head :: header-links"></head>
     <meta charset="UTF-8"/>
 
     <title>Home</title>
@@ -10,7 +10,7 @@
 <div>
     <div th:fragment="footer" class=u-center-text>
         <footer>
-            <h2>San Antonio Helping Hands</h2>
+            <h1>San Antonio Helping Hands</h1>
             <div class="row">
                   <div class="col-1-of-3">
                     <div class="footer__navigation">
@@ -29,7 +29,5 @@
         </footer>
     </div>
 </div>
-
-
 </body>
 </html>
