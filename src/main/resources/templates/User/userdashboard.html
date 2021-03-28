@@ -6,7 +6,7 @@
 
 <body style="max-width: 100%">
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>Welcome to The Dashboard!</h1>
+<h1 class="heading-primary-main">Dashboard</h1>
 
 <div class="user" th:each="user : ${users}">
     <h2>Hey there, <span th:text="${user.username}"></span>!</h2>
@@ -223,5 +223,6 @@
 </div>
 </div>
 <div th:replace="partials/scripts :: scripts"></div>
+<div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
