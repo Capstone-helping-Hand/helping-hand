@@ -3,17 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Info Prism</title>
+    <title>HELPING HANDS</title>
     <style>
         * {
             box-sizing: border-box;
         }
         body {
-            font-family: Tahoma, Verdana, Segoe, sans-serif;
-            font-size: 14px;
+            font-family: Lato, sans-serif, Arial, sans-serif, Verdana, Segoe, sans-serif;
+            font-size: 1rem;
             /*background: #4169e1;*/
             background-color: #6d17cb;
-            background-image: linear-gradient(315deg, #6a10cd 0%, #6d9ff3 74%);
+            /*background-image: linear-gradient(315deg, #6a10cd 0%, #6d9ff3 74%);*/
+            background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
             padding: 20px;
             text-align: center;
             margin-bottom: 190px;
@@ -40,7 +41,7 @@
             height: 350px;
             padding: 20px;
             background: rgba(250, 250, 250, 0.96);
-            border: 3px solid #3a6ee4;
+            border: 3px solid #4169e1;
             border-radius: 3px;
         }
         .face .content {
@@ -48,7 +49,7 @@
         }
         .face .content h2 {
             font-size: 1.2em;
-            color: #556ab9e8;
+            color: #4169e1;
         }
         .face .content .field-wrapper {
             margin-top: 30px;
@@ -84,7 +85,7 @@
             border: none;
             background: transparent;
             line-height: 2em;
-            border-bottom: 1px solid #4a62b9f0;
+            border-bottom: 1px solid #4169e1;
             color: #666;
         }
         .face .content .field-wrapper input[type=text]::-webkit-input-placeholder,
@@ -113,7 +114,7 @@
         .face .content .field-wrapper textarea:focus + label,
         .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
             top: -35%;
-            color: #42509e;
+            color: #4169e1;
         }
         .face .content .field-wrapper input[type=submit] {
             -webkit-appearance: none;
@@ -123,7 +124,7 @@
             background: #4a62b9f0;
             line-height: 2em;
             color: #fff;
-            border: 1px solid #3a6ee4;
+            border: 1px solid #4169e1;
             border-radius: 3px;
             padding: 5px;
         }
@@ -146,7 +147,7 @@
             height: 130px;
             text-align: center;
             font-size: 2em;
-            color: #07ad90;
+            color: #4169e1;
             left: 50%;
             top: 50%;
             -webkit-transform: translate(-50%, -50%);
@@ -156,7 +157,7 @@
             content: "";
             width: 50px;
             height: 25px;
-            border: 10px solid #07ad90;
+            border: 10px solid #4169e1;
             border-right: 0;
             border-top: 0;
             left: 50%;
@@ -206,15 +207,25 @@
             bottom: 0;
             left: 0;
             width: 20px;
-            border-bottom: 1px solid #42509e;
+            border-bottom: 1px solid #4169e1;
             transition: all ease-in 0.25s;
         }
         .nav li:hover:after {
             width: 100%;
         }
+        /*.psw,*/
+        /*.signup,*/
+        /*.singin {*/
+        /*    display: block;*/
+        /*    margin: 20px 0;*/
+        /*    font-size: 0.75em;*/
+        /*    text-align: center;*/
+        /*    color: #42509e;*/
+        /*    cursor: pointer;*/
+        /*}*/
         .psw,
         .signup,
-        .singin {
+        .SIGNIN {
             display: block;
             margin: 20px 0;
             font-size: 0.75em;
@@ -241,12 +252,12 @@
     Invalid Username or Password.
 </div>
 <div th:if="${param.logout}">
-    You have been logged out.
+    YOU HAVE BEEN LOGGED OUT.
 </div>
 
 <ul class="nav">
-    <li onclick="showLogin()">Login</li>
-    <li onclick="showSignup()">Sign up</li>
+    <li onclick="showLogin()">LOGIN</li>
+    <li onclick="showSignup()">SIGNUP</li>
 <!--    <li onclick="showForgotPassword()">Forgot password</li>-->
 <!--&lt;!&ndash;    <li onclick="showSubscribe()">Subscribe</li>&ndash;&gt;-->
 <!--&lt;!&ndash;    <li onclick="showContactUs()">Contact us</li>&ndash;&gt;-->
@@ -270,28 +281,28 @@
 <!--        </div>-->
         <div class="face face-front">
             <div class="content">
-                <h2>Login</h2>
+                <h2>LOGIN</h2>
                 <!--                onsubmit="event.preventDefault()-->
                 <form th:action="@{/login}" method="post">
                     <div class="field-wrapper">
                         <input type="text" name="username" placeholder="username">
-                        <label>username</label>
+                        <label>USERNAME</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="password" name="password" placeholder="password" autocomplete="new-password">
-                        <label>password</label>
+                        <label>PASSWORD</label>
                     </div>
                     <div class="field-wrapper">
-                        <input type="submit" onclick="showThankYou()">
+                        <input type="submit" value="SUBMIT" onclick="showThankYou()">
                     </div>
 <!--                    <span class="psw" onclick="showForgotPassword()">Forgot Password?   </span>-->
-                    <span class="signup" onclick="showSignup()">Not a user?  Sign up</span>
+                    <span class="signup"  onclick="showSignup()">NOT A USER? SIGN UP</span>
                 </form>
             </div>
         </div>
         <div class="face face-back">
             <div class="content">
-                <h2>Forgot your password?</h2>
+                <h2>FORGOT YOUR PASSWORD?</h2>
                 <small>Enter your email so we can send you a reset link for your password</small>
 <!--                <form onsubmit="event.preventDefault()">-->
 <!--                    <div class="field-wrapper">-->
@@ -306,42 +317,42 @@
         </div>
         <div class="face face-right">
             <div class="content">
-                <h2>Sign up</h2>
+                <h2>SIGN UP</h2>
                 <form th:action="@{/signup}" method="post">
                     <div class="field-wrapper">
                         <input type="text" name="username" placeholder="username">
-                        <label>username</label>
+                        <label>USERNAME</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email">
-                        <label>e-mail</label>
+                        <label>E-MAIL</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="password" name="password" placeholder="password" autocomplete="new-password">
-                        <label>password</label>
+                        <label>PASSWORD</label>
                     </div>
                     <div class="field-wrapper">
-                        <input type="submit" value="Sign up" onclick="showThankYou()">
+                        <input type="submit" value="SIGN UP" onclick="showThankYou()">
                     </div>
-                    <span class="singin" onclick="showLogin()">Already a user?  Sign in</span>
+                    <span class="SIGNIN" onclick="showLogin()">ALREADY A USER? SIGN IN</span>
                 </form>
             </div>
         </div>
         <div class="face face-left">
             <div class="content">
-                <h2>Contact us</h2>
+                <h2>CONTACT US</h2>
                 <form onsubmit="event.preventDefault()">
                     <div class="field-wrapper">
                         <input type="text" name="name" placeholder="name">
-                        <label>Name</label>
+                        <label>NAME</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email">
-                        <label>e-mail</label>
+                        <label>E-MAIL</label>
                     </div>
                     <div class="field-wrapper">
                         <textarea placeholder="your message"></textarea>
-                        <label>your message</label>
+                        <label>YOUR MESSAGE</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="submit" onclick="showThankYou()">
@@ -352,7 +363,7 @@
         <div class="face face-bottom">
             <div class="content">
                 <div class="thank-you-msg">
-                    Thank you!
+                    THANK YOU!
                 </div>
             </div>
         </div>
