@@ -35,10 +35,10 @@
                             <h5 class="title-of-card" th:text="${donation.title}"></h5>
                             <p class="desc-of-donate" th:text="${donation.description}" ></p>
                             <div class="buttons-style-card">
-                                <a class="buttons" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                                <a class="buttons viewbutton" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
                                 <!--            <form method="post" th:action="'/singledonation/' + ${request.requestId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>-->
-                                <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-                                <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                                <a class="buttons editdonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+                                <a class="buttons removedonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
                             </div>
                         </div>
                     </div>

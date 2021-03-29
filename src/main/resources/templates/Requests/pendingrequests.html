@@ -30,11 +30,12 @@
                 <div class="product-desc">
                     <h3 class="h3-in-card" >Helping Hand Request</h3>
                     <h5 class="title-of-card" th:text="${request.title}"></h5>
-                    <p class="desc-of-donate" th:text="${request.description}" ></p>
+                    <h3 class="desc-of-donate" th:text="${request.description}" ></h3>
                     <div class="buttons-style-card">
+                        <a class="buttons viewbutton" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
                         <div sec:authorize="hasAuthority('ADMIN')">
-                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" value="Approve"></form>
-                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" value="Deny"></form>
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" class="approvedeny" value="Approve"></form>
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" class="approvedeny" value="Deny"></form>
                         </div>
                     </div>
                 </div>
