@@ -12,7 +12,6 @@ $breakpoint argument choices:
 *::before {
   margin: 0;
   padding: 0;
-  font-family: Lato, sans-serif;
   box-sizing: inherit;
 }
 
@@ -53,12 +52,12 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  text-transform: uppercase;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  backface-visibility: hidden;
   margin-bottom: 6rem;
 }
 .heading-primary-main {
@@ -66,6 +65,7 @@ body {
   font-size: 5rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
+  text-align: center;
   animation-name: moveInLeft;
   animation-duration: 5s;
   /*animation-delay: 2s;*/
@@ -135,20 +135,30 @@ body {
 p {
   margin-top: 4rem;
   font-size: 2rem;
-  color: #fff;
+  color: #26a9e0;
 }
 
-h1, h2 {
+h1 {
   text-transform: uppercase;
   font-weight: 400;
+  color: #fff;
 }
 
 h2 {
   margin: 0 0 0 8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000080;
 }
 
 h3, h5 {
   color: #333;
+  text-align: center;
+}
+
+li {
+  font-weight: 400;
+  color: #999;
 }
 
 .main-block {
@@ -158,7 +168,7 @@ h3, h5 {
   align-items: center;
   height: 100%;
   padding: 25px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .left-part {
@@ -190,10 +200,13 @@ input, textarea, select {
   background: transparent;
   border: none;
   border-bottom: 1px solid #eee;
+  text-transform: uppercase;
 }
 
 input::placeholder {
   color: #eee;
+  font-size: 2rem;
+  text-align: center;
 }
 
 option:focus {
@@ -235,6 +248,7 @@ option {
 }
 .quote {
   font-style: italic;
+  background: #26a9e0;
 }
 
 .u-center-text {
@@ -358,6 +372,7 @@ option {
   transition: all 0.2s;
   position: relative;
   font-size: 2rem;
+  width: 40vw;
 }
 .btn-white::after {
   background-color: #fff;
@@ -417,7 +432,9 @@ option {
 
 .btn-item {
   display: inline-block;
-  margin: 20px 5px 0;
+  margin: 2rem 0.5rem;
+  border-radius: 10rem;
+  padding: 2rem 1rem;
 }
 
 .btn:hover, .btn-item:hover {
@@ -428,6 +445,7 @@ option {
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1px;
+  margin-top: 0;
 }
 
 .card {
@@ -435,7 +453,7 @@ option {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 36rem;
+  width: 41rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
   border-radius: 3px;
   padding: 1rem;
@@ -569,7 +587,7 @@ option {
   padding: 3rem;
   text-align: center;
   border-radius: 3px;
-  border: 1px solid #333;
+  border: 1px solid #f7f7f7;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
   display: flex;
@@ -612,11 +630,14 @@ option {
   color: black;
 }
 .form__inline {
-  display: block;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #333;
 }
 .form__input {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-family: inherit;
   color: inherit;
   padding: 1.5rem 2rem;
@@ -625,7 +646,7 @@ option {
   border: none;
   border-bottom: 3px solid transparent;
   width: 90%;
-  display: block;
+  display: inline-block;
 }
 .form:focus {
   outline: none;
@@ -951,19 +972,12 @@ option {
 }
 
 .header {
-  height: 85vh;
+  height: 100%;
   background-image: linear-gradient(to right bottom, rgba(173, 216, 230, 0.8), rgba(0, 0, 128, 0.8)), url("../img/items.jpg");
   background-size: cover;
   background-position: top;
+  border: 2rem solid #fff;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-@media (max-width: 37.5em) {
-  .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
 }
 .header_donation {
   position: absolute;
@@ -1138,19 +1152,9 @@ option {
 
 .section-features {
   padding: 20rem 0;
+  border: 2rem solid #fff;
   background-image: linear-gradient(to right bottom, rgba(173, 216, 230, 0.8), rgba(0, 0, 128, 0.8)), url("/img/items.jpg");
   background-size: cover;
-}
-
-.crack-dogs {
-  background-color: #f7f7f7;
-  padding: 25rem 0 15rem 0;
-  margin-top: 10rem;
-}
-@media (max-width: 56.25em) {
-  .crack-dogs {
-    padding: 20rem 0 10rem 0;
-  }
 }
 
 .section-stories {
@@ -1180,6 +1184,147 @@ option {
   padding: 6rem;
 }
 
+.single-donate-card {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 520px;
+  height: 350px;
+  background: #f5f5f5;
+  box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+  border-radius: 10px;
+}
+
+.single-donate-img {
+  width: 290px;
+  object-fit: contain;
+}
+
+.single-img {
+  object-fit: cover;
+  height: 18rem;
+  width: 290px;
+  margin-top: 47px;
+  margin-left: 6px;
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+.one-cate {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0c9cb;
+  left: 22%;
+}
+
+.category-picked {
+  margin-top: 11px;
+  margin-bottom: 0;
+  margin-left: 20px;
+  color: #6a93cb;
+}
+
+.cate-size {
+  display: grid;
+  color: #7ea2d8;
+  /*grid-template-columns: repeat(auto-fill, 30px);*/
+  width: 27rem;
+  grid-gap: 4px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.size-of-cate {
+  padding: 9px;
+  border: 1px solid #7da2d7;
+  font-size: 0.7em;
+  text-align: center;
+  width: 27rem;
+}
+
+.product-desc {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 10%;
+  left: 60%;
+}
+
+.h3-in-card {
+  margin-top: 14px;
+  font-size: 0.5em;
+  margin-bottom: 5px;
+  color: #7ea2d8;
+  letter-spacing: 1px;
+}
+
+.title-of-card {
+  font-size: 15px;
+  color: #4e4e4e;
+  margin-top: -5px;
+}
+
+.desc-of-donate {
+  text-transform: none;
+  text-align: center;
+  margin-top: 4px;
+  color: #4e4e4e;
+  font-size: 18px;
+  line-height: 1.6em;
+  margin-right: 25px;
+}
+
+.buttons-style-card {
+  background: #7da1d7;
+  padding: 10px;
+  display: inline-block;
+  position: absolute;
+  bottom: 53px;
+  outline: 0;
+  border: 0;
+  margin-left: 28px;
+  margin-top: -4rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.claimbtn {
+  margin-bottom: 0px;
+  border-bottom: 0px;
+}
+
+.card-margin {
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1799px) {
+  .single-donate-card {
+    width: 46rem;
+    height: 32rem;
+  }
+
+  .cate-size {
+    width: 23rem;
+  }
+
+  .size-of-cate {
+    width: 23rem;
+  }
+}
+.user {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 p {
   margin-top: 30px;
   color: #fff;
@@ -1200,7 +1345,7 @@ p {
 }
 .btn:active {
   transform: translateY(-0.01rem);
-  box-shadow: 0 0.5rem 1 rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn-white {
   background-color: #fff;
@@ -1291,6 +1436,13 @@ button {
 body {
   background-color: #6a93cb;
   background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+}
+
+.about-card-body {
+  background: lightsteelblue;
+  margin-left: 30rem;
+  margin-right: 30rem;
+  margin-bottom: 5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

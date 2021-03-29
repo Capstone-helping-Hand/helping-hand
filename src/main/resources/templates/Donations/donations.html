@@ -7,35 +7,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <h1 class="heading-secondary">Check out our Donations!</h1><br><br><br><br>
-    <a th:href="@{/donationform}" class="btn--blue" role="button" data-bs-toggle="button">Create a Donation</a>
-    <nav th:replace="partials/navbar :: navbar"></nav>
-    <form class="form__inline">
-        <h1>Search by Title</h1>
-        <input class="filter form__filter" placeholder="Search by Title"/>
-    </form>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">
-                <div class="card card__picture" th:data-string="${donation.title}">
-                    <div class="card__block u-center-text">
-                        <h3 th:text="${donation.title}"></h3>
-                        <div class="image">
-                            <img th:src="${donation.picture} " height="100rem" width="auto">
+    <div class="background__donations">
+        <h1 class="heading-primary-main" style="text-align: center">Donations</h1>
+        <a th:href="@{/donationform}" class="btn--blue" role="button" data-bs-toggle="button">Create a Donation</a><br>
+        <nav th:replace="partials/navbar :: navbar"></nav>
+        <form class="form__inline">
+            <div class="text-align: center">
+                <input class="filter form__filter" style="display: flex; justify-content: center" placeholder="Search by Title"/>
+            </div>
+        </form>
+        <div class="container ">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4" style="display: flex; flex-wrap: wrap; justify-content: space-between">
+                    <div class="single-donate-card card-margin " th:each="donation : ${donations}">
+                        <div class="single-donate-img ">
+                            <img class="single-img" th:src="${donation.picture} "/>
                         </div>
-                        <h5 th:text="${donation.description}"></h5>
-                        <h3 th:text="${donation.category.type}"></h3>
-                    </div>
-                        <div class="card-controls">
-                                <a class="btn__orange btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
-                                    <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-                                    <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
-                                </div>
+                        <div class="slideshow-buttons">
+                            <div class="one-cate"></div>
+                        </div>
+                        <p class="category-picked">Category:</p>
+                        <div class="cate-size" >
+                            <div class="size-of-cate" th:text="${donation.category.type}"></div>
+                        </div>
+                        <div class="product-desc">
+                            <h3 class="h3-in-card" >Helping Hand Donations</h3>
+                            <h5 class="title-of-card" th:text="${donation.title}"></h5>
+                            <p class="desc-of-donate" th:text="${donation.description}" ></p>
+                            <div class="buttons-style-card">
+                                <a class="buttons" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                                <!--            <form method="post" th:action="'/singledonation/' + ${request.requestId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>-->
+                                <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+                                <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+                            </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--                    <div class="card card__picture" th:data-string="${donation.title}">-->
+<!--                        <div class="card__block u-center-text">-->
+<!--                            <h3 th:text="${donation.title}"></h3>-->
+<!--                            <div class="image">-->
+<!--                                <img th:src="${donation.picture} " height="100rem" width="auto">-->
+<!--                            </div>-->
+<!--                            <h5 th:text="${donation.description}"></h5>-->
+<!--                            <h3 th:text="${donation.category.type}"></h3>-->
+<!--                        </div>-->
+<!--                        <div class="card-controls">-->
+<!--                            <a class="btn__orange btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>-->
+<!--                            <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>-->
+<!--                            <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
+    </div>
     <div th:replace="partials/scripts :: scripts"></div>
+    <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
