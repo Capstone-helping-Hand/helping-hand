@@ -23,7 +23,7 @@
         $(".filter").on("keyup", function () {
             const input = $(this).val().toUpperCase();
 
-            $(".card").each(function () {
+            $(".card-margin").each(function () {
                 if ($(this).data("string").toUpperCase().indexOf(input) < 0) {
                     $(this).hide();
                 } else {
