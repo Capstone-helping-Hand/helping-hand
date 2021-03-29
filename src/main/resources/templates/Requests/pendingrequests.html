@@ -15,29 +15,58 @@
     </form>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">
-            <div class="card card__picture" th:data-string="${request.title}">
-                <div class="card__block u-center-text">
-                    <h3 th:text="${request.title}"></h3>
-                    <div class="image">
-                        <img th:src="${request.picture} " height="100rem" width="auto">
-                    </div>
-                    <h5 th:text="${request.description}"></h5>
-                    <h3 th:text="${request.category.type}"></h3>
+        <div class="col-12 col-md-6 col-lg-4" style="display: flex; flex-wrap: wrap; justify-content: space-between" >
+            <div class="single-donate-card card-margin" th:each="request : ${requests}">
+                <div class="single-donate-img ">
+                    <img class="single-img" th:src="${request.picture} "/>
                 </div>
-                <div class="card-controls">
-                    <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
+                <div class="slideshow-buttons">
+                    <div class="one-cate"></div>
                 </div>
-                <div>
-                    <div sec:authorize="hasAuthority('ADMIN')">
-                        <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" value="Approve"></form>
-                        <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" value="Deny"></form>
+                <p class="category-picked">Category:</p>
+                <div class="cate-size" >
+                    <div class="size-of-cate" th:text="${request.category.type}"></div>
+                </div>
+                <div class="product-desc">
+                    <h3 class="h3-in-card" >Helping Hand Request</h3>
+                    <h5 class="title-of-card" th:text="${request.title}"></h5>
+                    <p class="desc-of-donate" th:text="${request.description}" ></p>
+                    <div class="buttons-style-card">
+                        <div sec:authorize="hasAuthority('ADMIN')">
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" value="Approve"></form>
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" value="Deny"></form>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+<!--        <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">-->
+<!--            <div class="card card__picture" th:data-string="${request.title}">-->
+<!--                <div class="card__block u-center-text">-->
+<!--                    <h3 th:text="${request.title}"></h3>-->
+<!--                    <div class="image">-->
+<!--                        <img th:src="${request.picture} " height="100rem" width="auto">-->
+<!--                    </div>-->
+<!--                    <h5 th:text="${request.description}"></h5>-->
+<!--                    <h3 th:text="${request.category.type}"></h3>-->
+<!--                </div>-->
+<!--                <div class="card-controls">-->
+<!--                    <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    -->
+
+
+
+
+
+
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+
 <div th:replace="partials/scripts :: scripts"></div>
 
         <div th:replace="partials/footer :: footer"></div>

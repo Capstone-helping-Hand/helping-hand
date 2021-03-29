@@ -7,29 +7,53 @@
 <body>
 
 <nav th:replace="partials/navbar :: navbar"></nav>
+<h1 class="heading-primary-main">Requests</h1>
 
-<div class="card card__picture" th:data-string="${request.title}">
-    <div class="card__block u-center-text">
-        <h3 th:text="${request.title}"></h3>
-        <div class="image">
-            <img th:src="${request.picture} " height="100rem" width="auto">
+<!--<div class="card card__picture" th:data-string="${request.title}">-->
+<!--    <div class="card__block u-center-text">-->
+<!--        <h3 th:text="${request.title}"></h3>-->
+<!--        <div class="image">-->
+<!--            <img th:src="${request.picture} " height="100rem" width="auto">-->
+<!--        </div>-->
+<!--        <h5 th:text="${request.description}"></h5>-->
+<!--        <div>-->
+<!--        <h3 th:text="${request.category.type}"></h3>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <div class="card-controls">-->
+<!--        <form style="height: 32px" method="post" th:if="${!request.getFulfilled()}" th:action="'/fulfillrequests/' + ${request.requestId} + '/fulfill'"><input class="btn__orange btn-animated"  style="margin-bottom: 0"  type="submit" value="fulfill"></form>-->
+<!--        <a class="btn__orange btn-animated" th:href="@{/requests}">all requests</a>-->
+<!--        <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>-->
+<!--        <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="single-donate-card" >
+    <div class="single-donate-img" >
+        <img class="single-img" th:src="${request.picture} "/>
+    </div>
+    <div class="slideshow-buttons">
+        <div class="one-cate"></div>
+    </div>
+    <p class="category-picked">Category:</p>
+    <div class="cate-size" >
+        <div class="size-of-cate" th:text="${request.category.type}"></div>
+    </div>
+    <div class="product-desc">
+        <h3 class="h3-in-card" >Helping Hand Request</h3>
+        <h5 class="title-of-card" th:text="${request.title}"></h5>
+        <p class="desc-of-donate" th:text="${request.description}" ></p>
+        <div class="buttons-style-card">
+            <a class="buttons" th:href="@{'/requests'}"> All Requests</a>
+            <form method="post" th:if="${!request.getFulfilled()}" th:action="'/fulfillrequests/' + ${request.requestId} + '/fulfill'"><input class="buttons claimbtn" type="submit" value="fulfill Request"></form>
+<!--            <form method="post" th:action="'/singledonation/' + ${request.requestId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>-->
+            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
+            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
         </div>
-        <h5 th:text="${request.description}"></h5>
-        <div>
-        <h3 th:text="${request.category.type}"></h3>
-    </div>
-    </div>
-    <div class="card-controls">
-        <form style="height: 32px" method="post" th:if="${!request.getFulfilled()}" th:action="'/fulfillrequests/' + ${request.requestId} + '/fulfill'"><input class="btn__orange btn-animated"  style="margin-bottom: 0"  type="submit" value="fulfill"></form>
-        <a class="btn__orange btn-animated" th:href="@{/requests}">all requests</a>
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
     </div>
 </div>
 
 
-
 <div th:replace="partials/scripts :: scripts"></div>
-
+<div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
