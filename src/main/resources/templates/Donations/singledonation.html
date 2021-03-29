@@ -1,41 +1,59 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="partials/head :: header-links"></head>
+<head th:replace="partials/head :: header-links">
+
+</head>
 <body>
-<!--<nav th:replace="partials/navbar :: navbar"></nav>-->
+<nav th:replace="partials/navbar :: navbar"></nav>
+<h1 class="heading-primary-main" style="text-align: center">Donation</h1>
 
 
-<div class="row">
-    <div class="col-12">
-        <div class="card-body">
-            <h3 th:text="${donation.title}"></h3>
-            <img th:src="${donation.picture} " height="125rem" width="auto">
-            <h5 th:text="${donation.description}"></h5>
-            <h3 th:text="${donation.category.type}"></h3>
-
-<!--            <h3>Donation Claimed By<span th:text="${user.username}"></span></h3>-->
-
-            <a class="btn btn-info btn-sm" th:href="@{'/donations'}">All Donations</a>
-
-
-            <form method="post" th:action="'/singledonation/' + ${donation.donationId} + '/claim'"><input class="btn btn--blue btn-animated" type="submit" value="claim"></form>
-
-            <div sec:authorize="hasAuthority('ADMIN')">
-                <a class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-                <a class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>
-            </div>
+<!--<div class="card card__picture" th:data-string="${donation.title}">-->
+<!--    <div class="card__block u-center-text">-->
+<!--        <h3 th:text="${donation.title}"></h3>-->
+<!--        <div class="image">-->
+<!--            <img th:src="${donation.picture} " height="100rem" width="auto">-->
+<!--        </div>-->
+<!--        <h5 th:text="${donation.description}"></h5>-->
+<!--        <div>-->
+<!--        <h3 th:text="${donation.category.type}"></h3>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card-controls">-->
+<!--        <a class="btn__orange btn-animated" th:href="@{'/donations'}">All Donations</a>-->
+<!--        <form method="post" th:action="'/singledonation/' + ${donation.donationId} + '/claim'"><input class="btn__orange btn-animated" type="submit" value="claim"></form>-->
+<!--        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-white btn-animated" th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>-->
+<!--        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-white btn-animated" th:href="@{'/donations/delete/' + ${donation.donationId}}">Remove</a>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="single-donate-card" >
+    <div class="single-donate-img" >
+        <img class="single-img" th:src="${donation.picture} "/>
+    </div>
+    <div class="slideshow-buttons">
+        <div class="one-cate"></div>
+    </div>
+    <p class="category-picked">Category:</p>
+    <div class="cate-size" >
+        <div class="size-of-cate" th:text="${donation.category.type}"></div>
+    </div>
+    <div class="product-desc">
+        <h3 class="h3-in-card" >Helping Hand Donation</h3>
+        <h5 class="title-of-card" th:text="${donation.title}"></h5>
+        <p class="desc-of-donate" th:text="${donation.description}" ></p>
+        <div class="buttons-style-card">
+            <a class="buttons" th:href="@{'/donations'}">All Donations</a>
+            <form method="post" th:action="'/singledonation/' + ${donation.donationId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>
+            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
         </div>
     </div>
 </div>
-<!--<div class="container">-->
-<!--    <h1 class="my-4">fdsgHere is a single donation !</h1>-->
 
-<!--    <h3 th:text="${donation.title}"></h3>-->
-<!--&lt;!&ndash;    <p th:text="'Authored by ' + ${donation.user.username}"/>&ndash;&gt;-->
-<!--    <p th:text="${donation.description}"></p>-->
 
-<!--    <a th:href="@{|/posts/${donation.donationId}/edit|}">Edit Post</a>-->
-<!--    <div th:replace="partials/scripts :: assets"></div>-->
-<!--</div>-->
+
+<footer>
+    <div th:replace="partials/footer :: footer"></div>
+</footer>
 </body>
 </html>
