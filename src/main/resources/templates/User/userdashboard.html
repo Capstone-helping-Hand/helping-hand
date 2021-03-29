@@ -9,113 +9,14 @@
 <h1 class="heading-primary-main">Dashboard</h1>
 
 <div class="user" th:each="user : ${users}">
-    <h2>Hey there, <span th:text="${user.username}"></span>!</h2>
-    <h2>Your email: <span th:text="${user.email}"></span>.</h2>
+    <div style="display: flex; flex-direction: column; justify-content: center">
+        <h2>Hey there,    <span th:text="${user.username}"></span>!</h2>
+        <h2>Your email:    <span th:text="${user.email}"></span>.</h2>
+    </div>
     <!--    <a href="/update" class="btn btn&#45;&#45;blue">Update your info</a>-->
 </div>
+<hr>
 
-<!--<div class="card-deck flex-wrap" style="max-width: fit-content"  wr>-->
-<!--    <div class="row row-cols-1 row-cols-md-3 g-4 " style="max-width: fit-content">-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem">-->
-<!--            <h3 class="card-header">Most Recent Donations</h3>-->
-<!--                <div class="card-body">-->
-<!--            <ul>-->
-<!--                <th:block th:each="dono : ${lastFiveDonations}">-->
-<!--                    <li class="card-body"><span th:text="${dono.title}"></span></li>-->
-<!--                </th:block>-->
-<!--            </ul>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--            <div class="admin__box">-->
-<!--                <h3 class="card-header">Most Recent Requests</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${lastFiveRequests}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </div>-->
-<!--        <div class="col ">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--            <h3 class="card-header">Claimed Donations</h3>-->
-<!--            <ul>-->
-<!--                <th:block th:each="dono : ${claimDonation}">-->
-<!--                    <li><span th:text="${dono.title}"></span></li>-->
-<!--                </th:block>-->
-<!--            </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col">-->
-<!--&lt;!&ndash;            <div class="card h-100 w-25rem" style="max-width: fit-content">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="admin__box">&ndash;&gt;-->
-<!--                <h3 class="card-header">Fulfilled Requests</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${requestFulfilled}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--            <div class="admin__box">-->
-<!--                <h3 class="card-header">My Recent Donations</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${lastFiveUserDonations}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--            <div class="admin__box">-->
-<!--                <h3 class="card-header">My Recent Requests</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${lastFiveUserRequests}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    <div sec:authorize="hasAuthority('ADMIN')">-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--            <div class="admin__box">-->
-<!--                <h3 class="card-header">Pending Donations</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${lastFiveDonationsPending}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="col">-->
-<!--            <div class="card h-100 w-25rem" style="max-width: fit-content">-->
-<!--&lt;!&ndash;            <div class="admin__box">&ndash;&gt;-->
-<!--                <h3 class="card-header">Pending Requests</h3>-->
-<!--                <ul>-->
-<!--                    <th:block th:each="dono : ${lastFiveRequestsPending}">-->
-<!--                        <li><span th:text="${dono.title}"></span></li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</div>-->
 
 <!--to change the width of the cards and have them all the same. Go to _cards.scss and under .cards add width30rem-->
 <div class="container">
