@@ -31,35 +31,13 @@
                     <h5 class="title-of-card" th:text="${donation.title}"></h5>
                     <p class="desc-of-donate" th:text="${donation.description}" ></p>
                     <div class="buttons-style-card">
-                        <a class="buttons" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
-                      <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" value="Approve"></form>
-                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" value="Deny"></form>
+                        <a class="buttons viewbutton" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
+                      <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" class="approvedeny" value="Approve"></form>
+                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" class="approvedeny" value="Deny"></form>
                         </div>
                     </div>
                 </div>
             </div>
-
-<!--        <div class="col-12 col-md-6 col-lg-4" th:each="donation : ${donations}">-->
-<!--            <div class="card card__picture" th:data-string="${donation.title}">-->
-<!--                <div class="card__block u-center-text">-->
-<!--                    <h3 th:text="${donation.title}"></h3>-->
-<!--                    <div class="image">-->
-<!--                        <img th:src="${donation.picture} " height="100rem" width="auto">-->
-<!--                    </div>-->
-<!--                    <h5 th:text="${donation.description}"></h5>-->
-<!--                    <h3 th:text="${donation.category.type}"></h3>-->
-<!--                </div>-->
-<!--                <div class="card-controls">-->
-<!--                <a class="btn__orange btn-animated" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <div sec:authorize="hasAuthority('ADMIN')">-->
-<!--                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" value="Approve"></form>-->
-<!--                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" value="Deny"></form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 </div>
 <div th:replace="partials/scripts :: scripts"></div>

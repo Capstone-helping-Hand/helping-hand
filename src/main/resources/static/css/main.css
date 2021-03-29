@@ -1253,52 +1253,136 @@ option {
 
 .h3-in-card {
   margin-top: 14px;
-  font-size: 0.5em;
+  font-size: 1rem;
+  margin-right: 1rem;
   margin-bottom: 5px;
-  color: #7ea2d8;
+  color: #4169e1;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .title-of-card {
-  font-size: 15px;
-  color: #4e4e4e;
+  font-size: 1rem;
+  word-wrap: break-word;
+  margin-right: 1.4rem;
+  color: #999;
   margin-top: -5px;
 }
 
 .desc-of-donate {
   text-transform: none;
+  word-wrap: break-word;
   text-align: center;
   margin-top: 4px;
-  color: #4e4e4e;
-  font-size: 18px;
-  line-height: 1.6em;
-  margin-right: 25px;
+  color: #999;
+  margin-right: 1.4rem;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .buttons-style-card {
-  background: #7da1d7;
   padding: 10px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: 53px;
   outline: 0;
   border: 0;
-  margin-left: 28px;
+  margin-left: 18px;
   margin-top: -4rem;
-  border-radius: 2px;
+  border-radius: 10rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #f5f5f5;
   cursor: pointer;
 }
 
+.alldonations {
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.25rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
+}
+
 .claimbtn {
-  margin-bottom: 0px;
-  border-bottom: 0px;
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.viewbutton {
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.editdonation {
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.removedonation {
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
 }
 
 .card-margin {
   margin-bottom: 4rem;
+}
+
+.approvedeny {
+  background: #4169e1;
+  color: #fff;
+  margin: 0.5rem auto;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  font-size: 1rem;
+  width: 150px;
 }
 
 @media (min-width: 1799px) {
