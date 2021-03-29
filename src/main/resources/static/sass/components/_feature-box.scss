@@ -7,7 +7,7 @@
   border-radius: 3px;
   border: 1px solid $color-grey-light-1;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
-  transition: transform .3s;
+  //transition: transform .3s;
 
   display: flex;
   flex-direction: column;
@@ -21,20 +21,20 @@
 
   }
 
-    &_photo {
-      font-size: 6rem;
-      margin-bottom: .5rem;
-      display: inline-block;
-      background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-      -webkit-background-clip: text;
-      color: transparent;
+  &_photo {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
 
-      @include respond (tab-port){
-        margin-bottom: 0;
+    @include respond (tab-port){
+      margin-bottom: 0;
 
-      }
-    }
-    &:hover {
-      transform: translateY(-1.5rem) scale(1.03);
     }
   }
+  //&:hover {
+  //  transform: translateY(-1.5rem) scale(1.03);
+}
+//}
