@@ -5,19 +5,20 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>hooray!</title>
+    <title>ADMIN SIGNUP</title>
     <style>
         * {
             box-sizing: border-box;
         }
-        /*h1{*/
-        /*    color: #961a66;*/
-        /*}*/body {
-        /*         font-family: Tahoma, Verdana, Segoe, sans-serif;*/
-        /*         font-size: 14px;*/
+        h1 {
+            color: white;
+        }
+        body {
+                 font-family: Lato, sans-serif, Arial, sans-serif, Tahoma, Verdana, Segoe, sans-serif;
+                 font-size: 1rem;
                  /*background: #f6fffd;*/
-                 background-color: #5f0f40;
-                 background-image: linear-gradient(315deg, #5f0f40 0%, #310e68 74%);
+                 background-color: #4169e1;
+                 background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
                  padding: 20px;
                  text-align: center;
                  margin-top: 190px;
@@ -54,7 +55,7 @@
         }
         .face .content h2 {
             font-size: 1.2em;
-            color: #8d07ad;
+            color: #4169e1;
         }
         .face .content .field-wrapper {
             margin-top: 30px;
@@ -90,7 +91,7 @@
             border: none;
             background: transparent;
             line-height: 2em;
-            border-bottom: 1px solid #8d07ad;
+            border-bottom: 1px solid #4169e1;
             color: #666;
         }
         .face .content .field-wrapper input[type=text]::-webkit-input-placeholder,
@@ -119,17 +120,17 @@
         .face .content .field-wrapper textarea:focus + label,
         .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
             top: -35%;
-            color: #42509e;
+            color: #4169e1;
         }
         .face .content .field-wrapper input[type=submit] {
             -webkit-appearance: none;
             appearance: none;
             cursor: pointer;
             width: 100%;
-            background: #8d07ad;
+            background: #4169e1;
             line-height: 2em;
             color: #fff;
-            border: 1px solid #190d7d;
+            border: 1px solid #4169e1;
             border-radius: 3px;
             padding: 5px;
         }
@@ -152,7 +153,7 @@
             height: 130px;
             text-align: center;
             font-size: 2em;
-            color: #07ad90;
+            color: #4169e1;
             left: 50%;
             top: 50%;
             -webkit-transform: translate(-50%, -50%);
@@ -162,7 +163,7 @@
             content: "";
             width: 50px;
             height: 25px;
-            border: 10px solid #07ad90;
+            border: 10px solid #4169e1;
             border-right: 0;
             border-top: 0;
             left: 50%;
@@ -202,7 +203,7 @@
             list-style-type: none;
             font-size: 1em;
             margin: 0 10px;
-            color: #42509e;
+            color: #4169e1;
             position: relative;
             cursor: pointer;
         }
@@ -212,7 +213,7 @@
             bottom: 0;
             left: 0;
             width: 20px;
-            border-bottom: 1px solid #42509e;
+            border-bottom: 1px solid #4169e1;
             transition: all ease-in 0.25s;
         }
         .nav li:hover:after {
@@ -225,7 +226,7 @@
             margin: 20px 0;
             font-size: 0.75em;
             text-align: center;
-            color: #42509e;
+            color: #4169e1;
             cursor: pointer;
         }
         small {
@@ -242,29 +243,29 @@
     </style>
 </head>
 <body>
-<h1>Welcome to the team!</h1>
+<h1>WELCOME TO THE TEAM!</h1>
 <div class="wrapper">
     <div class="rec-prism">
         <div class="face face-front">
             <div class="content">
-                <h2>Sign up</h2>
+                <h2>SIGN UP</h2>
                 <form th:action="@{/adminsignup}" method="post" th:object="${user}">
                     <div class="field-wrapper">
                         <input type="text" name="username" placeholder="username" th:field="*{username}" />
-                        <label>username</label>
+                        <label>USERNAME</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="text" name="email" placeholder="email" th:field="*{email}" />
-                        <label>e-mail</label>
+                        <label>E-MAIL</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="password" name="password" placeholder="password" autocomplete="new-password" th:field="*{password}" />
-                        <label>password</label>
+                        <label>PASSWORD</label>
                     </div>
                     <div class="field-wrapper">
                         <input type="submit" value="SIGNUP" onclick="showThankYou()">
                     </div>
-                    <span class="singin" onclick="showLogin()">Already a user?  Sign in</span>
+                    <span class="singin" onclick="showLogin()">ALREADY A USER? SIGN IN</span>
                 </form>
             </div>
         </div>
