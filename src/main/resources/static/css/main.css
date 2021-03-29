@@ -589,7 +589,6 @@ option {
   border-radius: 3px;
   border: 1px solid #f7f7f7;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -613,9 +612,6 @@ option {
   .feature-box_photo {
     margin-bottom: 0;
   }
-}
-.feature-box:hover {
-  transform: translateY(-1.5rem) scale(1.03);
 }
 
 .form__group:not(:last-child) {
