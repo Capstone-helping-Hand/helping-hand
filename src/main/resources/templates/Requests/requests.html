@@ -7,35 +7,74 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <h1 class="heading-secondary">Check out our Requests!</h1><br><br>
-    <a th:href="@{/reqform}" class="btn--blue" role="button" data-bs-toggle="button">Create a request</a><br><br>
-    <nav th:replace="partials/navbar :: navbar"></nav>
-    <form class="form__inline">
-        <h1>Search by Title</h1>
-        <input class="filter form__filter" placeholder="Search by Title"/>
-    </form>
-    <div class="container">
+    <div class="background__donations">
+        <h1 class="heading-primary-main">Requests</h1>
+        <a th:href="@{/reqform}" class="btn--blue" role="button" data-bs-toggle="button">Create a request</a><br>
+        <nav th:replace="partials/navbar :: navbar"></nav>
+        <form class="form__inline">
+            <div class="text-align: center">
+                <input class="filter form__filter" style="display: flex; justify-content: center" placeholder="Search by Title"/>
+            </div>
+        </form>
+        <div class="container" >
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4" th:each="request : ${requests}">
-                <div class="card card__picture" th:data-string="${request.title}">
-                    <div class="card__block u-center-text">
-                        <h3 th:text="${request.title}"></h3>
-                        <div class="image">
-                            <img th:src="${request.picture} " height="100rem" width="auto">
-                        </div>
-                        <h5 th:text="${request.description}"></h5>
-                        <h3 th:text="${request.category.type}"></h3>
+            <div class="col-12 col-md-6 col-lg-4" style="display: flex; flex-wrap: wrap; justify-content: space-between" >
+                <div class="single-donate-card card-margin" th:each="request : ${requests}">
+                    <div class="single-donate-img ">
+                        <img class="single-img" th:src="${request.picture} "/>
                     </div>
-                        <div class="card-controls">
-                            <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
-                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
-                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
-                            </div>
+                    <div class="slideshow-buttons">
+                        <div class="one-cate"></div>
+                    </div>
+                    <p class="category-picked">Category:</p>
+                    <div class="cate-size" >
+                        <div class="size-of-cate" th:text="${request.category.type}"></div>
+                    </div>
+                    <div class="product-desc">
+                        <h3 class="h3-in-card" >Helping Hand Request</h3>
+                        <h5 class="title-of-card" th:text="${request.title}"></h5>
+                        <p class="desc-of-donate" th:text="${request.description}" ></p>
+                        <div class="buttons-style-card">
+                            <a class="buttons" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
+                            <!--            <form method="post" th:action="'/singledonation/' + ${request.requestId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>-->
+                            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
+                            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
                         </div>
                     </div>
                 </div>
+
+<!--                <div class="card card__picture" th:data-string="${request.title}">-->
+<!--                    <div class="card__block u-center-text">-->
+<!--                        <h3 th:text="${request.title}"></h3>-->
+<!--                        <div class="image">-->
+<!--                            <img th:src="${request.picture} " height="100rem" width="auto">-->
+<!--                        </div>-->
+<!--                        <h5 th:text="${request.description}"></h5>-->
+<!--                        <div>-->
+<!--                        <h3 th:text="${request.category.type}"></h3>-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                        <div class="card-controls" style="margin-top: 0px">-->
+<!--                            <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>-->
+<!--                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>-->
+<!--                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>-->
+<!--                        </div>-->
+<!--                </div>-->
+                    </div>
+                </div>
             </div>
+
+
+
+
+
+
+
+
+
     <div th:replace="partials/scripts :: scripts"></div>
+    <div th:replace="partials/footer :: footer"></div>
+    </div>
 </body>
 </html>
 

@@ -1,0 +1,137 @@
+.single-donate-card {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 520px;
+  height: 350px;
+  background: #f5f5f5;
+  box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+  border-radius: 10px;
+}
+
+.single-donate-img {
+  width: 290px;
+  object-fit: contain;
+}
+
+.single-img {
+  object-fit: cover;
+  height: 18rem;
+  width: 290px;
+  margin-top: 47px;
+  margin-left: 6px;
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+.one-cate {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0c9cb;
+  left: 22%;
+}
+
+.category-picked {
+  margin-top: 11px;
+  margin-bottom: 0;
+  margin-left: 20px;
+  color: #6a93cb;
+}
+
+.cate-size {
+  display: grid;
+  color: #7ea2d8;
+  /*grid-template-columns: repeat(auto-fill, 30px);*/
+  width: 27rem;
+  grid-gap: 4px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.size-of-cate {
+  padding: 9px;
+  border: 1px solid #7da2d7;
+  font-size: 0.7em;
+  text-align: center;
+  width: 27rem;
+}
+
+.product-desc {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 10%;
+  left: 60%;
+}
+
+.h3-in-card {
+  margin-top: 14px;
+  font-size: 0.5em;
+  margin-bottom: 5px;
+  color: #7ea2d8;
+  letter-spacing: 1px;
+}
+
+.title-of-card {
+  font-size: 15px;
+  color: #4e4e4e;
+  margin-top: -5px;
+}
+
+.desc-of-donate {
+  text-transform: none;
+  text-align: center;
+  margin-top: 4px;
+  color: #4e4e4e;
+  font-size: 18px;
+  line-height: 1.6em;
+  margin-right: 25px;
+}
+
+.buttons-style-card {
+  background: #7da1d7;
+  padding: 10px;
+  display: inline-block;
+  position: absolute;
+  bottom: 53px;
+  outline: 0;
+  border: 0;
+  margin-left: 28px;
+  margin-top: -4rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.claimbtn {
+  margin-bottom: 0px;
+  border-bottom: 0px;
+}
+
+.card-margin {
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1799px) {
+  .single-donate-card {
+    width: 46rem;
+    height: 32rem;
+  }
+
+  .cate-size {
+    width: 23rem;
+  }
+
+  .size-of-cate {
+    width: 23rem;
+  }
+}
+
+/*# sourceMappingURL=singledonation.css.map */
