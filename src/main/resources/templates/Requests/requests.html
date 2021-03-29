@@ -35,31 +35,15 @@
                         <h5 class="title-of-card" th:text="${request.title}"></h5>
                         <p class="desc-of-donate" th:text="${request.description}" ></p>
                         <div class="buttons-style-card">
-                            <a class="buttons" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
+                            <a class="buttons viewbutton" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
                             <!--            <form method="post" th:action="'/singledonation/' + ${request.requestId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>-->
-                            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
-                            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
+                            <a class="buttons editdonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>
+                            <a class="buttons removedonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>
                         </div>
                     </div>
                 </div>
 
-<!--                <div class="card card__picture" th:data-string="${request.title}">-->
-<!--                    <div class="card__block u-center-text">-->
-<!--                        <h3 th:text="${request.title}"></h3>-->
-<!--                        <div class="image">-->
-<!--                            <img th:src="${request.picture} " height="100rem" width="auto">-->
-<!--                        </div>-->
-<!--                        <h5 th:text="${request.description}"></h5>-->
-<!--                        <div>-->
-<!--                        <h3 th:text="${request.category.type}"></h3>-->
-<!--                    </div>-->
-<!--                    </div>-->
-<!--                        <div class="card-controls" style="margin-top: 0px">-->
-<!--                            <a class="btn__orange btn-animated" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>-->
-<!--                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/reqedit/' + ${request.requestId}}">Edit</a>-->
-<!--                                <a sec:authorize="hasAuthority('ADMIN')" class="btn__orange btn-animated" th:href="@{'/requests/' + ${request.requestId} + '/delete/'}">Remove</a>-->
-<!--                        </div>-->
-<!--                </div>-->
+
                     </div>
                 </div>
             </div>
