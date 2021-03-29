@@ -156,6 +156,11 @@ h3, h5 {
   text-align: center;
 }
 
+li {
+  font-weight: 400;
+  color: #999;
+}
+
 .main-block {
   display: flex;
   flex-direction: column;
@@ -1178,7 +1183,6 @@ option {
   width: 50%;
   padding: 6rem;
 }
-
 .single-donate-card {
   position: relative;
   margin: auto;
@@ -1314,6 +1318,11 @@ option {
     width: 23rem;
   }
 }
+.user {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 p {
   margin-top: 30px;
   color: #fff;
@@ -1334,7 +1343,7 @@ p {
 }
 .btn:active {
   transform: translateY(-0.01rem);
-  box-shadow: 0 0.5rem 1 rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn-white {
   background-color: #fff;
@@ -1425,6 +1434,13 @@ button {
 body {
   background-color: #6a93cb;
   background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+}
+
+.about-card-body {
+  background: white;
+  margin-left: 30rem;
+  margin-right: 30rem;
+  margin-bottom: 5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

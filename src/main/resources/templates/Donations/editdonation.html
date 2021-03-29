@@ -24,9 +24,9 @@
                         </div>
                         <div class="info">
                             <input id="url" name="url" class="form-control" type="text" th:field="*{donation.picture}">
-                            <input id="title" maxlength="36" name="title" class="form-control" type="text" th:value="${donation.title}">
-                           <textarea id="description" maxlength="53" name="description" class="form-control" type="text"
-                      th:text="${donation.description}"></textarea>
+                            <input id="title" maxlength="30" name="title" class="form-control" type="text" th:value="${donation.title}">
+                           <textarea id="description" maxlength="40" name="description" class="form-control" type="text"
+                                     th:text="${donation.description}"></textarea>
                         </div>
                             <div class="form-group " style="display: flex; justify-content: center" >
                                 <span style="margin-right: 1rem"><input id="indoor" name="don.type" type="radio" value="INDOOR"/><label style="margin-left: 5px"  for="indoor">indoor</label></span>
