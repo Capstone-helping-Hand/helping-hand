@@ -32,8 +32,8 @@
                     <p class="desc-of-donate" th:text="${donation.description}" ></p>
                     <div class="buttons-style-card">
                         <a class="buttons viewbutton" th:href="@{'/singledonation/' + ${donation.donationId}}">View</a>
-                      <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input type="submit" class="approvedeny" value="Approve"></form>
-                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input type="submit" class="approvedeny" value="Deny"></form>
+                      <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/approve'"><input style="Cursor: pointer" type="submit" class="approvedeny" value="Approve"></form>
+                        <form method="post" th:action="'/pendingdonations/' + ${donation.donationId} + '/deny'"><input style="Cursor:pointer" type="submit" class="approvedeny" value="Deny"></form>
                         </div>
                     </div>
                 </div>
