@@ -34,8 +34,8 @@
                     <div class="buttons-style-card">
                         <a class="buttons viewbutton" th:href="@{'/singlereq/' + ${request.requestId}}">View</a>
                         <div sec:authorize="hasAuthority('ADMIN')">
-                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input type="submit" class="approvedeny" value="Approve"></form>
-                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input type="submit" class="approvedeny" value="Deny"></form>
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/approve'"><input style="Cursor: pointer" type="submit" class="approvedeny" value="Approve"></form>
+                            <form method="post" th:action="'/pendingrequests/' + ${request.requestId} + '/deny'"><input style="Cursor: pointer" type="submit" class="approvedeny" value="Deny"></form>
                         </div>
                     </div>
                 </div>
