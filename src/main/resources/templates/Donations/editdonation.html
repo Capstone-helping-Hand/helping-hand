@@ -12,13 +12,13 @@
                 <div class="feature-box">
                     <div class="main-block">
                         <div class="left-part">
-                            <i class="fas fa-graduation-cap"></i>
+<!--                            <i class="fas fa-graduation-cap"></i>-->
                             <h2>Everyone needs a Helping Hand, so feel free to give one!</h2>
                             <p class="quote">Sometimes a change of perspective is all that it takes to see the light. -- Dan Brown</p>
                         </div>
                             <form th:action="'/editdonation/' + ${donation.donationId}" method="post">
                         <div class="title">
-                            <i class="fas fa-pencil-alt"></i>
+<!--                            <i class="fas fa-pencil-alt"></i>-->
                             <h2>Edit Your Donation Below</h2>
                             <input style="visibility: hidden" type="text" name="id" th:value="${donationId}">
                         </div>
@@ -40,5 +40,6 @@
             </div>
         </div>
     </div>
+    <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>

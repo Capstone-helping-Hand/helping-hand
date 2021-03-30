@@ -21,9 +21,9 @@
   [class^="col-"]{
     float: left;
 
-    &:not(:last-child){
-      margin-right: $gutter-horizontal;
-    }
+    //&:not(:last-child){
+    //  margin-right: $gutter-horizontal;
+    //}
     @include respond(tap-port){
       width: 100% !important;
         margin-right: 0;

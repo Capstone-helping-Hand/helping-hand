@@ -41,11 +41,11 @@
         <h3 class="h3-in-card" >Helping Hand Donation</h3>
         <h5 class="title-of-card" th:text="${donation.title}"></h5>
         <p class="desc-of-donate" th:text="${donation.description}" ></p>
-        <div class="buttons-style-card">
-            <a class="buttons" th:href="@{'/donations'}">All Donations</a>
+        <div class="buttons-style-card" style="display:flex; justify-content: space-evenly; flex-direction: column; align-items: center; column-gap: 1rem;">
+            <a class="buttons alldonations" th:href="@{'/donations'}">All Donations</a>
             <form method="post" th:action="'/singledonation/' + ${donation.donationId} + '/claim'"><input class="buttons claimbtn" type="submit" value="Claim Donation"></form>
-            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
-            <a class="buttons" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
+            <a class="editdonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/editdonation/' + ${donation.donationId}}">Edit</a>
+            <a class="removedonation" sec:authorize="hasAuthority('ADMIN')"  th:href="@{'/donations/' + ${donation.donationId} + '/delete/'}">Remove</a>
         </div>
     </div>
 </div>
